@@ -1,5 +1,31 @@
 # Matching
 ## Exercise
+
+We have a list of IDs for marker genes of particular interest. We want to extract count information associated with each of these genes, without having to scroll through our matrix of count data. We can do this using the `%in%` operator to extract the information for those genes from `rpkm_data`.
+
+1. Create a vector for your important gene IDs, and use the `%in%`operator to determine whether these genes are contained in the row names of our `rpkm_data` dataset.
+
+	```r
+	important_genes <- c("ENSMUSG00000083700", "ENSMUSG00000080990", "ENSMUSG00000065619", "ENSMUSG00000047945", "ENSMUSG00000081010", 	"ENSMUSG00000030970")
+  
+  important_genes %in% rownames(rpkm_data)
+	```
+	
+2. Extract the rows containing the important genes from your `rpkm_data` dataset using the `%in%` operator.
+
+  ```r
+  intersection <- rownames(rpkm_data) %in% important_genes
+  
+  rpkm_data[intersection, ]
+  ```
+  
+3. **Extra Credit:** Using the `important_genes` vector, extract the rows containing the important genes from your `rpkm_data` dataset without using the `%in%` operator.
+
+  ```r
+  rpkm_data[important_genes, ]
+  ```
+
+## Exercise
 For a research project, we asked healthy volunteers and cancer patients questions about their diet and exercise. We also collected blood work for each individual, and each person was given a unique ID. Create the following dataframes, behavior and blood by copy/pasting the code below:
 
 ```r
