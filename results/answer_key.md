@@ -54,11 +54,11 @@ blood <- data.frame(ID, blood_levels)
     blood_behavior <- data.frame(blood_reordered, behavior)
     blood_behavior
     ```
-# Exercise
+## Exercise
 Similar to the previous exercise, perform the reordering of the `blood` data to match the order of the IDs in the `behavior` dataframe, but this time use the `match()` function. Save the reordered blood dataframe as `blood_reordered_match`. 
 
-```r
-blood_reordered_idx <- match(behavior$ID, blood$ID)
-blood_reordered_idx
-blood_reordered_match <- blood[blood_reordered_idx, ]
-```
+  ```r
+  blood_reordered_idx <- match(behavior$ID, blood$ID)
+  blood_reordered_idx
+  blood_reordered_match <- blood[blood_reordered_idx, ]
+  ```
