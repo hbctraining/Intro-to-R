@@ -153,7 +153,7 @@ We know that all samples are present, but are they in the same order:
 all(rownames(metadata) == colnames(rpkm_data))
 ```
 
-**Looks like all of the samples are there, but will need to be reordered.**
+**Looks like all of the samples are there, but will need to be reordered. To reorder our genomic samples, we need to first learn different ways to reorder data. Therefore, we will step away from our genomic data briefly to learn about reordering, then return to it at the end of this lesson.**
 
 ***
 **Exercises** 
@@ -296,8 +296,8 @@ second <- c("B","D","E","A","C")
 ![matching4](../img/match1.png)
 
 ```
-idx <- match(first,second)
-idx
+reorder_idx <- match(first,second)
+reorder_idx
 [1] 4 1 5 2 3
 ```
 
@@ -306,8 +306,8 @@ idx
 Now, we can just use the indexes to reorder the elements of the `second` vector to be in the same positions as the matching elements in the `first` vector:
 
 ```r
-second[idx]  # Reordering the second vector to match the order of the first vector
-second_reordered <- second[idx]  # Reordering and saving the output to a variable
+second[reorder_idx]  # Reordering the second vector to match the order of the first vector
+second_reordered <- second[reorder_idx]  # Reordering and saving the output to a variable
 ```
 
 ![matching7](../img/match3-reordered.png)
@@ -326,14 +326,14 @@ rownames(metadata)
 	
 colnames(rpkm_data)
 	
-idx <- match(rownames(metadata), colnames(rpkm_data))
-idx
+genomic_idx <- match(rownames(metadata), colnames(rpkm_data))
+genomic_idx
 ```
 
 Now we can create a new data matrix in which columns are re-ordered based on the match indices:
 
 ```r
-rpkm_ordered  <- rpkm_data[,idx]
+rpkm_ordered  <- rpkm_data[,genomic_idx]
 ```
 
 Check and see what happened by using `head`. You can also verify that column names of this new data matrix matches the metadata row names by using the `all` function:
@@ -345,55 +345,6 @@ all(row.names(metadata) == colnames(rpkm_ordered))
 
 Now that our samples are ordered the same in our metadata and counts data, we could proceed to perform differential expression analysis with this dataset.
 
-
-## Calculating simple statistics
-
-Let's take a closer look at our data. Each column represents a sample in our experiment, and each sample has ~38K values corresponding to the expression of different transcripts. Suppose we wanted to compute the average value for a sample, the R base package provides many built-in functions such as `mean`, `median`, `min`, `max`, and `range`, just to name a few. Try computing the mean for "sample1" (_Hint: apply what you have learned previously using indexes_)  
-
-```r
-mean(rpkm_ordered[,'sample1'])
-```
-
-> ### Missing values
-> By default, all **R functions operating on vectors that contains missing data will return NA**. It's a way to make sure that users know they have missing data, and make a conscious decision on how to deal with it. When dealing with simple statistics like the mean, the easiest way to ignore `NA` (the missing data) is to use `na.rm=TRUE` (`rm` stands for remove). 
-> In some cases, it might be useful to remove the missing data from the vector. For this purpose, R comes with the function `na.omit` to generate a vector that has NA's removed. For some applications, it's useful to keep all observations, for others, it might be best to remove all observations that contain missing data. The function
-`complete.cases()` returns a logical vector indicating which rows have no missing values. 
-
-## The `apply` Function
-To obtain mean values for all samples we can use `mean` on each column individually, but there is also an easier way to go about it. Programming languages typically have a way to allow the execution of a single line of code or several lines of code multiple times, or in a "loop". By default R is not very good at looping, hence the `apply()` family of functions are used for this purpose. This family includes several functions, each differing slightly on the inputs or outputs. For example, we can use `apply()` to execute some task on every element in a vector, every row/column in a dataframe, and so on. 
-
-```r
-base::apply             Apply Functions Over Array Margins
-base::by                Apply a Function to a Data Frame Split by Factors
-base::eapply            Apply a Function Over Values in an Environment
-base::lapply            Apply a Function over a List or Vector (returns list)
-base::sapply            Apply a Function over a List or Vector (returns vector)
-base::mapply            Apply a Function to Multiple List or Vector Arguments
-base::rapply            Recursively Apply a Function to a List
-base::tapply            Apply a Function Over a Ragged Array
-```
-
-We will be using `apply` in our examples today, but do take a moment on your own to explore the many options that are available. The `apply` function returns a vector or array or list of values obtained by applying a function to margins of an array or matrix. We know about vectors/arrays and functions, but what are these “margins”? Margins are referring to either the rows (denoted by 1), the columns (denoted by 2) or both (1:2). By “both”, we mean  apply the function to each individual value.
-
-The syntax for the apply function is: 
-
-```r
-apply(dataframe/matrix, margin, function_to_apply)
-```
-
-Let's try this to obtain mean expression values for each sample in our RPKM matrix:
-
-```r
-samplemeans <- apply(rpkm_ordered, 2, mean) 
-```
-
-Now, add `samplemeans` to the end of the `metadata` dataframe:
-	
-```r
-new_metadata <- cbind(metadata, samplemeans)
-```
-
-We are now ready for plotting and data visualization!
 
 ---
 *This lesson has been developed by members of the teaching team at the [Harvard Chan Bioinformatics Core (HBC)](http://bioinformatics.sph.harvard.edu/). These are open access materials distributed under the terms of the [Creative Commons Attribution license](https://creativecommons.org/licenses/by/4.0/) (CC BY 4.0), which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.*
