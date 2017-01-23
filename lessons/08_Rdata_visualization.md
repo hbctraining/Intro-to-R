@@ -155,6 +155,8 @@ legend("topleft", pch="*", col=c("blue", "green"), c("A", "B"), cex=0.8,
 
 ***
 
+***
+
 > ## Other Types of Plots in Base R
 > *NOTE: we will not run these in class, but the code is provided if you are interested in exploring more on your own.*
 > ### Barplot 
@@ -190,6 +192,8 @@ boxplot(samplemeans~celltype, data=new_metadata)
 ```
 >![box-1](../img/boxplot-1.png) 
 > 
+
+***
 
 ## Advanced figures (`ggplot2`)
 
