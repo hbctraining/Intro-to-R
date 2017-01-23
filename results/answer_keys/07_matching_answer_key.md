@@ -1,5 +1,5 @@
 # Matching
-## Exercise
+## Exercise 1 Solution
 1. Using the `A` and `B` vectors created above, evaluate each element in `B` to see if there is a match in `A`
 	
 	```r
@@ -15,7 +15,7 @@
 	B[B %in% A]
 	```
 
-## Exercise
+## Exercise 2 Solution
 
 We have a list of IDs for marker genes of particular interest. We want to extract count information associated with each of these genes, without having to scroll through our matrix of count data. We can do this using the `%in%` operator to extract the information for those genes from `rpkm_data`.
 
@@ -41,7 +41,7 @@ We have a list of IDs for marker genes of particular interest. We want to extrac
   rpkm_data[important_genes, ]
   ```
 
-## Exercise
+## Exercise 3 Solution
 For a research project, we asked healthy volunteers and cancer patients questions about their diet and exercise. We also collected blood work for each individual, and each person was given a unique ID. Create the following dataframes, behavior and blood by copy/pasting the code below:
 
 ```r
@@ -96,7 +96,7 @@ blood <- data.frame(ID, blood_levels)
     blood_behavior <- data.frame(blood_reordered, behavior)
     blood_behavior
     ```
-## Exercise
+## Exercise 4 Solution
 Similar to the previous exercise, perform the reordering of the `blood` data to match the order of the IDs in the `behavior` dataframe, but this time use the `match()` function. Save the reordered blood dataframe as `blood_reordered_match`. 
 
   ```r
