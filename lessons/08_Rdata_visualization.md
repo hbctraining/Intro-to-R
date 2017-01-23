@@ -155,8 +155,8 @@ legend("topleft", pch="*", col=c("blue", "green"), c("A", "B"), cex=0.8,
 
 ***
 
-> ## Base plotting in R
-> 
+> ## Other Types of Plots in Base R
+> *NOTE: we will not run these in class, but the code is provided if you are interested in exploring more on your own.*
 > ### Barplot 
 > Barplots are useful for comparing the distribution of a quantitative variable (numeric) between groups or categories. A **barplot**  would be much more useful to compare the samplemeans (numeric variable) for each sample. We can use `barplot` to draw a single bar representing each sample and the height indicates the average expression level. 
 >
