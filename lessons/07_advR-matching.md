@@ -104,7 +104,7 @@ The `all` function is also useful. Given a logical vector, it will tell you whet
 all(A %in% B)
 ```
 ***
-**Exercises** 
+[**Exercise**](https://github.com/hbctraining/Intro-to-R/blob/master/results/answer_keys/07_matching_answer_key.md)
 
 1. Using the `A` and `B` vectors created above, evaluate each element in `B` to see if there is a match in `A`
 
