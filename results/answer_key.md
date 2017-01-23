@@ -2,7 +2,8 @@
 ## Exercise
 For a research project, we asked healthy volunteers and cancer patients questions about their diet and exercise. We also collected blood work for each individual, and each person was given a unique ID. Create the following dataframes, behavior and blood by copy/pasting the code below:
 
-```r# Creating behavior dataframe
+```r
+# Creating behavior dataframe
 ID <- c(546, 983, 042, 952, 853, 061)
 diet <- c("veg", "pes", "omni", "omni", "omni", "omni")
 exercise <- c("high", "low", "low", "low", "med", "high")
