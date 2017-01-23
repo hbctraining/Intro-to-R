@@ -1,5 +1,21 @@
 # Matching
 ## Exercise
+1. Using the `A` and `B` vectors created above, evaluate each element in `B` to see if there is a match in `A`
+	
+	```r
+	B %in% A
+	```
+2. Subset the `B` vector to only return those values that are also in `A`.
+	
+	```r
+	intersectionBA <- B %in% A
+	B[intersectionBA]
+	
+	# or you could do the two above steps in a single line of code:
+	B[B %in% A]
+	```
+
+## Exercise
 
 We have a list of IDs for marker genes of particular interest. We want to extract count information associated with each of these genes, without having to scroll through our matrix of count data. We can do this using the `%in%` operator to extract the information for those genes from `rpkm_data`.
 
