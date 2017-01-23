@@ -156,7 +156,7 @@ all(rownames(metadata) == colnames(rpkm_data))
 **Looks like all of the samples are there, but will need to be reordered. To reorder our genomic samples, we need to first learn different ways to reorder data. Therefore, we will step away from our genomic data briefly to learn about reordering, then return to it at the end of this lesson.**
 
 ***
-**Exercises** 
+[**Exercise**](https://github.com/hbctraining/Intro-to-R/blob/master/results/answer_keys/07_matching_answer_key.md)
 
 We have a list of IDs for marker genes of particular interest. We want to extract count information associated with each of these genes, without having to scroll through our matrix of count data. We can do this using the `%in%` operator to extract the information for those genes from `rpkm_data`.
 
@@ -206,7 +206,7 @@ reorder_teach <- teaching_team[c(3, 1, 2)] # Saving the results to a variable
 ```
 
 ***
-**Exercises** 
+[**Exercise**](https://github.com/hbctraining/Intro-to-R/blob/master/results/answer_keys/07_matching_answer_key.md)
 
 For a research project, we asked healthy volunteers and cancer patients questions about their diet and exercise. We also collected blood work for each individual, and each person was given a unique ID. Create the following dataframes, `behavior` and `blood` by copy/pasting the code below:
 
@@ -313,7 +313,7 @@ second_reordered <- second[reorder_idx]  # Reordering and saving the output to a
 ![matching7](../img/match3-reordered.png)
 
 ***
-**Exercise** 
+[**Exercise**](https://github.com/hbctraining/Intro-to-R/blob/master/results/answer_keys/07_matching_answer_key.md)
 
 Similar to the previous exercise, perform the reordering of the `blood` data to match the order of the IDs in the `behavior` dataframe, but this time use the `match()` function. Save the reordered blood dataframe as `blood_reordered_match`. 
 ***
