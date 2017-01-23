@@ -34,7 +34,7 @@ blood <- data.frame(ID, blood_levels)
 
 3. We would like to combine the blood and behavior dataframes together, but first we need to make sure the data is in the same order.
 
-  a. Take a look at each of the dataframes and manually identify the correct order for the blood dataframe such that it matches the order of IDs in the behavior dataframe.
+  **a.** Take a look at each of the dataframes and manually identify the correct order for the blood dataframe such that it matches the order of IDs in the behavior dataframe.
 
     ```r
     behavior
@@ -42,13 +42,13 @@ blood <- data.frame(ID, blood_levels)
     # order of blood IDs to match behavior is: 6, 1, 5, 2, 3, 4
     ```
 
-  b. Reorder the blood data to match the order of the IDs in the behavior dataframe and save the reordered blood dataframe as blood_reordered. Hint: you will need to have a vector of index values from a. to reorder. Once you have created blood_reordered you can use the all() function as a sanity check to make sure it was done correctly.
+  **b.** Reorder the blood data to match the order of the IDs in the behavior dataframe and save the reordered blood dataframe as blood_reordered. Hint: you will need to have a vector of index values from a. to reorder. Once you have created blood_reordered you can use the all() function as a sanity check to make sure it was done correctly.
 
     ```r
     blood_reordered <- blood[c(6, 1, 5, 2, 3, 4), ]
     all(blood_reordered$ID == behavior$ID)
     ```
-  c. Combine the dataframes blood_reordered and behavior using the data.frame() function and save this to a new dataframe called blood_behavior. Note: you will find that there are now two "ID" columns, this will help verify that you have reordered correctly.
+  **c.** Combine the dataframes blood_reordered and behavior using the data.frame() function and save this to a new dataframe called blood_behavior. Note: you will find that there are now two "ID" columns, this will help verify that you have reordered correctly.
 
     ```r
     blood_behavior <- data.frame(blood_reordered, behavior)
