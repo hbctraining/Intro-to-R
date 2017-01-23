@@ -10,13 +10,13 @@ Approximate time: 90 minutes
 
 * Simple statistics
 * Visualizing data using basic plots in R
-* Advanced plots (introducing `ggplot`)
+* Advanced plots (introducing `ggplot2`)
 * Exporting images to file
 
 
 ## Calculating simple statistics
 
-Let's take a closer look at our counts data. Each column represents a sample in our experiment, and each sample has ~38K values corresponding to the expression of different transcripts. Suppose we wanted to compute the average value for a sample, the R base package provides many built-in functions such as `mean`, `median`, `min`, `max`, and `range`, just to name a few. Try computing the mean for "sample1" (_Hint: apply what you have learned previously using indexes_)  
+Let's take a closer look at our counts data. Each column represents a sample in our experiment, and each sample has ~38K values corresponding to the expression of different transcripts. Suppose we wanted to compute the average value of expression for a sample (across all transcripts), the R base package provides many built-in functions such as `mean`, `median`, `min`, `max`, and `range`, just to name a few. Try computing the mean for "sample1" (_Hint: apply what you have learned previously using indexes_)  
 
 ```r
 mean(rpkm_ordered[,'sample1'])
@@ -155,98 +155,41 @@ legend("topleft", pch="*", col=c("blue", "green"), c("A", "B"), cex=0.8,
 
 ***
 
-### Barplot [Do not run in class]
-Barplots are useful for comparing the distribution of a quantitative variable (numeric) between groups or categories. A **barplot**  would be much more useful to compare the samplemeans (numeric variable) for each sample. We can use `barplot` to draw a single bar representing each sample and the height indicates the average expression level. 
-
-
+> ## Base plotting in R
+> 
+> ### Barplot 
+> Barplots are useful for comparing the distribution of a quantitative variable (numeric) between groups or categories. A **barplot**  would be much more useful to compare the samplemeans (numeric variable) for each sample. We can use `barplot` to draw a single bar representing each sample and the height indicates the average expression level. 
+>
 ```r
 ?barplot
 # note that there is no "data=" argument for barplot()
-
-barplot(new_metadata$samplemeans)
 ```
-
-This plot is not very useful without labels (sample names) for the bars  on the x-axis, let's add the names using `names.arg`.
-
-```r
-barplot(new_metadata$samplemeans, names.arg = row.names(new_metadata))
-```
-
- ![bar-1](../img/unnamed-chunk-10-1.png) 
-
-The sample names appear to be too large for the plot, we can change that by changing the `cex.names` value. 
-
-
-```r
-barplot(new_metadata$samplemeans, names.arg = row.names(new_metadata), cex.names = 0.5)
-```
-
- ![bar-2](../img/unnamed-chunk-11-1.png) 
-
-The names are too small to read. Alternatively, we can also just change the names to be numeric values and keep the same size.
-
-
-```r
-barplot(new_metadata$samplemeans, names.arg = c(1:12)) # supply numbers as labels
-```
-
- ![bar-3](../img/unnamed-chunk-12-1.png) 
-
-We can also flip the axes so that the plot is projected horizontally.
-
-
-```r
-barplot(new_metadata$samplemeans, names.arg = c(1:12), horiz = TRUE)
-```
-
- ![bar-4](../img/unnamed-chunk-13-1.png) 
-
-And we can add some color as we did before using the `col=` argument, so that the bars are colored based on the `genotype`. 
+>Similar to the scatterplot, we can use additional arguments to specify the aesthetics that we want to change. For example, changing axis labeling and adding some color.
 ```r
 barplot(new_metadata$samplemeans, names.arg=c(1:12), horiz=TRUE, col=c("darkblue", "red")[new_metadata$genotype]) 
 ```	
- <img src="../img/bar-5-new.png" width=500> 
-
-### Histogram [Do not run in class]
-If we are interested in an overall distribution of numerical data, a **histogram** is what we'd want. To plot a histogram of the data use the `hist` command:
-
+> <img src="../img/bar-5-new.png" width=500> 
+> 
+> ### Histogram 
+> If we are interested in an overall distribution of numerical data, a **histogram** is what we'd want. To plot a histogram of the data use the `hist` command:
 ```r
 hist(new_metadata$samplemeans)
 ```
-
- ![hist-1](../img/unnamed-chunk-14-1.png) 
-
-The range of values for sample means is 9 to 16. As you can see R will automatically calculate the intervals to use. There are many options to determine how to break up the intervals. Let's increase the number of breaks to see how that changes the plot:
-
-```r
-hist(new_metadata$samplemeans, xlab="Mean expression level", main="", breaks=20) 
-```
-
- ![hist-2](../img/hist-1.png) 
-
-Similar to the other plots we can tweak the aesthetics. Let's color in the bar and remove the borders:
-
-
+> Again, there are many options that we can change by modifying the default parameters. Let's color in the bars, remove the borders and increase the number of breaks:
 ```r
 hist(new_metadata$samplemeans, xlab="Mean expression level", main="", col="darkgrey", border=FALSE) 
 ```
-
- ![hist-3](../img/unnamed-chunk-15-1.png) 
-
-### Boxplot [Do not run in class]
-
-Using addiitonal sample information from our metadata, we can use plots to compare values between different factor levels or categories. For example, we can compare the sample means across celltypes 'typeA' and 'typeB' using a **boxplot**.
-
-A boxplot provides a graphical view of the distribution of data based on a five number summary. The top and bottom of the box represent the (1) first and (2) third quartiles (25th and 75th percentiles, respectively). The line inside the box represents the (3) median (50th percentile). The whiskers extending above and below the box represent the (4) maximum, and (5) minimum of a data set. The whiskers of the plot reach the minimum and maximum values that are not outliers. 
-
-Outliers are determined using the interquartile range (IQR), which is defined as: Q3 - Q1. Any values that exceeds 1.5 x IQR below Q1 or above Q3 are considered outliers and are represented as points above or below the whiskers. These outliers are useful to identify any unexpected observations.
-
+> ![hist-3](../img/unnamed-chunk-15-1.png) 
+>
+> ### Boxplot
+>
+> Using additional sample information from our metadata, we can use plots to compare values between different factor levels or categories. For example, we can compare the sample means across celltypes 'typeA' and 'typeB' using a **boxplot**.
 ```r
 # Boxplot
 boxplot(samplemeans~celltype, data=new_metadata)
 ```
-
- ![box-1](../img/boxplot-1.png) 
+>![box-1](../img/boxplot-1.png) 
+> 
 
 ## Advanced figures (`ggplot2`)
 
@@ -419,7 +362,9 @@ ggplot(new_metadata) +
 
 ## Boxplot
 
-Now that we have all the required information for plotting with ggplot2 let's try plotting a boxplot.
+Now that we have all the required information for plotting with ggplot2 let's try plotting a boxplot. A boxplot provides a graphical view of the distribution of data based on a five number summary. The top and bottom of the box represent the (1) first and (2) third quartiles (25th and 75th percentiles, respectively). The line inside the box represents the (3) median (50th percentile). The whiskers extending above and below the box represent the (4) maximum, and (5) minimum of a data set. The whiskers of the plot reach the minimum and maximum values that are not outliers. 
+
+Outliers are determined using the interquartile range (IQR), which is defined as: Q3 - Q1. Any values that exceeds 1.5 x IQR below Q1 or above Q3 are considered outliers and are represented as points above or below the whiskers. These outliers are useful to identify any unexpected observations.
 
 1. Use the `geom_boxplot()` layer to plot the differences in sample means between the Wt and KO genotypes.
 2. Add a title to your plot.
