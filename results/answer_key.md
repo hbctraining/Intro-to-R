@@ -39,7 +39,7 @@ blood <- data.frame(ID, blood_levels)
     ```r
     behavior
     blood
-    # order of blood IDs to match behavior is: 6, 1, 5, 2, 3, 4
+    # order of `blood` IDs to match `behavior` IDs is: 6, 1, 5, 2, 3, 4
     ```
 
   **b.** Reorder the blood data to match the order of the IDs in the behavior dataframe and save the reordered blood dataframe as blood_reordered. Hint: you will need to have a vector of index values from a. to reorder. Once you have created blood_reordered you can use the all() function as a sanity check to make sure it was done correctly.
