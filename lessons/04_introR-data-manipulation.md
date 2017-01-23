@@ -8,7 +8,7 @@ Approximate time: 60 min
 ## Learning Objectives
 * Reading data into R
 * Inspecting data structures
-* Using indexes and sequences to select data from vectors
+* Using indices and sequences to select data from vectors
 
 
 ## Reading data into R
@@ -112,15 +112,15 @@ functions to get a sense of the content/structure of data.
 	- **`rownames()`:** returns the row names in the dataset  
 	- **`colnames()`:** returns the column names in the dataset
 
-## Selecting data using indexes and sequences
+## Selecting data using indices and sequences
 
 When analyzing data, we often want to **partition the data so that we are only working with selected columns or rows.** A data frame or data matrix is simply a collection of vectors combined together. So let's begin with vectors and how to access different elements, and then extend those concepts to dataframes.
 
 ### Vectors
 
-#### Selecting using indexes
+#### Selecting using indices
 
-If we want to extract one or several values from a vector, we must provide one or several indexes using square brackets `[ ]` syntax. The **index represents the element number within a vector** (or the compartment number, if you think of the bucket analogy). R indexes start at 1. Programming languages like Fortran, MATLAB, and R start counting at 1, because that's what human beings typically do. Languages in the C family (including C++, Java, Perl, and Python) count from 0 because that's simpler for computers to do.
+If we want to extract one or several values from a vector, we must provide one or several indices using square brackets `[ ]` syntax. The **index represents the element number within a vector** (or the compartment number, if you think of the bucket analogy). R indices start at 1. Programming languages like Fortran, MATLAB, and R start counting at 1, because that's what human beings typically do. Languages in the C family (including C++, Java, Perl, and Python) count from 0 because that's simpler for computers to do.
 
 Let's start by creating a vector called age:
 
@@ -168,9 +168,9 @@ Alternatively, if you wanted the reverse could try `4:1` for instance, and see w
 
 ***
 
-#### Selecting using indexes with logical operators
+#### Selecting using indices with logical operators
 
-We can also use indexes with logical operators. Logical operators include greater than (>), less than (<), and equal to (==). A full list of logical operators in R is displayed below:
+We can also use indices with logical operators. Logical operators include greater than (>), less than (<), and equal to (==). A full list of logical operators in R is displayed below:
 
 | Operator | Description |
 | :-----------:|:----------------|
@@ -217,7 +217,7 @@ age[idx]
 
 ##### Indexing with logical operators using the `which()` function
 
-While logical expressions will return a vector of TRUE and FALSE  values of the same length, we could use the `which()` function to output the indexes where the values are TRUE. Indexing with either method generates the same results, and personal preference determines which method you choose to use. For example:
+While logical expressions will return a vector of TRUE and FALSE  values of the same length, we could use the `which()` function to output the indices where the values are TRUE. Indexing with either method generates the same results, and personal preference determines which method you choose to use. For example:
 
 ```r
 idx <- which(age > 50 | age < 18)
