@@ -296,8 +296,8 @@ second <- c("B","D","E","A","C")
 ![matching4](../img/match1.png)
 
 ```
-idx <- match(first,second)
-idx
+reorder_idx <- match(first,second)
+reorder_idx
 [1] 4 1 5 2 3
 ```
 
@@ -306,8 +306,8 @@ idx
 Now, we can just use the indexes to reorder the elements of the `second` vector to be in the same positions as the matching elements in the `first` vector:
 
 ```r
-second[idx]  # Reordering the second vector to match the order of the first vector
-second_reordered <- second[idx]  # Reordering and saving the output to a variable
+second[reorder_idx]  # Reordering the second vector to match the order of the first vector
+second_reordered <- second[reorder_idx]  # Reordering and saving the output to a variable
 ```
 
 ![matching7](../img/match3-reordered.png)
@@ -326,14 +326,14 @@ rownames(metadata)
 	
 colnames(rpkm_data)
 	
-idx <- match(rownames(metadata), colnames(rpkm_data))
-idx
+genomic_idx <- match(rownames(metadata), colnames(rpkm_data))
+genomic_idx
 ```
 
 Now we can create a new data matrix in which columns are re-ordered based on the match indices:
 
 ```r
-rpkm_ordered  <- rpkm_data[,idx]
+rpkm_ordered  <- rpkm_data[,genomic_idx]
 ```
 
 Check and see what happened by using `head`. You can also verify that column names of this new data matrix matches the metadata row names by using the `all` function:
