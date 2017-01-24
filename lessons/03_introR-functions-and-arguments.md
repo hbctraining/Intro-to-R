@@ -254,9 +254,7 @@ your script up to the point of the error (and after removing everything that is
 not relevant to your issue). Alternatively, in particular if your questions is
 not related to a `data.frame`, you can save any other R data structure that you have in your environment to a file:
 
-```r
-save(iris, file="/tmp/iris.RData")
-```
+`save(iris, file="/tmp/iris.RData")` <br>
 	- The content of this file is however not human readable and cannot be posted
 directly on stackoverflow. It can, however, be sent to someone by email who can read
 it with this command:
