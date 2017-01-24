@@ -191,7 +191,7 @@ Once you have the package installed, you can load it into your R session for use
 library(ggplot2)
 ```
 
-You can also check what is loaded in your current environment by using `sessionInfo()` and you you should see your package listed as:
+You can also check what is loaded in your current environment by using `sessionInfo()` or `search()` and you you should see your package listed as:
 
 ```r
 other attached packages:
@@ -241,7 +241,9 @@ precise as possible when describing your problem.**
 
 2. **Always include the output of `sessionInfo()`** as it provides critical information about your platform, the versions of R and the packages that you are using, and other information that can be very helpful to understand your problem.
 
-		sessionInfo()
+```r
+sessionInfo()  #This time it is not interchangeable with search()
+```
 
 3. If possible, **reproduce the problem using a very small `data.frame`**
 instead of your 50,000 rows and 10,000 columns one, provide the small one with
@@ -252,14 +254,17 @@ your script up to the point of the error (and after removing everything that is
 not relevant to your issue). Alternatively, in particular if your questions is
 not related to a `data.frame`, you can save any other R data structure that you have in your environment to a file:
 
-		save(iris, file="/tmp/iris.RData")
+```r
+save(iris, file="/tmp/iris.RData")
+```
 
 	The content of this file is however not human readable and cannot be posted
 directly on stackoverflow. It can, however, be sent to someone by email who can read
 it with this command:
 
-		some_data <- load(file="~/Downloads/iris.RData")
-
+```r
+some_data <- load(file="~/Downloads/iris.RData")
+```
 
 ### Where to ask for help?
 
