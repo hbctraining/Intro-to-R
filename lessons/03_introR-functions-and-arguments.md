@@ -257,8 +257,7 @@ not related to a `data.frame`, you can save any other R data structure that you 
 ```r
 save(iris, file="/tmp/iris.RData")
 ```
-
-	The content of this file is however not human readable and cannot be posted
+	- The content of this file is however not human readable and cannot be posted
 directly on stackoverflow. It can, however, be sent to someone by email who can read
 it with this command:
 
