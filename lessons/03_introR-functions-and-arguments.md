@@ -132,6 +132,10 @@ You can check what packages are loaded in your R session by typing into the cons
 
 ```r
 sessionInfo()
+
+# OR
+
+search()
 ```
 
 In this workshop we will mostly be using functions from the standard base packages. However, the more you work with R you will come to realize that there is a cornucopia of R packages that offer a wide variety of functionality. To use additional packages will require installation. Many packages can be installed from the [CRAN](http://cran.r-project.org/) or [Bioconductor](https://www.bioconductor.org/) repositories.
