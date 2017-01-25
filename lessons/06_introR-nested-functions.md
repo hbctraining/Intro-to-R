@@ -78,20 +78,20 @@ sex_fr <- factor(sex)
 **Step 3:** Use the `cbind` function to add the column to the **end** of the `metadata` dataframe: 
 
 ```r
-metadata_new <- cbind(metadata, sex=sex_fr)
+metadata_new <- cbind(metadata, gender=sex_fr)
 ```
 
 Instead of performing all three steps, we would like to create a nested function. We could first replace the `sex_fr` variable with the assignment in **Step2**:
 
 ```r
-metadata_new <- cbind(metadata, sex=factor(sex))
+metadata_new <- cbind(metadata, gender=factor(sex))
 ```
 
 Or we can go a step further and combine all steps, making your code slightly more difficult to read (we don't recommend doing this):
 
 ```r
 metadata_new <- cbind(metadata,
-			sex=factor(c("M","F","M","M","F","M","M","F","M","M","F","M")))
+			gender=factor(c("M","F","M","M","F","M","M","F","M","M","F","M")))
 ```
 
 ### Nested functions practice #3			
