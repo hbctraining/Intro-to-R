@@ -114,8 +114,8 @@ all(A %in% B)
 Suppose we had **two vectors that had the same values but just not in the same order**. We could also use `all` to test for that. Rather than using the `%in%` operator we would use `==` and compare each element to the same position in the other vector. Unlike the `%in%` operator, **for this to work you must have two vectors that are of equal length**.
 
 ```r
-A <- c(1,2,3,4,5)
-B <- c(5,4,3,2,1)  # same numbers but backwards 
+A <- c(10,20,30,40,50)
+B <- c(50,40,30,20,10)  # same numbers but backwards 
 
 # test to see if each element of A is in B
 A %in% B
