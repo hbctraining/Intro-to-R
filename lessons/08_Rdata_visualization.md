@@ -396,7 +396,7 @@ on disk, the device must also be closed in order to complete the output.
 
 Let's print our scatterplot to a pdf file format. First you need to initialize a plot using a function which specifies the graphical format you intend on creating i.e.`pdf()`, `png()`, `tiff()` etc. Within the function you will need to specify a name for your image, and the with and height (optional). This will open up the device that you wish to write to:
 ```r
-pdf("figure/scatterplot.pdf")
+pdf("figures/scatterplot.pdf")
 ```
 
 If you wish to modify the size and resolution of the image you will need to add in the appropriate parameters as arguments to the function when you initialize. Then we plot the image to the device, using the ggplot scatterplot that we just created. 
