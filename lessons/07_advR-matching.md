@@ -245,8 +245,8 @@ Now that we know how to reorder using indices, we can use the `match()` function
 
 `match()` takes at least 2 arguments: 
 
-1. a vector of values to *be matched* (vector in the order you want)
-2. a vector of values to be *matched against* (vector to be reordered)
+1. a vector of values in the order you want
+2. a vector of values to be reordered
 
 The function returns the position of the matches (indices) with respect to the second vector, which can be used to re-order it so that it matches the order in the first vector.  Let's create vectors `first` and `second` to demonstrate how it works:
 
