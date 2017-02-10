@@ -98,7 +98,7 @@ Even more useful is the `example()` function. This will allow you to run the exa
 example("round")
 ```
 
-In our example, we can change the number of digits returned by **adding an argutment**. We can type `digits=2` or however many we may want:
+In our example, we can change the number of digits returned by **adding an argument**. We can type `digits=2` or however many we may want:
 
 
 ```r
