@@ -4,7 +4,7 @@ Materials for a 2-day introduction to the R language
 Lessons Overview:
 
 1. [Intro to R and RStudio](https://github.com/hbctraining/Intro-to-R/blob/master/lessons/01_introR-R-and-RStudio.md)
-* [Syntax and Data structures in R](https://github.com/hbctraining/Intro-to-R/blob/master/lessons/* 02_introR-syntax-and-data-structures.md)
+* [Syntax and Data structures in R](https://github.com/hbctraining/Intro-to-R/blob/master/lessons/02_introR-syntax-and-data-structures.md)
 * [Functions and Arguments](https://github.com/hbctraining/Intro-to-R/blob/master/lessons/03_introR-functions-and-arguments.md)
 * [Data manipulation 1](https://github.com/hbctraining/Intro-to-R/blob/master/lessons/04_introR-data-manipulation.md)
 * [Data manipulation 2](https://github.com/hbctraining/Intro-to-R/blob/master/lessons/05_introR-data-manipulation2.md)
