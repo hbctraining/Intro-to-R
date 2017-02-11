@@ -125,7 +125,7 @@ Variables can contain values of specific types within R. The six **data types** 
 * `"numeric"` for any numerical value 
 * `"character"` for text values, denoted by using quotes ("") around value   
 * `"integer"` for integer numbers (e.g., `2L`, the `L` indicates to R that it's an integer)
-* `"logical"` for `TRUE` and `FALSE` (the boolean data type)
+* `"logical"` for `TRUE` and `FALSE` (the Boolean data type)
 * `"complex"` to represent complex numbers with real and imaginary parts (e.g.,
   `1+4i`) and that's all we're going to say about them
 * `"raw"` that we won't discuss further
@@ -204,7 +204,6 @@ Print the `combined` vector in the console, what looks different compared to the
 A **factor** is a special type of vector that is used to **store categorical data**. Each unique category is referred to as a **factor level** (i.e. category = level). Factors are built on top of integer vectors such that each **factor level** is assigned an **integer value**, creating value-label pairs. 
 
 ![factors](../img/factors_sm.png)
-
 Let's create a factor vector and explore a bit more.  We'll start by creating a character vector describing three different levels of expression:
 
 ```r
@@ -250,7 +249,7 @@ Matrices are used commonly as part of the mathematical machinery of statistics. 
 
 ### Data Frame
 
-A `data.frame` is the _de facto_ data structure for most tabular data and what we use for statistics and plotting. A `data.frame` is similar to a matrix in that it's a collection of vectors of of the **same length** and each vector represents a column. However, in a dataframe **each vector can be of a different data type** (e.g., characters, integers, factors). 
+A `data.frame` is the _de facto_ data structure for most tabular data and what we use for statistics and plotting. A `data.frame` is similar to a matrix in that it's a collection of vectors of the **same length** and each vector represents a column. However, in a dataframe **each vector can be of a different data type** (e.g., characters, integers, factors). 
 
 ![dataframe](../img/dataframe.png)
 
@@ -279,7 +278,7 @@ Lists are a data structure in R that can be perhaps a bit daunting at first, but
 ![list](../img/list.png)
 
 
-If you have variables of different data structures you wish to combine, you can put all of those into one list object by using the `list()` function and placing all the items you wish to combine within parantheses:
+If you have variables of different data structures you wish to combine, you can put all of those into one list object by using the `list()` function and placing all the items you wish to combine within parentheses:
 
 ```r
 list1 <- list(species, df, number)
