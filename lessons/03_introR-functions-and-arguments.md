@@ -55,7 +55,7 @@ glengths <- c(30, glengths) # adding at the beginning
 
 What happens here is that we take the original vector `glengths` (containing three elements), and we are adding another item to either end. We can do this over and over again to build a vector or a dataset.
 
-Since R is used for statistical computing, many of the base functions involve mathematical operations. One example would be the function `sqrt()`. The input/argument must be a number, and the the output is the square root of that number. Let's try finding the square root of 81:
+Since R is used for statistical computing, many of the base functions involve mathematical operations. One example would be the function `sqrt()`. The input/argument must be a number, and the output is the square root of that number. Let's try finding the square root of 81:
 
 ```r
 sqrt(81)
@@ -130,7 +130,7 @@ df <- data.frame(species, glengths, stringsAsFactors = F)
 
 There are a set of **standard (or base) packages** which are considered part of the R source code and automatically available as part of your R installation. Base packages contain the **basic functions** that allow R to work, and enable standard statistical and graphical functions on datasets; for example, all of the functions that we have been using so far in our examples. 
 
-The directories in R where the packages are stored are called the **libraries**. The terms *package* and *library* are sometimes used synonomously and there has been [discussion](http://www.r-bloggers.com/packages-v-libraries-in-r/) amongst the community to resolve this. It is somewhat counter-intuitive to _load a package_ using the `library()` function and so you can see how confusion can arise.
+The directories in R where the packages are stored are called the **libraries**. The terms *package* and *library* are sometimes used synonymously and there has been [discussion](http://www.r-bloggers.com/packages-v-libraries-in-r/) amongst the community to resolve this. It is somewhat counter-intuitive to _load a package_ using the `library()` function and so you can see how confusion can arise.
 
 
 You can check what packages are loaded in your R session by typing into the console:
@@ -196,7 +196,7 @@ Once you have the package installed, you can load it into your R session for use
 library(ggplot2)
 ```
 
-You can also check what is loaded in your current environment by using `sessionInfo()` or `search()` and you you should see your package listed as:
+You can also check what is loaded in your current environment by using `sessionInfo()` or `search()` and you should see your package listed as:
 
 ```r
 other attached packages:
@@ -224,9 +224,9 @@ help.search("scatter")
 
 If you can't find what you are looking for, you can use the [rdocumention.org](http://www.rdocumentation.org) website that search through the help files across all packages available.
 
-### Crytpic error messages
+### Cryptic error messages
 
-It is very likley that someone else has encountered this same problem already! 
+It is very likely that someone else has encountered this same problem already! 
 
 * Start by googling the error message.  However, this doesn't always work very well because often, package developers rely on the error catching provided by R. You end up with general error messages that might not be very helpful to diagnose a problem (e.g. "subscript out of bounds").
 
