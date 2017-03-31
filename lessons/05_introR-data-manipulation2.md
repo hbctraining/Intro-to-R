@@ -154,7 +154,7 @@ sample5       KO    typeA         2
 sample6       KO    typeA         3
 ```
 
-We can also use the `subset` function with the other logical operators in R. For example, suppose we wanted to subset to keep only the **WT samples** from the **typeA** celltype.
+We can also use the `subset` function with the other logical operators in R. For example, suppose we wanted to subset to keep only the **Wt samples** from the **typeA** celltype.
 
 ```r
 subset(metadata, celltype == "typeA" & genotype == "Wt")
