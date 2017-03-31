@@ -55,7 +55,7 @@ You can do operations on a particular column, by selecting it using the `$` sign
 ```r
 metadata$genotype 
 ```
-You can use `names(metadata)` or `colnames(metadata)` to remind yourself of the column names. We can then supply index values to select specific values from that vector. For example, if we wanted the genotype information for the first five samples in `metadata`:
+You can use `colnames(metadata)` or `names(metadata)` to remind yourself of the column names. We can then supply index values to select specific values from that vector. For example, if we wanted the genotype information for the first five samples in `metadata`:
 
 ```r
 colnames(metadata)
