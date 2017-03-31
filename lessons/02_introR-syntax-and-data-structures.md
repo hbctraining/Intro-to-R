@@ -204,6 +204,7 @@ Print the `combined` vector in the console, what looks different compared to the
 A **factor** is a special type of vector that is used to **store categorical data**. Each unique category is referred to as a **factor level** (i.e. category = level). Factors are built on top of integer vectors such that each **factor level** is assigned an **integer value**, creating value-label pairs. 
 
 ![factors](../img/factors_sm.png)
+
 Let's create a factor vector and explore a bit more.  We'll start by creating a character vector describing three different levels of expression:
 
 ```r
@@ -221,6 +222,7 @@ So, what exactly happened when we applied the `factor()` function?
 ![factor_new](../img/factors_new.png)
 
 The expression vector is categorical, in that all the values in the vector belong to a set of categories; in this case, the categories are `low`, `medium`, and `high`. By turning the expression vector into a factor, the **categories are assigned integers alphabetically**, with high=1, low=2, medium=3. This in effect assigns the different factor levels. You can view the newly created factor variable and the levels in the **Environment** window.
+
 ![Factor variables in environment](../img/factors.png)
 
 
