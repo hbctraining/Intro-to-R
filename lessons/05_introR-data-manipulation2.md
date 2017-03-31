@@ -185,7 +185,7 @@ sub_meta <- subset(metadata, replicate < 3, select = c('genotype', 'celltype'))
 
 1. Return only the rows of data with `genotype` of `Wt`. 
 
-2. Return only the celltype information for those samples from `metadata` dataframe with genotype `KO`.
+2. Return only the `celltype` information for those samples from `metadata` dataframe with genotype `KO`.
 
 ***
 
