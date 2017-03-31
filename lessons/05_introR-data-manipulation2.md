@@ -191,13 +191,19 @@ sub_meta <- subset(metadata, replicate < 3, select = c('genotype', 'celltype'))
 
 ### Lists
 
-Selecting components from a list requires a slightly different notation, even though in theory a list is a vector (that contains multiple data structures). To select a specific component of a list, you need to use double bracket notation `[[]]`. Let's use the `list1` that we created previously, and index the second component:
+Selecting components from a list requires a slightly different notation, even though in theory a list is a vector (that contains multiple data structures). Let's use the `list1` that we created previously to explore indexing lists. Remind yourself of the components of `list1`:
+
+```r
+list1
+```
+
+Observe the three components contained in `list1`, and note that each component is listed as [[1]], [[2]], and [[3]]. You need to use this double bracket notation `[[]]` to select a specific component of a list. Let's extract the second component from `list1`:
 
 ```r
 list1[[2]]
 ```
 
-What do you see printed to the console? Using the double bracket notation is useful for **accessing the individual components whilst preserving the original data structure.** When creating this list we know we had originally stored a dataframe in the second component. With the `class` function we can check if that is what we retrieve:
+What do you see printed to the console? Using the double bracket notation is useful for **accessing the individual components while preserving the original data structure.** When creating this list we know we had originally stored a dataframe in the second component. With the `class` function we can check if that is what we retrieve:
 
 ```r
 comp2 <- list1[[2]]
