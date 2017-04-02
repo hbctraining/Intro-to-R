@@ -66,7 +66,7 @@ Let's create a new project directory for our "Introduction to R" lesson today.
 
 ![RStudio interface](../img/Rstudio_interface.png)
 
-## Presentation of RStudio
+## RStudio Interface
 
 **The RStudio interface has four main panels:**
 
