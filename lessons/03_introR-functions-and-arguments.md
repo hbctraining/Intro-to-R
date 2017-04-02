@@ -169,6 +169,8 @@ There are many packages that are available in CRAN and Bioconductor, but there a
 **If you were successful with the installation from CRAN, you do not need to run this**
 
 ```r
+# DO NOT RUN THIS!
+
 source("http://bioconductor.org/biocLite.R")
 biocLite()
 ```
@@ -177,6 +179,8 @@ Once you have the standard packages installed, you can install additional packag
 
 
 ```r
+# DO NOT RUN THIS!
+
 biocLite('ggplot2')
 ```
 ### Package installation from source
@@ -186,6 +190,8 @@ Finally, R packages can also be installed from source. This is useful when you d
 To install from source, we use the same `install.packages` function but we have additional arguments that provide *specifications* to *change from defaults*:
 
 ```r
+# DO NOT RUN THIS!
+
 install.packages('ggplot2_1.0.1.tar.gz', type="source", repos=NULL)
 ```
 ### Loading libraries
