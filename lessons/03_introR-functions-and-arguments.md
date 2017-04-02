@@ -153,7 +153,7 @@ CRAN is a repository where the latest downloads of R (and legacy versions) are f
 
 Packages for R can be installed from the [CRAN](http://cran.r-project.org/) package repository using the `install.packages` function. This function will download the source code from on the CRAN mirrors and install the package (and any dependencies) locally on your computer. 
 
-An example is given below for the `ggplot2` package that will be required for some images we will create later on. Run this code to install `ggplot2`.
+An example is given below for the `ggplot2` package that will be required for some plots we will create later on. Run this code to install `ggplot2`.
 
 
 ```r
