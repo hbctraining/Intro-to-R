@@ -115,7 +115,7 @@ There are a few files that we will be working with in the next few lessons and y
 * Download the **normalized counts file** by right clicking on [this link](https://raw.githubusercontent.com/hbc/NGS_Data_Analysis_Course/master/sessionII/data/counts.rpkm.csv)
 * Download **metadata file** using [this link](https://github.com/hbc/NGS_Data_Analysis_Course/raw/master/sessionII/data/mouse_exp_design.csv)
 
-> *NOTE:* If the files download automatically to some other location on your laptop, you can move them to the your working directory using your file explorer or navigating to the files in the `Files` tab of the bottom right panel of RStudio
+> *NOTE:* If the files download automatically to some other location on your laptop, you can move them to the your working directory using your file explorer or finder (outside RStudio), or navigating to the files in the `Files` tab of the bottom right panel of RStudio
 
 
 ## Interacting with R
