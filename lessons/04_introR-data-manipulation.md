@@ -247,7 +247,14 @@ Then, we use the brackets [ ] to extract the TRUE values from the dataset:
 ```r
 expression[idx]
 ```
-	
+
+***
+**Exercise**
+
+1. Extract only the elements in `samplegroup` that are not KO.
+
+***
+
 #### Releveling factors
 
 We have briefly talked about factors, but this data type only becomes more intuitive once you've had a chance to work with it.  Let's take a slight detour and learn about how to **order and relevel categories within a factor**. As we learned earlier, the categories in the `expression` factor were assigned integers alphabetically, with high=1, low=2, medium=3. To view the integer assignments under the hood you can use str:
@@ -283,8 +290,7 @@ str(expression)
 ***
 **Exercise**
 
-1. Extract only the elements in `samplegroup` that are not KO.
-2. Use the `samplegroup` vector we created in a previous lesson, and change that to an ordered factor such that KO < CTL < OE. 
+1. Use the `samplegroup` vector we created in a previous lesson, and change that to an ordered factor such that KO < CTL < OE. 
 
 ***
 
