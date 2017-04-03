@@ -262,6 +262,8 @@ We have briefly talked about factors, but this data type only becomes more intui
 ```r
 str(expression)
 Factor w/ 3 levels "high","low","medium": 2 1 3 1 2 3 1
+
+expression < "high"
 ```
 
 The unique elements are referred to as "factor levels".
@@ -275,6 +277,8 @@ expression <- factor(expression, ordered=TRUE)    ## Note that the `factor()` fu
 
 str(expression)
 Ord.factor w/ 3 levels "low"<"high"<..: 1 3 2 3 1 2 3
+
+expression < "high"
 ```
 
 Now the output of the `str()` function states that this is an "Ord.factor", and there are "<" signs to denote that low is the lowest category. 
@@ -285,9 +289,11 @@ However, the order of categories is still incorrect, because R is ordering them 
 expression <- factor(expression, levels=c("low", "medium", "high"))    
 	
 str(expression)
+
+expression < "high"
 ```
 
-> Note: "Order" and "level" are independent of each other, and can be used together if needed.
+> Note: "Order" and "Level" are independent of each other, and can be used together if needed.
 
 
 ***
