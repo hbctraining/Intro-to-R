@@ -402,7 +402,7 @@ pdf("figures/scatterplot.pdf")
 If you wish to modify the size and resolution of the image you will need to add in the appropriate parameters as arguments to the function when you initialize. Then we plot the image to the device, using the ggplot scatterplot that we just created. 
 
 ```r
-ggplot(metadata) +
+ggplot(new_metadata) +
   geom_point(aes(x = age_in_days, y= samplemeans, color = genotype,
   			shape=celltype), size=rel(3.0)) 
 ```
