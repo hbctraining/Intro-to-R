@@ -251,7 +251,7 @@ expression[idx]
 ***
 **Exercise**
 
-1. Extract only those elements in `samplegroup` that are not KO.
+Extract only those elements in `samplegroup` that are not KO.
 
 ***
 
@@ -266,7 +266,7 @@ Factor w/ 3 levels "high","low","medium": 2 1 3 1 2 3 1
 
 The unique elements are referred to as "factor levels".
 
-In the example above, the factor has levels but it is unordered, i.e. there is no notation to say that high is greater than medium etc. In fact, the high category is the middle category because of alphabetical order. 
+In the example above, the factor has levels but it is unordered, i.e. there is no notation to say that high is greater than medium etc. In fact, the high category is the middle category because of the alphabetical order of the factor names. 
 
 To order factor levels, you can add an argument to the `factor()` function, ordered=TRUE:
 
@@ -279,18 +279,21 @@ Ord.factor w/ 3 levels "low"<"high"<..: 1 3 2 3 1 2 3
 
 Now the output of the `str()` function states that this is an "Ord.factor", and there are "<" signs to denote that low is the lowest category. 
 
-However, the order of categories is still incorrect, because R is ordering them alphabetically. R does not consider the meaning of the words here, so we have to coerce the proper ordering (i.e. "low" < "medium" < "high") using the `factor()` function once again.
+However, the order of categories is still incorrect, because R is ordering them alphabetically. R does not consider the meaning of the words here, so we have to coerce it (i.e. "low" < "medium" < "high") using the `levels` option within `factor()`.
 
 ```r
-expression <- factor(expression, levels=c("low", "medium", "high"), ordered=TRUE)    
+expression <- factor(expression, levels=c("low", "medium", "high"))    
 	
 str(expression)
 ```
 
+> Note: "Order" and "level" are independent of each other, and can be used together if needed.
+
+
 ***
 **Exercise**
 
-1. Use the `samplegroup` vector we created in a previous lesson, and change that to an ordered factor such that KO < CTL < OE. 
+Use the `samplegroup` vector we created in a previous lesson, and change that to an ordered factor such that KO < CTL < OE. 
 
 ***
 
