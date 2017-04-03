@@ -251,7 +251,7 @@ expression[idx]
 ***
 **Exercise**
 
-1. Extract only the elements in `samplegroup` that are not KO.
+1. Extract only those elements in `samplegroup` that are not KO.
 
 ***
 
