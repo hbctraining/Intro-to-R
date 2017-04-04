@@ -340,7 +340,7 @@ Check and see what happened by using `head`. You can also verify that column nam
 
 ```r
 head(rpkm_ordered)
-all(row.names(metadata) == colnames(rpkm_ordered))
+all(rownames(metadata) == colnames(rpkm_ordered))
 ```
 
 Now that our samples are ordered the same in our metadata and counts data, we could proceed to perform differential expression analysis with this dataset.
