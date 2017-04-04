@@ -106,7 +106,7 @@ rloc <- which(metadata$genotype == "Wt")
 **Step 2:** Obtain the vector of row names from `metadata`:
 	
 ```r
-rnames <- row.names(metadata)
+rnames <- rownames(metadata)
 ```
 
 **Step 3:** Identify the sample names by using the indexes determined in **Step 2**:
@@ -118,7 +118,7 @@ wt_samples <- rnames[rloc]
 Alternatively, we could combine the steps:
 
 ```r
-wt_samples <- row.names(metadata)[which(metadata$genotype == "Wt")]
+wt_samples <- rownames(metadata)[which(metadata$genotype == "Wt")]
 ```
 
 Learning to understand nested functions is a critical part of your mastery of R. Not only will their use improve your efficiency, but nested functions are frequently encountered in help forums and R package documentation, so understanding them is critical to your learning process. 
