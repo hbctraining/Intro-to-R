@@ -75,7 +75,7 @@ Let's create a new project directory for our "Introduction to R" lesson today.
 3. **Environment/History**: environment shows all active objects and history keeps track of all commands run in console
 4. **Files/Plots/Packages/Help**
 
-## Organizing your working directory
+## Organizing your working directory & setting up
 
 ### Viewing your working directory
 
@@ -117,6 +117,17 @@ There are a few files that we will be working with in the next few lessons and y
 
 > *NOTE:* If the files download automatically to some other location on your laptop, you can move them to the your working directory using your file explorer or finder (outside RStudio), or navigating to the files in the `Files` tab of the bottom right panel of RStudio
 
+### Setting up 
+
+This is more of a housekeeping task. We will be writing long lines of code in our script editor and want to make sure that the lines "wrap" and you don't have to scroll back and forth to look at your long line of code.
+
+Click on "Tools" at the top of your RStudio screen and click on "Global Options" in the pull down menu.
+
+![options](../img/tools_options.png)
+
+On the left, select "Code" and put a check against "Soft-wrap R source files". Make sure you click the "Apply" button at the bottom of the Window before saying "OK".
+
+![wrap_options](../img/wrap_option.png)
 
 ## Interacting with R
 
