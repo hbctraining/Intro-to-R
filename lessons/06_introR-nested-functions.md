@@ -24,7 +24,7 @@ metadata[idx, ]
 However, we could have also done this in a single line of code and avoid having to create the variable `idx`:
 
 ```r
-metadata[metadata$celltype == "typeA",]
+metadata[metadata$celltype == "typeA", ]
 ```
 
 This is a rather simple example combining only two lines of code, but you see how the code becomes lengthy and slightly more difficult to read. Even if you decide to avoid writing nested functions for the time being, you should still have experience reading and understanding them. The key to understanding nested functions is to **read from the inside out**.
