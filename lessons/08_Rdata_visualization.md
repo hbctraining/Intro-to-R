@@ -19,7 +19,7 @@ Approximate time: 90 minutes
 Let's take a closer look at our counts data by bringing it into a data frame in R. 
 
 ```r
-rpkm_data <- read.csv("data/counts.rpkm.csv")
+rpkm_data <- read.csv("data/counts.rpkm.csv", row.names = 1)
 
 View(rpkm_data)
 ```
@@ -70,6 +70,16 @@ Now, add `samplemeans` to the end of the `metadata` dataframe:
 new_metadata <- cbind(metadata, samplemeans)
 ```
 
+Before we start to plot, we also want to add an additional metadata column to `new_metadata`, this new column lists the age of each of the mouse samples in days.
+
+```r
+age_in_days <- c(40, 32, 38, 35, 41, 32, 34, 26, 28, 28, 30, 32)    
+# Create a numeric vector with ages. Note that there are 12 elements here.
+	
+new_metadata <- cbind(new_metadata, age_in_days)    
+# add the new vector as the last column to the new_metadata dataframe
+```
+
 We are now ready for plotting and data visualization!
 
 ## Data Visualization
@@ -93,17 +103,7 @@ dev.off()
 ```
 
 ### Scatterplot
-For some hands-on practice we are going to use `plot` to draw a scatter plot and obtain a graphical view of the relationship between two sets of continuous numeric data. From our new_metadata file we will take the `samplemeans` column and plot it against a new column, we are going to call `age_in_days`, to see how mean expression changes with age. 
-
-```r	
-age_in_days <- c(40, 32, 38, 35, 41, 32, 34, 26, 28, 28, 30, 32)    
-# Create a numeric vector with ages. Note that there are 12 elements here.
-	
-new_metadata <- cbind(new_metadata, age_in_days)    
-# add the new vector as the last column to the new_metadata dataframe
-```
-
-> *NOTE:* If you were unable to create the new metadata data frame in the last lesson, you can download it using [this link](https://github.com/hbc/NGS_Data_Analysis_Summer2016/raw/master/sessionIII/data/new_metadata.csv). Move the file into your working directory and from within RStudio load in the file using `read.csv()`.
+For some hands-on practice we are going to use `plot` to draw a scatter plot and obtain a graphical view of the relationship between two sets of continuous numeric data. From our new_metadata file we will take the `samplemeans` column and plot it against `age_in_days`, to see how mean expression changes with age. 
 
 Now our metadata has all the information to draw a scatterplot. The base R function to do this is `plot(y ~ x, data)`:
 ```r
