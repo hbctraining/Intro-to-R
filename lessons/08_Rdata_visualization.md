@@ -1,7 +1,7 @@
 ---
 title: "Plotting and data visualization in R"
 author: "Mary Piper, Meeta Mistry, Radhika Khetani"
-date: "Wednesday, September 28, 2016"
+date: "Wednesday, April 17, 2017"
 ---
 
 Approximate time: 90 minutes
@@ -16,10 +16,18 @@ Approximate time: 90 minutes
 
 ## Calculating simple statistics
 
-Let's take a closer look at our counts data. Each column represents a sample in our experiment, and each sample has ~38K values corresponding to the expression of different transcripts. Suppose we wanted to compute the average value of expression for a sample (across all transcripts), the R base package provides many built-in functions such as `mean`, `median`, `min`, `max`, and `range`, just to name a few. Try computing the mean for "sample1" (_Hint: apply what you have learned previously using indexes_)  
+Let's take a closer look at our counts data by bringing it into a data frame in R. 
 
 ```r
-mean(rpkm_ordered[,'sample1'])
+rpkm_data <- read.csv("data/counts.rpkm.csv")
+
+View(rpkm_data)
+```
+
+Each column represents a sample in our experiment, and each sample has ~38K values corresponding to the expression of different transcripts. Suppose we wanted to compute the average value of expression for a sample (across all transcripts), the R base package provides many built-in functions such as `mean`, `median`, `min`, `max`, and `range`, just to name a few. Try computing the mean for "sample1" (_Hint: apply what you have learned previously using indexes_)  
+
+```r
+mean(rpkm_data[,'sample1'])
 ```
 
 > ### Missing values
@@ -46,13 +54,14 @@ We will be using `apply` in our examples today, but do take a moment on your own
 The syntax for the apply function is: 
 
 ```r
+## DO NOT RUN
 apply(dataframe/matrix, margin, function_to_apply)
 ```
 
 Let's try this to obtain mean expression values for each sample in our RPKM matrix:
 
 ```r
-samplemeans <- apply(rpkm_ordered, 2, mean) 
+samplemeans <- apply(rpkm_data, 2, mean) 
 ```
 
 Now, add `samplemeans` to the end of the `metadata` dataframe:
