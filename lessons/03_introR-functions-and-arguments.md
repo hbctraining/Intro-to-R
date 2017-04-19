@@ -197,7 +197,7 @@ To install from source, we use the same `install.packages` function but we have 
 install.packages('ggplot2_1.0.1.tar.gz', type="source", repos=NULL)
 ```
 ### Loading libraries
-Once you have the package installed, you can load it into your R session for use. Any of the functions that are specific to that package will be available for you to use by simply calling the function as you would for any of the base functions. *Note that quotations are not required here.*
+Once you have the package installed, you can **load the library** into your R session for use. Any of the functions that are specific to that package will be available for you to use by simply calling the function as you would for any of the base functions. *Note that quotations are not required here.*
 
 
 ```r
