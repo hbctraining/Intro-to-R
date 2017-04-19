@@ -2,7 +2,7 @@
 layout: topic
 title: Functions in R
 author: Data Carpentry contributors
-date: "Wednesday, April 19th, 2017"
+date: "Wednesday, April 19, 2017"
 ---
 Approximate time: 50 min
 
