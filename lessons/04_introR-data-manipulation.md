@@ -248,7 +248,7 @@ expression[expression == "high"]    ## This will only return those elements in t
 
 > **Nesting note**: 
 >
-> The piece of code above was more run efficiently with nesting; we used a single step instead of two steps as shown below:
+> The piece of code above was more efficient with nesting; we used a single step instead of two steps as shown below:
 > 
 > Step1 (no nesting): `idx <- expression == "high"`
 >
