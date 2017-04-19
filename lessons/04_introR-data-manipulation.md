@@ -276,10 +276,6 @@ The unique elements are referred to as "factor levels".
 
 ```r
 expression[expression > "low"]
-[1] <NA> <NA> <NA> <NA> <NA> <NA> <NA>
-Levels: high low medium
-Warning message:
-In Ops.factor(expression, "low") : ‘>’ not meaningful for factors
 ```
 
 In the example above, the logical expression to obtain all levels greater than "low" does not work because the factor is unordered, i.e. there is no notation to say that high is greater than medium etc. In fact, the high category is the middle category because of the alphabetical order of the factor names. 
