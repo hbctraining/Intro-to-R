@@ -133,7 +133,7 @@ There are a set of **standard (or base) packages** which are considered part of 
 The directories in R where the packages are stored are called the **libraries**. The terms *package* and *library* are sometimes used synonymously and there has been [discussion](http://www.r-bloggers.com/packages-v-libraries-in-r/) amongst the community to resolve this. It is somewhat counter-intuitive to _load a package_ using the `library()` function and so you can see how confusion can arise.
 
 
-You can check what packages are loaded in your R session by typing into the console:
+You can check what libraries are loaded in your current R session by typing into the console:
 
 ```r
 sessionInfo()
