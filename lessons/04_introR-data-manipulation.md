@@ -229,35 +229,44 @@ age[idx]
 
 Notice that we get the same results regardless of whether or not we use the `which()`. Also note that while `which()` works the same as the logical expressions for indexing, it can be used for multiple other operations, where it is not interchangeable with logical expressions.
 
+> **Note about *Nesting* functions**:
+>
+> Instead of creating the `idx` object in the above sections, we could have just place the logical operations and/or functions within the brackets. 
+>
+> `age[which(age > 50 | age < 18)]` is identical to `age[idx]` in the above example.
+
 
 ### Factors
 
 Since factors are special vectors, the same rules for selecting values using indices apply. The elements of the expression factor created previously had the following categories or levels: low, medium, and high. 
 
-Let's extract the values of the factor with high expression:
-
-First, we create a logical vector of TRUE and FALSE values:
+Let's extract the values of the factor with high expression, and let's using nesting here:
 
 ```r
-idx <- expression == "high"
+expression[expression == "high"]    ## This will only return those elements in the factor equal to "high"
 ```
 
-Then, we use the brackets [ ] to extract the TRUE values from the dataset:
+> **Nesting note**: 
+>
+> We did this more efficiently in a single step above instead two steps (as shown below):
+> 
+> Step1: `idx <- expression == "high"`
+>
+> Step2: `expression[idx]`
 
-```r
-expression[idx]
-```
 
 ***
 **Exercise**
 
-Extract only those elements in `samplegroup` that are not KO.
+Extract only those elements in `samplegroup` that are not KO (*nesting the logical operation is optional*).
 
 ***
 
 #### Releveling factors
 
-We have briefly talked about factors, but this data type only becomes more intuitive once you've had a chance to work with it.  Let's take a slight detour and learn about how to **order and relevel categories within a factor**. As we learned earlier, the categories in the `expression` factor were assigned integers alphabetically, with high=1, low=2, medium=3. To view the integer assignments under the hood you can use str:
+We have briefly talked about factors, but this data type only becomes more intuitive once you've had a chance to work with it.  Let's take a slight detour and learn about how to **order and/or relevel categories within a factor**. 
+
+As we learned earlier, the categories in the `expression` factor were assigned integers alphabetically, with high=1, low=2, medium=3. To view the integer assignments under the hood you can use str:
 
 ```r
 str(expression)
@@ -281,19 +290,21 @@ Ord.factor w/ 3 levels "low"<"high"<..: 1 3 2 3 1 2 3
 expression < "high"
 ```
 
-Now the output of the `str()` function states that this is an "Ord.factor", and there are "<" signs to denote that low is the lowest category. 
+Now the output of the `str()` function states that this is an `Ord.factor`, and there are "<" signs to denote that low is the lowest category. 
 
-However, the order of categories is still incorrect, because R is ordering them alphabetically. R does not consider the meaning of the words here, so we have to coerce it (i.e. "low" < "medium" < "high") using the `levels` option within `factor()`.
+However, the order of categories is still incorrect and this is even more obvious now with the "<" notation. This is because R is still ordering them alphabetically. R does not consider the meaning of the words here but the meanings are important to us, so we have to coerce the **releveling** (i.e. "low" < "medium" < "high") using the `levels` option within `factor()`.
 
 ```r
-expression <- factor(expression, levels=c("low", "medium", "high"))    
+expression <- factor(expression, levels=c("low", "medium", "high"))      ## note the nested c() function
 	
 str(expression)
 
 expression < "high"
 ```
 
-> Note: "Order" and "Level" are independent of each other, and can be used together if needed.
+> **Note**: 
+>
+> The `ordered` and `levels` options within `factor()` are *independent of each other*, and can be used separately or together. 
 
 
 ***
