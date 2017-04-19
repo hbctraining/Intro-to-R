@@ -288,7 +288,7 @@ expression <- factor(expression, ordered=TRUE)    ## Note that the `factor()` fu
 str(expression)
 Ord.factor w/ 3 levels "high"<"low"<"medium": 2 1 3 1 2 3 1
 
-expression[expression > "low"]     ## What do you expect the logical vector to be when you run this?
+expression[expression > "low"]     ## Now that this factor is ordered what do you expect the output of this line of code to be?
 ```
 
 Now the output of the `str()` function states that this is an `Ord.factor`, and there are "<" signs to denote that low is the lowest category. 
