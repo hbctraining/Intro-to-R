@@ -233,7 +233,7 @@ Notice that we get the same results regardless of whether or not we use the `whi
 >
 > Instead of creating the `idx` object in the above sections, we could have just place the logical operations and/or functions within the brackets. 
 >
-> `age[which(age > 50 | age < 18)]` is identical to `age[idx]` in the above example.
+> `age[which(age > 50 | age < 18)]` **is identical to** `age[idx]` above.
 
 
 ### Factors
@@ -248,11 +248,11 @@ expression[expression == "high"]    ## This will only return those elements in t
 
 > **Nesting note**: 
 >
-> We did this more efficiently in a single step above instead two steps (as shown below):
+> The piece of code above was more run efficiently with nesting; we used a single step instead of two steps as shown below:
 > 
-> Step1: `idx <- expression == "high"`
+> Step1 (no nesting): `idx <- expression == "high"`
 >
-> Step2: `expression[idx]`
+> Step2 (no nesting): `expression[idx]`
 
 
 ***
