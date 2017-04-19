@@ -122,11 +122,9 @@ metadata[idx, ]
 
 ***
 
-**Exercises**  
+**Exercise**  
 
-1. Return a logical vector representing whether the values of `genotype` within the `metadata` dataframe equal `KO`. Use the logical vector to subset the `metadata` dataframe to return only the rows of data with a genotype of `KO`.
-	
-2. Return a vector of indices of those values of `genotype` within the `metadata` dataframe equal to `KO`. Use the vector of indices to subset the `metadata` dataframe to return only the rows of data with a genotype of `KO`.
+Subset the `metadata` dataframe to return only the rows of data with a genotype of `KO`.
 	
 ***
 
