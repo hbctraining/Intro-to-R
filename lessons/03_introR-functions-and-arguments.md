@@ -2,7 +2,7 @@
 layout: topic
 title: Functions in R
 author: Data Carpentry contributors
-date: "Wednesday, September 28, 2016"
+date: "Wednesday, April 19th, 2017"
 ---
 Approximate time: 50 min
 
@@ -164,7 +164,9 @@ Alternatively, packages can also be installed from [Bioconductor](https://www.bi
 
 <img src="../img/bioconductor_logo.png" width=300>
 
-There are many packages that are available in CRAN and Bioconductor, but there are also packages that are specific to one repository. Generally, you can find out this information with a Google search or by trial and error. To install from Bioconductor, you will first need to install Bioconductor and all the standard packages. *This only needs to be done once ever for your R installation.* 
+There are many packages that are available in CRAN and Bioconductor, but there are also packages that are specific to one repository. Generally, you can find out this information with a Google search or by trial and error. 
+
+To install from Bioconductor, you will first need to install Bioconductor and all the standard packages. *This only needs to be done once ever for your R installation.* 
 
 **If you were successful with the installation from CRAN, you do not need to run this**
 
@@ -266,12 +268,16 @@ not relevant to your issue). Alternatively, in particular if your questions is
 not related to a `data.frame`, you can save any other R data structure that you have in your environment to a file:
 
 ```r
+# DO NOT RUN THIS!
+
 save(iris, file="/tmp/iris.RData")
 ```
 
 The content of this `.RData` file is not human readable and cannot be posted directly on stackoverflow. It can, however, be emailed to someone who can read it with this command:
 
 ```r
+# DO NOT RUN THIS!
+
 some_data <- load(file="~/Downloads/iris.RData")
 ```
 
