@@ -271,35 +271,37 @@ As we learned earlier, the categories in the `expression` factor were assigned i
 ```r
 str(expression)
 Factor w/ 3 levels "high","low","medium": 2 1 3 1 2 3 1
-
-expression < "high"
 ```
-
 The unique elements are referred to as "factor levels".
 
-In the example above, the factor has levels but it is unordered, i.e. there is no notation to say that high is greater than medium etc. In fact, the high category is the middle category because of the alphabetical order of the factor names. 
+```r
+expression > "low"
+```
 
-To order factor levels, you can add an argument to the `factor()` function, ordered=TRUE:
+In the example above, the logical expression to obtain all levels greater than "low" does not work because the factor is unordered, i.e. there is no notation to say that high is greater than medium etc. In fact, the high category is the middle category because of the alphabetical order of the factor names. 
+
+To order factor levels, you can add an argument to the `factor()` function, `ordered=TRUE`:
 
 ```r
 expression <- factor(expression, ordered=TRUE)    ## Note that the `factor()` function is used to create a factor, & to modify the characteristics of an existing factor
 
 str(expression)
-Ord.factor w/ 3 levels "low"<"high"<..: 1 3 2 3 1 2 3
+Ord.factor w/ 3 levels "high"<"low"<"medium": 2 1 3 1 2 3 1
 
-expression < "high"
+expression > "low"
 ```
 
 Now the output of the `str()` function states that this is an `Ord.factor`, and there are "<" signs to denote that low is the lowest category. 
 
-However, the order of categories is still incorrect and this is even more obvious now with the "<" notation. This is because R is still ordering them alphabetically. R does not consider the meaning of the words here but the meanings are important to us, so we have to coerce the **releveling** (i.e. "low" < "medium" < "high") using the `levels` option within `factor()`.
+However, the order of categories is still incorrect and this is even more obvious now with the "<" notation. This is because R is still ordering the levels alphabetically. R does not consider the meaning of the words here, so we have to coerce the **releveling** such that `"low" < "medium" < "high"` using the `levels` option within the `factor()` function.
 
 ```r
-expression <- factor(expression, levels=c("low", "medium", "high"))      ## note the nested c() function
+expression <- factor(expression, levels=c("low", "medium", "high"))      ## note the nested combine function
 	
 str(expression)
+Ord.factor w/ 3 levels "low"<"medium"<..: 1 3 2 3 1 2 3
 
-expression < "high"
+expression > "low"
 ```
 
 > **Note**: 
