@@ -275,7 +275,11 @@ Factor w/ 3 levels "high","low","medium": 2 1 3 1 2 3 1
 The unique elements are referred to as "factor levels".
 
 ```r
-expression > "low"
+expression[expression > "low"]
+[1] <NA> <NA> <NA> <NA> <NA> <NA> <NA>
+Levels: high low medium
+Warning message:
+In Ops.factor(expression, "low") : ‘>’ not meaningful for factors
 ```
 
 In the example above, the logical expression to obtain all levels greater than "low" does not work because the factor is unordered, i.e. there is no notation to say that high is greater than medium etc. In fact, the high category is the middle category because of the alphabetical order of the factor names. 
@@ -288,7 +292,7 @@ expression <- factor(expression, ordered=TRUE)    ## Note that the `factor()` fu
 str(expression)
 Ord.factor w/ 3 levels "high"<"low"<"medium": 2 1 3 1 2 3 1
 
-expression > "low"
+expression[expression > "low"]     ## What do you expect the logical vector to be when you run this?
 ```
 
 Now the output of the `str()` function states that this is an `Ord.factor`, and there are "<" signs to denote that low is the lowest category. 
@@ -301,7 +305,7 @@ expression <- factor(expression, levels=c("low", "medium", "high"))      ## note
 str(expression)
 Ord.factor w/ 3 levels "low"<"medium"<..: 1 3 2 3 1 2 3
 
-expression > "low"
+expression[expression > "low"]
 ```
 
 > **Note**: 
