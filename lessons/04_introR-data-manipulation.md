@@ -22,7 +22,7 @@ Regardless of the specific analysis in R we are performing, we usually need to b
 | Stata version 13-14 (.dta) | readdta() | haven |
 | SPSS (.sav) |	read.spss() | foreign |
 | SAS (.sas7bdat) | read.sas7bdat() | sas7bdat |
-| Excel (.xls, .xlsx) | readWorksheetFromFile() | XLConnect |
+| Excel (.xls, .xlsx) | read_excel() | readxl |
  
 
 For example, if we have text file separated by commas (comma-separated values), we could use the function `read.csv`. However, if the data are separated by a different delimiter in a text file, we could use the generic `read.table` function and specify the delimiter as an argument in the function. 
