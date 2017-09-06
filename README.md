@@ -24,14 +24,14 @@ These materials are intended to provide both basic R programming knowledge and i
 
 | Lessons            | Duration |
 |:------------------------|:----------|
-* [Intro to R and RStudio](lessons/01_introR-R-and-RStudio.md)
-* [Syntax and Data structures in R](lessons/02_introR-syntax-and-data-structures.md)
-* [Functions and Arguments](lessons/03_introR-functions-and-arguments.md)
-* [Data manipulation 1](lessons/04_introR-data-manipulation.md)
-* [Data manipulation 2](lessons/05_introR-data-manipulation2.md)
-* [Nested functions](lessons/06_introR-nested-functions.md)
-* [Matching in R](lessons/07_advR-matching.md)
-* [Plotting data](lessons/08_Rdata_visualization.md)
+|[Intro to R and RStudio](lessons/01_introR-R-and-RStudio.md)||
+|[Syntax and Data structures in R](lessons/02_introR-syntax-and-data-structures.md)||
+|[Functions and Arguments](lessons/03_introR-functions-and-arguments.md)||
+|[Data manipulation 1](lessons/04_introR-data-manipulation.md)||
+|[Data manipulation 2](lessons/05_introR-data-manipulation2.md)||
+|[Nested functions](lessons/06_introR-nested-functions.md)||
+|[Matching in R](lessons/07_advR-matching.md)||
+|[Plotting data](lessons/08_Rdata_visualization.md)||
 
 ### Dataset
 
