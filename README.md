@@ -1,11 +1,9 @@
-# Introduction to R
+## Introduction to R
 
-## Description
+### Description
 This repository has teaching materials for a **2-day**, hands-on **Introduction to R**. The workshop will introduce participants to the basics of R and RStudio. R is a simple programming environment that enables the effective handling of data, while providing excellent graphical support. RStudio is a tool that provides a user-friendly environment for working with R. 
 
-This workshop is intended to provide both basic R programming knowledge and its application for increasing their efficiency for data analysis. Participants should be interested in:
-
-Workshop segments will address the following:
+These materials are intended to provide both basic R programming knowledge and its application for increasing efficiency for data analysis. These materials will address the following:
 
 * **R syntax**: Understanding the different 'parts of speech' in R; introducing variables and functions, demonstrating how functions work, and modifying arguments for specific use cases.
 * **Data structures in R**: Getting a handle on the classes of data structures and the types of data used by R.
@@ -15,13 +13,13 @@ Workshop segments will address the following:
 
 > These materials are developed for a trainer-led workshop, but also amenable to self-guided learning.
 
-## Audience
+### Audience
 Biologists Computational skills: Beginner/Intermediate
 
-## Prerequisite
+### Prerequisite
 None
 
-## Contents:
+### Contents:
 
 * [Intro to R and RStudio](https://github.com/hbctraining/Intro-to-R/blob/master/lessons/01_introR-R-and-RStudio.md)
 * [Syntax and Data structures in R](https://github.com/hbctraining/Intro-to-R/blob/master/lessons/02_introR-syntax-and-data-structures.md)
