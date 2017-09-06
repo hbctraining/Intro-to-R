@@ -1,3 +1,10 @@
+---
+Audience: Biologists
+Computational Skills: Beginner/Intermediate
+Prerequisites: None
+Duration: 2-day workshop (~13 hours of trainer-led time)
+---
+
 ## Introduction to R
 
 ### Description
