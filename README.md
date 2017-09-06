@@ -22,16 +22,16 @@ These materials are intended to provide both basic R programming knowledge and i
 
 ### Contents:
 
-| Lessons            | Duration |
+| Lessons            | Estimated Duration |
 |:------------------------|:----------|
 |[Intro to R and RStudio](lessons/01_introR-R-and-RStudio.md)| 40 min|
 |[Syntax and Data structures in R](lessons/02_introR-syntax-and-data-structures.md)| 75 min|
 |[Functions and Arguments](lessons/03_introR-functions-and-arguments.md)| 50 min|
 |[Data wrangling: subsetting vectors and factors](lessons/04_introR-data-manipulation.md)| 65 min|
 |[Data wrangling: subsetting data frames, matrices and lists](lessons/05_introR-data-manipulation2.md)| 75 min|
-|[Nested functions](lessons/06_introR-nested-functions.md)| |
-|[Matching and reordering](lessons/07_advR-matching.md)||
-|[Data visualization with ggplot2](lessons/08_Rdata_visualization.md)||
+|[Nested functions](lessons/06_introR-nested-functions.md)| 30 min|
+|[Matching and reordering](lessons/07_advR-matching.md)| 45 min|
+|[Data visualization](lessons/08_Rdata_visualization.md)| 60 min|
 
 ### Dataset
 
