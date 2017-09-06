@@ -20,6 +20,16 @@ These materials are intended to provide both basic R programming knowledge and i
 
 > These materials are developed for a trainer-led workshop, but also amenable to self-guided learning.
 
+### Learning Objectives
+
+* Become comfortable with RStudio (a graphical interface for R)
+* Fluently interact with R using RStudio
+* Become familiar with R syntax
+* Understand data structures in R
+* Inspect and manipulate data structures
+* Install packages and use functions in R 
+* Visualize data using simple and complex plotting methods
+
 ### Contents
 
 | Lessons            | Estimated Duration |
