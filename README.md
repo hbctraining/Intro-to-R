@@ -10,7 +10,9 @@ Duration: 2-day workshop (~13 hours of trainer-led time)
 ### Description
 This repository has teaching materials for a **2-day**, hands-on **Introduction to R** workshop. The workshop will introduce participants to the basics of R and RStudio. R is a simple programming environment that enables the effective handling of data, while providing excellent graphical support. RStudio is a tool that provides a user-friendly environment for working with R. 
 
-These materials are intended to provide both basic R programming knowledge and its application for increasing efficiency for data analysis. These materials will address the following:
+These materials are intended to provide both basic R programming knowledge and its application for increasing efficiency for data analysis. 
+
+### Learning Objectives
 
 * **R syntax**: Understanding the different 'parts of speech' in R; introducing variables and functions, demonstrating how functions work, and modifying arguments for specific use cases.
 * **Data structures in R**: Getting a handle on the classes of data structures and the types of data used by R.
@@ -20,15 +22,6 @@ These materials are intended to provide both basic R programming knowledge and i
 
 > These materials are developed for a trainer-led workshop, but also amenable to self-guided learning.
 
-### Learning Objectives
-
-* Become comfortable with RStudio (a graphical interface for R)
-* Fluently interact with R using RStudio
-* Become familiar with R syntax
-* Understand data structures in R
-* Inspect and manipulate data structures
-* Install packages and use functions in R 
-* Visualize data using simple and complex plotting methods
 
 ### Contents
 
