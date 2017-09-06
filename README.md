@@ -20,12 +20,6 @@ These materials are intended to provide both basic R programming knowledge and i
 
 > These materials are developed for a trainer-led workshop, but also amenable to self-guided learning.
 
-### Audience
-Biologists Computational skills: Beginner/Intermediate
-
-### Prerequisite
-None
-
 ### Contents:
 
 * [Intro to R and RStudio](lessons/01_introR-R-and-RStudio.md)
