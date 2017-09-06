@@ -22,6 +22,8 @@ These materials are intended to provide both basic R programming knowledge and i
 
 ### Contents:
 
+| Lessons            | Duration |
+|:------------------------|:----------|
 * [Intro to R and RStudio](lessons/01_introR-R-and-RStudio.md)
 * [Syntax and Data structures in R](lessons/02_introR-syntax-and-data-structures.md)
 * [Functions and Arguments](lessons/03_introR-functions-and-arguments.md)
@@ -33,7 +35,7 @@ These materials are intended to provide both basic R programming knowledge and i
 
 ### Dataset
 
-A zip file containing the data used in this workshop can be [downloaded here]().
+The data used in this workshop can be [found here](https://github.com/hbctraining/Intro-to-R-with-DGE/tree/master/data).
 
 ---
 *These materials have been developed by members of the teaching team at the [Harvard Chan Bioinformatics Core (HBC)](http://bioinformatics.sph.harvard.edu/). These are open access materials distributed under the terms of the [Creative Commons Attribution license](https://creativecommons.org/licenses/by/4.0/) (CC BY 4.0), which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.*
