@@ -1,7 +1,7 @@
 ---
-title: "Advanced R, matching"
+title: "Advanced R, matching and reordering"
 authors: Meeta Mistry, Mary Piper
-date: "Tuesday, May 9, 2017"
+date: "Wednesday, June 7, 2017"
 ---
 Approximate time: 110 min
 
@@ -346,7 +346,7 @@ head(rpkm_ordered)
 all(rownames(metadata) == colnames(rpkm_ordered))
 ```
 
-Now that our samples are ordered the same in our metadata and counts data, we could proceed to perform differential expression analysis with this dataset.
+Now that our samples are ordered the same in our metadata and counts data, **if these were raw counts** we could proceed to perform differential expression analysis with this dataset.
 
 
 ---

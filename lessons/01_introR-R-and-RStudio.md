@@ -2,15 +2,15 @@
 layout: topic
 title: Introduction to R and RStudio
 authors: Mary Piper, Meeta Mistry
-date: "Wednesday, September 28, 2016"
+date: "Friday, September 8, 2017"
 ---
 Approximate time: 30 minutes
 
 ## Learning Objectives
 
-* An introduction to R and RStudio
-* Creating a directory structure for efficient data management
-* Learning how to interact with R
+* Describe what R and RStudio are.
+* Interact with R using RStudio.
+* Use the various components of RStudio.
 
 ## What is R?
 

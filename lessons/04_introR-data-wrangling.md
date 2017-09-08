@@ -1,7 +1,7 @@
 ---
-title: "Data manipulation"
+title: "Data wrangling: vectors and factors"
 authors: Meeta Mistry, Mary Piper, Radhika Khetani
-date: "Tuesday, May 9, 2017"
+date: "Friday, September 8, 2017"
 ---
 Approximate time: 60 min
 

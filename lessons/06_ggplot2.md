@@ -2,7 +2,7 @@
 layout: topic
 title: Plotting and data visualization in R
 author: Mary Piper, Meeta Mistry, Radhika Khetani
-date: "Tuesday, May 9, 2017"
+date: "Wednesday, September 8, 2017"
 ---
 
 Approximate time: 60 minutes
@@ -18,8 +18,12 @@ Approximate time: 60 minutes
 
 Let's take a closer look at our counts data by bringing it into a data frame in R. 
 
+We are first going to download a [new counts data file](https://raw.githubusercontent.com/hbctraining/In-depth-NGS-Data-Analysis-Course/may2017/sessionII/data/counts.rpkm_ordered.csv) into our data folder for plotting. 
+
+Then, read it in with `read.csv()`.
+
 ```r
-rpkm_data <- read.csv("data/counts.rpkm.csv", row.names = 1)
+rpkm_data <- read.csv("data/counts.rpkm_ordered.csv", row.names = 1)
 
 View(rpkm_data)
 ```
