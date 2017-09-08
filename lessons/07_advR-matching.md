@@ -12,7 +12,7 @@ Approximate time: 110 min
 
 ## Matching data 
 
-Often when working with genomic data, we have a data file that corresponds with our metadata file. The data file contains measurements from the biological assay for each individual sample. In our case, the biological assay is gene expression and data was generated using RNA-Seq. 
+Often when working with genomic data, we have a data file that corresponds with our metadata file. The data file contains measurements from the biological assay for each individual sample. In this case, the biological assay is gene expression and data was generated using RNA-Seq. 
 
 [Download counts data here by right clicking and saving to the `data` folder.](https://raw.githubusercontent.com/hbctraining/Intro-to-R/master/data/counts.rpkm)
 
