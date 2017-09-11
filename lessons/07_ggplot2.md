@@ -16,19 +16,7 @@ Approximate time: 60 minutes
 
 ## Calculating simple statistics
 
-Let's take a closer look at our counts data by bringing it into a data frame in R. 
-
-We are first going to download a [new counts data file](https://raw.githubusercontent.com/hbctraining/In-depth-NGS-Data-Analysis-Course/may2017/sessionII/data/counts.rpkm_ordered.csv) into our data folder for plotting. 
-
-Then, read it in with `read.csv()`.
-
-```r
-rpkm_data <- read.csv("data/counts.rpkm_ordered.csv", row.names = 1)
-
-View(rpkm_data)
-```
-
-Each column represents a sample in our experiment, and each sample has ~38K values corresponding to the expression of different transcripts. Suppose we wanted to compute the average value of expression for a sample (across all transcripts), the R base package provides many built-in functions such as `mean`, `median`, `min`, `max`, and `range`, just to name a few. Try computing the mean for "sample1" (_Hint: apply what you have learned previously using indexes_)  
+Let's take a closer look at our counts data. Each column represents a sample in our experiment, and each sample has ~38K values corresponding to the expression of different transcripts. Suppose we wanted to compute the average value of expression for a sample (across all transcripts), the R base package provides many built-in functions such as `mean`, `median`, `min`, `max`, and `range`, just to name a few. Try computing the mean for "sample1" (_Hint: apply what you have learned previously using indexes_)  
 
 ```r
 mean(rpkm_data[,'sample1'])
