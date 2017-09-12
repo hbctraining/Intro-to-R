@@ -307,10 +307,10 @@ write(glengths, file="genome_lengths.txt", ncolumns=1)
 
 ***
 
-> ### An R package for data manipulation
-> The methods presented above are using base R functions for data manipulation. For more advanced R users, 
+> ### An R package for data wrangling
+> The methods presented above are using base R functions for data wrangling. For more advanced R users, 
 > the package `dplyr` is a fairly new (2014) package that tries to provide easy
-> tools for the most common data manipulation tasks. It is built to work directly
+> tools for the most common data wrangling tasks. It is built to work directly
 > with data frames. The thinking behind it was largely inspired by the package
 > `plyr` which has been in use for some time but suffered from being slow in some
 > cases.` dplyr` addresses this by porting much of the computation to C++. An
