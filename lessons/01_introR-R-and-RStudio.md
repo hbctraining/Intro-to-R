@@ -33,7 +33,7 @@ The R environment combines:
 
 R is a powerful, extensible environment. It has a wide range of statistics and general data analysis and visualization capabilities.
 
-* Data handling, manipulation, and storage
+* Data handling, wrangling, and storage
 * Wide array of statistical methods and graphical techniques available
 * Easy to install on any platform and use (and it’s free!)
 * Open source with a large and growing community of peers
