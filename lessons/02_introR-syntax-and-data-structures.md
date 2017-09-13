@@ -29,7 +29,6 @@ _NOTE: indentation and consistency in spacing is used to improve clarity and leg
 ### Example script
 
 ```{r example-script}
-
 # Load libraries
 library(Biobase)
 library(limma)
