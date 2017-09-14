@@ -53,7 +53,7 @@ apply(dataframe/matrix, margin, function_to_apply)
 Let's try this to obtain mean expression values for each sample in our RPKM matrix:
 
 ```r
-samplemeans <- apply(rpkm_data, 2, mean) 
+samplemeans <- apply(rpkm_ordered, 2, mean) 
 ```
 
 Now, add `samplemeans` to the end of the `metadata` dataframe:
