@@ -1,5 +1,5 @@
 ---
-title: "Data wrangling: vectors and factors"
+title: "Data subsetting with base R: vectors and factors"
 authors: Meeta Mistry, Mary Piper, Radhika Khetani
 date: "Friday, September 8, 2017"
 ---
