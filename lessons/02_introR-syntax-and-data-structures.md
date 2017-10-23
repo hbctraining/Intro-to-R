@@ -164,7 +164,7 @@ For example, if you were to try to create the following vector:
 
 R will coerce it into:
 
-<img src="../img/vector4.png" width=400>
+<img src="../img/vector4.png" width="400">
 
 The analogy for a vector is that your bucket now has different compartments; these compartments in a vector are called *elements*. 
 
@@ -175,7 +175,7 @@ Let's create a vector of genome lengths and assign it to a variable called `glen
 Each element of this vector contains a single numeric value, and three values will be combined together into a vector using `c()` (the combine function). All of the values are put within the parentheses and separated with a comma.
 
 
-```{r, purl=FALSE}
+```r
 glengths <- c(4.6, 3000, 50000)
 glengths
 ```
@@ -184,7 +184,7 @@ glengths
 
 A vector can also contain characters. Create another vector called `species` with three elements, where each element corresponds with the genome sizes vector (in Mb).
 
-```{r, purl=FALSE}
+```r
 species <- c("ecoli", "human", "corn")
 species
 ```
