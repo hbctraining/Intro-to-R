@@ -1,5 +1,4 @@
 ---
-layout: topic
 title: R Syntax and Data Structures
 authors: Meeta Mistry, Mary Piper
 date: "Friday, September 8, 2017"
