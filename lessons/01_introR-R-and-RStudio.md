@@ -26,7 +26,7 @@ The R environment combines:
 
 ## Why use R?
 
-<img src="../img/why_R.png" width=600>
+<img src="../img/why_R.png" width="600">
 
 
 
@@ -42,7 +42,7 @@ R is a powerful, extensible environment. It has a wide range of statistics and g
 
 RStudio is freely available open-source Integrated Development Environment (IDE). RStudio provides an environment with many features to make using R easier and is a great alternative to working on R in the terminal. 
 
-<img src="../img/rstudio_logo.png" width=300>
+<img src="../img/rstudio_logo.png" width="300">
 
 * Graphical user interface, not just a command prompt
 * Great learning tool 
@@ -102,7 +102,6 @@ Let's create these three directories within your working directory by clicking o
 
 ![Structuring your working directory](../img/wd_setup.png)
 
-
 When finished, your working directory should look like:
 
 ![Your organized working directory](../img/complete_wd_setup.png)
@@ -137,7 +136,7 @@ The **console window** (in RStudio, the bottom left panel) is the place where R 
 
 Let's test it out:
 
-```{r, purl=FALSE}
+```r
 3 + 5
 ```
 
@@ -167,7 +166,7 @@ You should see the command run in the console and output the result.
 	
 What happens if we do that same command without the comment symbol `#`? Re-run the command after removing the # sign in the front:
 
-```{r, purl=FALSE, eval=FALSE}
+```r
 I am adding 3 and 5. R is fun!
 3+5
 ```
@@ -222,7 +221,7 @@ We have another file in which we identify **information about the data** or **me
 
 The first column contains the row names, and **note that these are identical to the column names in our expression data file above** (albeit, in a slightly different order). The next few columns contain information about our samples that allow us to categorize them. For example, the second column contains genotype information for each sample. Each sample is classified in one of two categories: Wt (wild type) or KO (knockout). *What types of categories do you observe in the remaining columns?*
 
-<img src="../img/metadata_view.png" width=400> 
+<img src="../img/metadata_view.png" width="400"> 
 
 R is particularly good at handling this type of **categorical data**. Rather than simply storing this information as text, the data is represented in a specific data structure which allows the user to sort and manipulate the data in a quick and efficient manner. We will discuss this in more detail as we go through the different lessons in R!  
 
