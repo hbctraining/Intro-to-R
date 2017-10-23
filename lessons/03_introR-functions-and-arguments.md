@@ -1,5 +1,4 @@
 ---
-layout: topic
 title: Functions in R
 author: Data Carpentry contributors
 date: "Friday, September 8, 2017"
