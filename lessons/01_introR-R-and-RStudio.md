@@ -213,7 +213,7 @@ R is commonly used for handling big data, and so it only makes sense that we lea
 ### The dataset
 In this example dataset, we have collected whole brain samples from 12 mice and want to evaluate expression differences between them. The expression data represents normalized count data obtained from RNA-sequencing of the 12 brain samples. This data is stored in a comma separated values (CSV) file as a 2-dimensional matrix, with **each row corresponding to a gene and each column corresponding to a sample**.
 
-<img src="../img/counts_view.png" width=900> 
+<img src="../img/counts_view.png" width="900"> 
 
 
 ### The metadata
