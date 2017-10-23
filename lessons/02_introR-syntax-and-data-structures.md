@@ -2,15 +2,15 @@
 layout: topic
 title: R Syntax and Data Structures
 authors: Meeta Mistry, Mary Piper
-date: "Wednesday, September 28, 2016"
+date: "Friday, September 8, 2017"
 ---
 Approximate time: 70 min
 
 ## Learning Objectives
 
-* Become familiar with R syntax
-* Understand variables and the assignment operator in R
-* Understand the various data types and data structures in R
+* Employ variables in R.
+* Describe the various data types used in R. 
+* Construct data structures to store data.
 
 ## The R syntax
 Now that we know how to talk with R via the script editor or the console, we want to use R for something more than adding numbers. To do this, we need to know more about the R syntax. 
@@ -28,8 +28,7 @@ _NOTE: indentation and consistency in spacing is used to improve clarity and leg
 
 ### Example script
 
-```{r example-script}
-
+```r
 # Load libraries
 library(Biobase)
 library(limma)
@@ -94,7 +93,7 @@ number <- x + y
 ```
 
 ***
-**Exercise**
+**Exercises**
 
 1. Try changing the value of the variable `x` to 5. What happens to `number`?
 2. Now try changing the value of variable `y` to contain the value 10. What do you need to do, to update the variable `number`?
@@ -115,7 +114,7 @@ special meaning in R (for methods) and other programming languages, it's best to
 avoid them. 
 - Use nouns for object names and verbs for function names
 - Keep in mind that **R is case sensitive** (e.g., `genome_length` is different from `Genome_length`)
-- Be consistent with the styling of your code (where you put spaces, how you name variable, etc.). In R, two popular style guides are [Hadley Wickham's style guide](http://adv-r.had.co.nz/Style.html) and [Google's](https://google-styleguide.googlecode.com/svn/trunk/Rguide.xml).
+- Be consistent with the styling of your code (where you put spaces, how you name variable, etc.). In R, two popular style guides are [Hadley Wickham's style guide](http://adv-r.had.co.nz/Style.html) and [Google's](http://web.stanford.edu/class/cs109l/unrestricted/resources/google-style.html).
 
 
 ## Data Types
@@ -194,7 +193,7 @@ species
 ***
 **Exercise**
 
-1. Create a vector of numeric and character values by _combining_ the two vectors that we just created (`glengths` and `species`). Assign this combined vector to a new variable called `combined`. *Hint: you will need to use the combine `c()` function to do this*. 
+Create a vector of numeric and character values by _combining_ the two vectors that we just created (`glengths` and `species`). Assign this combined vector to a new variable called `combined`. *Hint: you will need to use the combine `c()` function to do this*. 
 Print the `combined` vector in the console, what looks different compared to the original vectors?
 
 ***
@@ -227,7 +226,7 @@ The expression vector is categorical, in that all the values in the vector belon
 
 
 ***
-**Exercise**
+**Exercises**
 
 Let's say that in our experimental analyses, we are working with three different sets of cells: normal, cells knocked out for geneA (a very exciting gene), and cells overexpressing geneA. We have three replicates for each celltype.
 

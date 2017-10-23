@@ -1,22 +1,23 @@
 ---
-title: "Advanced R, matching"
+title: "Advanced R, matching and reordering"
 authors: Meeta Mistry, Mary Piper
-date: "Wednesday, September 28, 2016"
+date: "Friday, September 8, 2017"
 ---
 Approximate time: 110 min
 
 
 ## Learning Objectives
-* Learning how to match and re-order data 
+
+* Implement matching and re-ordering data within data structures.
 
 ## Matching data 
 
-Often when working with genomic data, we have a data file that corresponds with our metadata file. The data file contains measurements from the biological assay for each individual sample. In our case, the biological assay is gene expression and data was generated using RNA-Seq. 
+Often when working with genomic data, we have a data file that corresponds with our metadata file. The data file contains measurements from the biological assay for each individual sample. In this case, the biological assay is gene expression and data was generated using RNA-Seq. 
 
 Let's read in our expression data (RPKM matrix) that we downloaded previously:
 
 ```r
-rpkm_data <- read.csv("data/counts.rpkm.csv")
+rpkm_data <- read.csv("data/counts.rpkm.txt")
 ```
 
 Take a look at the first few lines of the data matrix to see what's in there.
@@ -343,7 +344,7 @@ head(rpkm_ordered)
 all(rownames(metadata) == colnames(rpkm_ordered))
 ```
 
-Now that our samples are ordered the same in our metadata and counts data, we could proceed to perform differential expression analysis with this dataset.
+Now that our samples are ordered the same in our metadata and counts data, **if these were raw counts** we could proceed to perform differential expression analysis with this dataset.
 
 
 ---

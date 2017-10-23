@@ -1,13 +1,13 @@
 ---
 title: "Nested Functions"
-authors: Meeta Mistry, Mary Piper
-date: "Wednesday, September 28, 2016"
+authors: Meeta Mistry, Mary Piper, Radhika Khetani
+date: "Tuesday, May 9, 2017"
 ---
 Approximate time: 30 min
 
 ## Learning Objectives
-* Understand and implement functions nested within other functions
 
+* Describe and implement nested functions in R.
 
 ## Nested functions
 

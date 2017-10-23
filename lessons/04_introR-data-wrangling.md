@@ -1,29 +1,32 @@
 ---
-title: "Data manipulation"
+title: "Data subsetting with base R: vectors and factors"
 authors: Meeta Mistry, Mary Piper, Radhika Khetani
-date: "Wednesday, September 28, 2016"
+date: "Friday, September 8, 2017"
 ---
 Approximate time: 60 min
 
 ## Learning Objectives
-* Reading data into R
-* Inspecting data structures
-* Using indices and sequences to select data from vectors
 
+* Construct data structures to store external data in R.
+* Inspect data structures in R.
+* Demonstrate how to subset data from data structures.
 
 ## Reading data into R
 Regardless of the specific analysis in R we are performing, we usually need to bring data in for the analysis. The function in R we use will depend on the type of data file we are bringing in (e.g. text, Stata, SPSS, SAS, Excel, etc.) and how the data in that file are separated, or delimited. The table below lists functions that can be used to import data from common file formats.
 
-| Data Type  | Function | Package
-| -----------:|:----------------:|:---------------:|
-| comma separated (.csv)  | read.csv()	| utils (default) |
-| other delimited formats (.txt) | read.table(); read.csv() | utils (default) |
-| Stata version 7-12 (.dta) | read.dta() | foreign |
-| Stata version 13-14 (.dta) | readdta() | haven |
-| SPSS (.sav) |	read.spss() | foreign |
-| SAS (.sas7bdat) | read.sas7bdat() | sas7bdat |
-| Excel (.xls, .xlsx) | readWorksheetFromFile() | XLConnect |
- 
+| Data type               | Extension | Function          | Package            |
+|:------------------------|:----------|:------------------|:-------------------|
+| Comma separated values  | csv       | `read.csv()`      | utils (default)    |
+|                         |           | `read_csv()`      | readr (tidyverse)  |
+| Tab separated values    | tsv       | `read_tsv()`      | readr              |
+| Other delimited formats | txt       | `read.table()`    | utils              |
+|                         |           | `read_table()`    | readr              |
+|                         |           | `read_delim()`    | readr              |
+| Stata version 13-14     | dta       | `readdta()`       | haven              |
+| Stata version 7-12      | dta       | `read.dta()`      | foreign            |
+| SPSS                    | sav       | `read.spss()`     | foreign            |
+| SAS                     | sas7bdat  | `read.sas7bdat()` | sas7bdat           |
+| Excel                   | xlsx, xls | `read_excel()`    | readxl (tidyverse) |
 
 For example, if we have text file separated by commas (comma-separated values), we could use the function `read.csv`. However, if the data are separated by a different delimiter in a text file, we could use the generic `read.table` function and specify the delimiter as an argument in the function. 
 
@@ -229,79 +232,90 @@ age[idx]
 
 Notice that we get the same results regardless of whether or not we use the `which()`. Also note that while `which()` works the same as the logical expressions for indexing, it can be used for multiple other operations, where it is not interchangeable with logical expressions.
 
+> **Note about *Nesting* functions**:
+>
+> Instead of creating the `idx` object in the above sections, we could have just place the logical operations and/or functions within the brackets. 
+>
+> `age[which(age > 50 | age < 18)]` **is identical to** `age[idx]` above.
+
 
 ### Factors
 
 Since factors are special vectors, the same rules for selecting values using indices apply. The elements of the expression factor created previously had the following categories or levels: low, medium, and high. 
 
-Let's extract the values of the factor with high expression:
-
-First, we create a logical vector of TRUE and FALSE values:
+Let's extract the values of the factor with high expression, and let's using nesting here:
 
 ```r
-idx <- expression == "high"
+expression[expression == "high"]    ## This will only return those elements in the factor equal to "high"
 ```
 
-Then, we use the brackets [ ] to extract the TRUE values from the dataset:
+> **Nesting note**: 
+>
+> The piece of code above was more efficient with nesting; we used a single step instead of two steps as shown below:
+> 
+> Step1 (no nesting): `idx <- expression == "high"`
+>
+> Step2 (no nesting): `expression[idx]`
 
-```r
-expression[idx]
-```
 
 ***
 **Exercise**
 
-Extract only those elements in `samplegroup` that are not KO.
+Extract only those elements in `samplegroup` that are not KO (*nesting the logical operation is optional*).
 
 ***
 
 #### Releveling factors
 
-We have briefly talked about factors, but this data type only becomes more intuitive once you've had a chance to work with it.  Let's take a slight detour and learn about how to **order and relevel categories within a factor**. As we learned earlier, the categories in the `expression` factor were assigned integers alphabetically, with high=1, low=2, medium=3. To view the integer assignments under the hood you can use str:
+We have briefly talked about factors, but this data type only becomes more intuitive once you've had a chance to work with it.  Let's take a slight detour and learn about how to **order and/or relevel categories within a factor**. 
+
+As we learned earlier, the categories in the `expression` factor were assigned integers alphabetically, with high=1, low=2, medium=3. To view the integer assignments under the hood you can use str:
 
 ```r
 str(expression)
 Factor w/ 3 levels "high","low","medium": 2 1 3 1 2 3 1
-
-expression < "high"
 ```
-
 The unique elements are referred to as "factor levels".
 
-In the example above, the factor has levels but it is unordered, i.e. there is no notation to say that high is greater than medium etc. In fact, the high category is the middle category because of the alphabetical order of the factor names. 
+```r
+expression[expression > "low"]
+```
 
-To order factor levels, you can add an argument to the `factor()` function, ordered=TRUE:
+In the example above, the logical expression to obtain all levels greater than "low" does not work because the factor is unordered, i.e. there is no notation to say that high is greater than medium etc. In fact, the high category is the middle category because of the alphabetical order of the factor names. 
+
+To order factor levels, you can add an argument to the `factor()` function, `ordered=TRUE`:
 
 ```r
 expression <- factor(expression, ordered=TRUE)    ## Note that the `factor()` function is used to create a factor, & to modify the characteristics of an existing factor
 
 str(expression)
-Ord.factor w/ 3 levels "low"<"high"<..: 1 3 2 3 1 2 3
+Ord.factor w/ 3 levels "high"<"low"<"medium": 2 1 3 1 2 3 1
 
-expression < "high"
+expression[expression > "low"]     ## Now that this factor is ordered what do you expect the output of this line of code to be?
 ```
 
-Now the output of the `str()` function states that this is an "Ord.factor", and there are "<" signs to denote that low is the lowest category. 
+Now the output of the `str()` function states that this is an `Ord.factor`, and there are "<" signs to denote that low is the lowest category. 
 
-However, the order of categories is still incorrect, because R is ordering them alphabetically. R does not consider the meaning of the words here, so we have to coerce it (i.e. "low" < "medium" < "high") using the `levels` option within `factor()`.
+However, the order of categories is still incorrect and this is even more obvious now with the "<" notation. This is because R is still ordering the levels alphabetically. R does not consider the meaning of the words here, so we have to coerce the **releveling** such that `"low" < "medium" < "high"` using the `levels` option within the `factor()` function.
 
 ```r
-expression <- factor(expression, levels=c("low", "medium", "high"))    
+expression <- factor(expression, levels=c("low", "medium", "high"))      ## note the nested combine function
 	
 str(expression)
+Ord.factor w/ 3 levels "low"<"medium"<..: 1 3 2 3 1 2 3
 
-expression < "high"
+expression[expression > "low"]
 ```
 
-> Note: "Order" and "Level" are independent of each other, and can be used together if needed.
+> **Note**: 
+>
+> The `ordered` and `levels` options within `factor()` are *independent of each other*, and can be used separately or together. 
 
 
 ***
 **Exercise**
 
 Use the `samplegroup` vector we created in a previous lesson, and change that to an ordered factor such that KO < CTL < OE. 
-
-***
 
 ---
 

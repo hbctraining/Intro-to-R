@@ -1,14 +1,14 @@
 ---
-title: "Data manipulation"
+title: "Data wrangling: dataframes, matrices, and lists"
 authors: Meeta Mistry, Mary Piper
-date: "Wednesday, September 28, 2016"
+date: "Friday, September 8, 2017"
 ---
 Approximate time: 60 min
 
 ## Learning Objectives
-* Using indexes and sequences to select data from dataframes
-* Subsetting data using logical operators
-* Writing data to file
+
+* Demonstrate how to subset, merge, and create new datasets from existing data structures in R.
+* Export data tables and plots for use outside of the R environment.
 
 ### Dataframes
 
@@ -122,11 +122,9 @@ metadata[idx, ]
 
 ***
 
-**Exercises**  
+**Exercise**  
 
-1. Return a logical vector representing whether the values of `genotype` within the `metadata` dataframe equal `KO`. Use the logical vector to subset the `metadata` dataframe to return only the rows of data with a genotype of `KO`.
-	
-2. Return a vector of indices of those values of `genotype` within the `metadata` dataframe equal to `KO`. Use the vector of indices to subset the `metadata` dataframe to return only the rows of data with a genotype of `KO`.
+Subset the `metadata` dataframe to return only the rows of data with a genotype of `KO`.
 	
 ***
 
@@ -181,9 +179,9 @@ sub_meta <- subset(metadata, replicate < 3, select = c('genotype', 'celltype'))
 
 ***
 
-**Exercise** 
+**Exercises** 
 
-1. Return only the rows of data with `genotype` of `Wt`. 
+1. Return only the rows of data from the `metadata` dataframe with `genotype` of `Wt`. 
 
 2. Return only the `celltype` information for those samples from `metadata` dataframe with genotype `KO`.
 
@@ -191,19 +189,13 @@ sub_meta <- subset(metadata, replicate < 3, select = c('genotype', 'celltype'))
 
 ### Lists
 
-Selecting components from a list requires a slightly different notation, even though in theory a list is a vector (that contains multiple data structures). Let's use the `list1` that we created previously to explore indexing lists. Remind yourself of the components of `list1`:
-
-```r
-list1
-```
-
-Observe the three components contained in `list1`, and note that each component is listed as [[1]], [[2]], and [[3]]. You need to use this double bracket notation `[[]]` to select a specific component of a list. Let's extract the second component from `list1`:
+Selecting components from a list requires a slightly different notation, even though in theory a list is a vector (that contains multiple data structures). To select a specific component of a list, you need to use double bracket notation `[[]]`. Let's use the `list1` that we created previously, and index the second component:
 
 ```r
 list1[[2]]
 ```
 
-What do you see printed to the console? Using the double bracket notation is useful for **accessing the individual components while preserving the original data structure.** When creating this list we know we had originally stored a dataframe in the second component. With the `class` function we can check if that is what we retrieve:
+What do you see printed to the console? Using the double bracket notation is useful for **accessing the individual components whilst preserving the original data structure.** When creating this list we know we had originally stored a dataframe in the second component. With the `class` function we can check if that is what we retrieve:
 
 ```r
 comp2 <- list1[[2]]
@@ -228,7 +220,7 @@ list1[[1]][1]
 
 You can also do the same for dataframes and matrices, although with larger datasets it is not advisable. Instead, it is better to save the contents of a list component to a variable (as we did above) and further manipulate it. Also, it is important to note that when selecting components we can only **access one at a time**. To access multiple components of a list, see the note below. 
 
-> Note: Using the single bracket notation also works with lists. The difference is the class of the information that is retrieved. Using single bracket notation i.e. `list1[1]` will return the contents in a list form and *not the original data structure*. The benefit of this notation is that it allows indexing by vectors so you can access multiple components of the list at once.
+> Note: Using the single bracket notation also works wth lists. The difference is the class of the information that is retrieved. Using single bracket notation i.e. `list1[1]` will return the contents in a list form and *not the original data structure*. The benefit of this notation is that it allows indexing by vectors so you can access multiple components of the list at once.
 
 
 ***
@@ -289,7 +281,6 @@ Let's practice combining ways to extract data from the data structures we have c
 
 ***
 
-
 ### Writing to file 
 
 Everything we have done so far has only modified the data in R; the files have remained unchanged. Whenever we want to save our datasets to file, we need to use a `write` function in R. 
@@ -310,22 +301,31 @@ Similar to reading in data, there are a wide variety of functions available allo
 >
 
 ```r
-write(glengths, file="genome_lengths.txt", ncolumns=1)
+write(glengths, file="data/genome_lengths.txt", ncolumns=1)
 ```
 >
 
 ***
 
-> ### An R package for data manipulation
-> The methods presented above are using base R functions for data manipulation. For more advanced R users, 
+> ### An R package for data wrangling
+> The methods presented above are using base R functions for data wrangling. For more advanced R users, 
 > the package `dplyr` is a fairly new (2014) package that tries to provide easy
-> tools for the most common data manipulation tasks. It is built to work directly
+> tools for the most common data wrangling tasks. It is built to work directly
 > with data frames. The thinking behind it was largely inspired by the package
 > `plyr` which has been in use for some time but suffered from being slow in some
 > cases.` dplyr` addresses this by porting much of the computation to C++. An
 > additional feature is the ability to work with data stored directly in an
 > external database. The benefits of doing this are that the data can be managed
 > natively in a relational database, queries can be conducted on that database, and only the results of the query returned.
+>
+> `dplyr` is part of the [tidyverse suite of packages](http://tidyverse.org), which were designed to work together to quickly and easily perform the most common operations needed for data science.
+
+
+
+
+
+
+
 
 
 ---
