@@ -231,7 +231,7 @@ Let's say that in our experimental analyses, we are working with three different
 
 1. Create a vector named `samplegroup` using the code below. This vector will contain nine elements: 3 control ("CTL") samples, 3 knock-out ("KO") samples, and 3 over-expressing ("OE") samples:
 
-	```{r, purl=FALSE}
+	```r
 	samplegroup <- c("CTL", "CTL", "CTL", "KO", "KO", "KO", "OE", "OE", "OE")
 	```
 
