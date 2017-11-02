@@ -263,7 +263,7 @@ Outliers are determined using the interquartile range (IQR), which is defined as
 
 **Our final figure should look something like that provided below.**
 
- ![ggbox](../img/ggboxplot_new.png)
+ ![ggbox](../img/ggboxplot_new.jpeg)
 
 
 ## Exporting figures to file
