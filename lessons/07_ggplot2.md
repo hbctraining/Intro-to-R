@@ -100,7 +100,7 @@ One type of layer is **geometric objects**. These are the actual marks we put on
 * lines (`geom_line`, for time series, trend lines, etc)
 * boxplot (`geom_boxplot`, for, well, boxplots!)
 
-For a more exhaustive list on all possible geometric objects and when to use them check out [Hadley Wickham's RPubs](http://rpubs.com/hadley/ggplot2-layers). 
+For a more exhaustive list on all possible geometric objects and when to use them check out [Hadley Wickham's RPubs](http://rpubs.com/hadley/ggplot2-layers) or the [RStudio cheatsheet](https://www.rstudio.com/wp-content/uploads/2016/11/ggplot2-cheatsheet-2.1.pdf). 
 
 A plot **must have at least one `geom`**; there is no upper limit. You can add a `geom` to a plot using the `+` operator
 
