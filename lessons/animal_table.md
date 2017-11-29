@@ -1,4 +1,4 @@
-**Animal**
+**Animals**
 
 | | Top Speed (km/h) | Color |
 |:----:|:----:|:----:|
