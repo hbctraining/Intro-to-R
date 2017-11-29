@@ -1,6 +1,6 @@
-**Animals**
+**Animal**
 
-| Animal | Top Speed (km/h) | Color |
+| | Top Speed (km/h) | Color |
 |:----:|:----:|:----:|
 | Elephant | 40 | Gray |
 | Cheetah | 120 | Tan |
@@ -9,3 +9,4 @@
 | Lion | 80 | Tan |
 | Polar Bear | 30 | White |
 
+*Source: http://www.speedofanimals.com*
