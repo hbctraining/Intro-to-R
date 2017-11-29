@@ -1,4 +1,5 @@
 **Animals**
+
 |:----:|:----:|:----:|
 | Animal | Top Speed (km/h) | Color |
 | Elephant | 40 | Gray |
