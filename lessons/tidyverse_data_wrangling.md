@@ -14,6 +14,35 @@ The [Tidyverse suite of integrated packages](https://www.tidyverse.org/packages/
 
 All of these packages use the same style of code, which is `snake_case` formatting for all function names and arguments. The [tidy style guide](http://style.tidyverse.org/) is available for perusal.
 
+## Adding files to your working directory
+
+We have four files that we will be working with in the lessons: 
+
+1. A practice metadata file to explore basic plotting with ggplot2
+2. A normalized counts file (gene expression counts normalized for library size)
+3. A metadata file corresponding to the samples in our normalized counts dataset
+4. The differential expression results output from our DE analysis using DESeq2
+
+Download the files to the `data` folder by **right-clicking** the links below:
+
+  - **Experimental metadata file:** right-click [here](https://github.com/hbctraining/Training-modules/raw/master/Visualization_in_R/data/Mov10_meta.txt)
+  - **Normalized counts file:** right-click [here](https://github.com/hbctraining/Training-modules/raw/master/Visualization_in_R/data/normalized_counts.txt)
+ - **Differential expression results:** right-click [here](https://github.com/hbctraining/Training-modules/raw/master/Visualization_in_R/data/Mov10oe_DE_results.csv)
+ 
+Choose to `Save Link As` or `Download Linked File As` and navigate to your `Visualizations-in-R/data` folder. You should now see the files appear in the `data` folder in the RStudio file directory.
+
+### Reading in the data files
+
+Let's read in all of the files we have downloaded:
+
+```r
+mov10_meta <- read.table(file = "data/Mov10_meta.txt")
+
+normalized_counts <- read.table(file = "data/normalized_counts.txt")
+
+res_tableOE <- read.csv(file = "data/Mov10oe_DE_results.csv", row.names = 1)
+```
+
 ## Tidyverse basics
 
 As it is difficult to change how fundamental base R structures/functions work, the Tidyverse suite of packages create and use data structures, functions and operators to make working with data more intuitive. The two most basic changes are in the use of **pipes** and **tibbles**.
