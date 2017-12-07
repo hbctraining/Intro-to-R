@@ -12,7 +12,8 @@ The [Tidyverse suite of integrated packages](https://www.tidyverse.org/packages/
 
 ![](../img/tidyverse_website.png)
 
-All of these packages use the same style of code, which is `snake_case` formatting for all function names and arguments. When using these functions, we recommend that you follow the [tidy style guide](http://style.tidyverse.org/).
+All of these packages use the same style of code, which is `snake_case` formatting for all function names and arguments. The [tidy style guide](http://style.tidyverse.org/) is available for perusal.
+
 ## Tidyverse basics
 
 As it is difficult to change how fundamental base R structures/functions work, the Tidyverse suite of packages create and use data structures, functions and operators to make working with data more intuitive. The two most basic changes are in the use of **pipes** and **tibbles**.
