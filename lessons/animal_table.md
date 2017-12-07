@@ -10,3 +10,5 @@
 | Polar Bear | 30 | White |
 
 *Source: http://www.speedofanimals.com*
+
+> Download [animals.csv](https://raw.githubusercontent.com/hbctraining/Intro-to-R/master/data/animals.csv).
