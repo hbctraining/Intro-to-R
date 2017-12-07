@@ -173,7 +173,7 @@ We have a list of IDs for marker genes of particular interest. We want to extrac
 
 ***
 
-## Reordering data using indexes
+## Reordering data using indices
 Indexing `[ ]` can be used to extract values from a dataset as we saw earlier, but we can also use it to rearrange our data values. 
 
 ```r
@@ -266,7 +266,7 @@ second <- c("B","D","E","A","C")  # same letters but different order
 ```
 ![matching4](../img/match1.png)
 
-***How would you reorder `second` vector to match `first` using indexes?***
+***How would you reorder `second` vector to match `first` using indices?***
 
 If we had large datasets, it would be difficult to reorder them by searching for the indices of the matching elements. This is where the `match` function comes in really handy:
 	
@@ -296,7 +296,7 @@ match(first,second)
 
 >**NOTE:** For values that don't match by default return an `NA` value. You can specify what values you would have it assigned using `nomatch` argument. Also, if there is more than one matching value found only the first is reported.
 
-We can also reorder data using the output of the `match` function. We can reorder the `second` vector using the indexes from the `match` function of where the elements of the `first` vector occur in the `second` vector. First,  we save the match indexes to a variable:
+We can also reorder data using the output of the `match` function. We can reorder the `second` vector using the indices from the `match` function of where the elements of the `first` vector occur in the `second` vector. First,  we save the match indices to a variable:
 
 ```r
 first <- c("A","B","C","D","E")
@@ -313,7 +313,7 @@ reorder_idx
 
 ![matching5](../img/match4-idx.png)
 
-Now, we can just use the indexes to reorder the elements of the `second` vector to be in the same positions as the matching elements in the `first` vector:
+Now, we can just use the indices to reorder the elements of the `second` vector to be in the same positions as the matching elements in the `first` vector:
 
 ```r
 second[reorder_idx]  # Reordering the second vector to match the order of the first vector
@@ -329,7 +329,7 @@ Similar to the previous exercise, perform the reordering of the `blood` data to 
 ***
 
 ### Reordering genomic data using `match` function
-Using the `match` function, we now would like to *match the row names of our metadata to the column names of our expression data*, so these will be the arguments for `match`. Using these two arguments we will retrieve a vector of match indexes. The resulting vector represents the re-ordering of the column names in our data matrix to be identical to the rows in metadata:
+Using the `match` function, we now would like to *match the row names of our metadata to the column names of our expression data*, so these will be the arguments for `match`. Using these two arguments we will retrieve a vector of match indices. The resulting vector represents the re-ordering of the column names in our data matrix to be identical to the rows in metadata:
  
  ```r
 rownames(metadata)

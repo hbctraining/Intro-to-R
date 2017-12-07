@@ -109,7 +109,7 @@ rloc <- which(metadata$genotype == "Wt")
 rnames <- rownames(metadata)
 ```
 
-**Step 3:** Identify the sample names by using the indexes determined in **Step 2**:
+**Step 3:** Identify the sample names by using the indices determined in **Step 2**:
 
 ```r
 wt_samples <- rnames[rloc]

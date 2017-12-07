@@ -12,7 +12,7 @@ Approximate time: 60 min
 
 ### Dataframes
 
-Dataframes (and matrices) have 2 dimensions (rows and columns), so if we want to select some specific data from it we need to specify the "coordinates" we want from it. We use the same square bracket notation but rather than providing a single index, there are *two indexes required*. Within the square bracket, **row numbers come first followed by column numbers (and the two are separated by a comma)**. Let's explore the `metadata` dataframe, shown below are the first six samples:
+Dataframes (and matrices) have 2 dimensions (rows and columns), so if we want to select some specific data from it we need to specify the "coordinates" we want from it. We use the same square bracket notation but rather than providing a single index, there are *two indices required*. Within the square bracket, **row numbers come first followed by column numbers (and the two are separated by a comma)**. Let's explore the `metadata` dataframe, shown below are the first six samples:
 
 ![metadata](../img/metadata.png)
 
@@ -93,7 +93,7 @@ rownames(metadata)
 metadata[c("sample10", "sample12"),]
 ```
 
-#### Selecting using indexes with logical operators
+#### Selecting using indices with logical operators
 
 With dataframes, similar to vectors, we can use logical vectors for specific columns in the dataframe to select only the rows in a dataframe with TRUE values at the same position or index as in the logical vector. We can then use the logical vector to return all of the rows in a dataframe where those values are TRUE.
 
@@ -103,8 +103,8 @@ idx <- metadata$celltype == "typeA"
 metadata[idx, ]
 ```
 
-##### Selecting indexes with logical operators using the `which()` function
-As you might have guessed, we can also use the `which()` function to return the indexes for which the logical expression is TRUE. For example, we can find the indexes where the `celltype` is `typeA` within the `metadata` dataframe:
+##### Selecting indices with logical operators using the `which()` function
+As you might have guessed, we can also use the `which()` function to return the indices for which the logical expression is TRUE. For example, we can find the indices where the `celltype` is `typeA` within the `metadata` dataframe:
 
 ```r
 idx <- which(metadata$celltype == "typeA")
@@ -112,7 +112,7 @@ idx <- which(metadata$celltype == "typeA")
 metadata[idx, ]
 ```
 
-Or we could find the indexes for the metadata replicates 2 and 3:
+Or we could find the indices for the metadata replicates 2 and 3:
 
 ```r
 idx <- which(metadata$replicate > 1)
