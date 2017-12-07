@@ -24,7 +24,6 @@ We have three files that we need to bring in for this lesson:
 
 Download the files to the `data` folder by **right-clicking** the links below:
 
-  - **Experimental metadata file:** right-click [here](https://github.com/hbctraining/Training-modules/raw/master/Visualization_in_R/data/Mov10_meta.txt)
   - **Normalized counts file:** right-click [here](https://github.com/hbctraining/Training-modules/raw/master/Visualization_in_R/data/normalized_counts.txt)
  - **Differential expression results:** right-click [here](https://github.com/hbctraining/Training-modules/raw/master/Visualization_in_R/data/Mov10oe_DE_results.csv)
  
@@ -35,8 +34,6 @@ Choose to `Save Link As` or `Download Linked File As` and navigate to your `Visu
 Let's read in all of the files we have downloaded:
 
 ```r
-mov10_meta <- read.table(file = "data/Mov10_meta.txt")
-
 normalized_counts <- read.table(file = "data/normalized_counts.txt")
 
 res_tableOE <- read.csv(file = "data/Mov10oe_DE_results.csv", row.names = 1)
