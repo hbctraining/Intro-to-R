@@ -16,9 +16,8 @@ All of these packages use the same style of code, which is `snake_case` formatti
 
 ## Adding files to your working directory
 
-We have four files that we will be working with in the lessons: 
+We have three files that we need to bring in for this lesson: 
 
-1. A practice metadata file to explore basic plotting with ggplot2
 2. A normalized counts file (gene expression counts normalized for library size)
 3. A metadata file corresponding to the samples in our normalized counts dataset
 4. The differential expression results output from our DE analysis using DESeq2
@@ -122,7 +121,7 @@ normalized_counts %>%
   rownames_to_column() %>% 
   as_tibble()
 
-# Printing of tibble with print() to change defaults
+# Printing of tibble with print() - change defaults
 normalized_counts %>% 
   rownames_to_column() %>% 
   as_tibble() %>% 
