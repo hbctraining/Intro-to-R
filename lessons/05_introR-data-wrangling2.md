@@ -168,7 +168,7 @@ sample3       Wt    typeA         3
 Alternatively, we could try looking at only the first two replicates of each sample set. Here, we can use the less than operator since replicate is currently a numeric vector. Adding in the argument `select` allows us to specify which columns to keep, with the syntax:
 
 ```r
-subset(dataframe, column_name == "value", select = name_of_column(s)_to_return)
+subset(dataframe, column_name == "value", select = name_of_column_to_return)
 ```
 
 Which columns are left?
