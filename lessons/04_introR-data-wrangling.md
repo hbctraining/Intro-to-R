@@ -315,7 +315,7 @@ expression[expression > "low"]
 ***
 **Exercise**
 
-Use the `samplegroup` vector we created in a previous lesson, and change that to an ordered factor such that KO < CTL < OE. 
+Use the `samplegroup` factor we created in a previous lesson, and change that to an ordered factor such that KO < CTL < OE. 
 
 ---
 
