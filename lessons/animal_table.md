@@ -15,7 +15,7 @@
 
 Questions:
 
-1. Extract "Elephant" using [].
+1. Extract the speed of 40 km/h using [].
 2. Return the rows with `Color` of Tan.
 3. Return the rows with `Top Speed` greater than 50 km/h and output only the `Color` column. Keep the output as a data frame.
 4. Change the color of "Grey" to "Gray". 
