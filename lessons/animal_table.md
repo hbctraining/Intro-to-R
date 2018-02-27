@@ -1,6 +1,6 @@
 **Animals**
 
-| | Top Speed (km/h) | Color |
+| | speed | color |
 |:----:|:----:|:----:|
 | Elephant | 40 | Gray |
 | Cheetah | 120 | Tan |
