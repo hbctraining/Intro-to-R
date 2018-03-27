@@ -1,4 +1,4 @@
-**Animals**
+**animals**
 
 | | speed | color |
 |:----:|:----:|:----:|
