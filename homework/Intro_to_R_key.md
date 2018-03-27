@@ -1,6 +1,4 @@
-# Homework answer key
-
-# Introduction to R practice
+# Homework answer key - Introduction to R practice
 
 ## Creating vectors/factors and dataframes
 
