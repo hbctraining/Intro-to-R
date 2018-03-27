@@ -18,7 +18,9 @@ Questions:
 1. Extract the `speed` of 40 km/h using `[]`.
 2. Return the rows with `color` of Tan using `[]`.
 3. Return the rows with `speed` greater than 50 km/h and output only the `color` column. Keep the output as a data frame.
+  
   a. Using `[]`
   b. Using `subset()`
+  
 4. Change the color of "Grey" to "Gray". 
 5. Turn `color` to a factor.
