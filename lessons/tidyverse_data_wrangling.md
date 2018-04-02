@@ -327,26 +327,26 @@ Dplyr has a powerful group of join operations, which join together a pair of dat
 
 To practice with the join functions, we can use a couple of built-in R datasets.
 
-	```r
-	# Bring in datasets
-	data(band_instruments2)
-	head(band_instruments2)
+```r
+# Bring in datasets
+data(band_instruments2)
+head(band_instruments2)
 
-	data(band_members)
-	head(band_members)
+data(band_members)
+head(band_members)
 
-	# Inner join
-	inner_join(band_instruments2, band_members, artist = name)
+# Inner join
+inner_join(band_instruments2, band_members, artist = name)
 
-	# Left join
-	left_join(band_instruments2, band_members, artist = name)
+# Left join
+left_join(band_instruments2, band_members, artist = name)
 
-	# Right join
-	right_join(band_instruments2, band_members, artist = name)
+# Right join
+right_join(band_instruments2, band_members, artist = name)
 
-	# Full join
-	full_join(band_instruments2, band_members, artist = name)
-	```
+# Full join
+full_join(band_instruments2, band_members, artist = name)
+```
 
 ## Tidyr
 
