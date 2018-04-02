@@ -18,7 +18,7 @@ Approximate time: 60 minutes
 Let's take a closer look at our counts data. Each column represents a sample in our experiment, and each sample has ~38K values corresponding to the expression of different transcripts. Suppose we wanted to compute the average value of expression for a sample (across all transcripts), the R base package provides many built-in functions such as `mean`, `median`, `min`, `max`, and `range`, just to name a few. Try computing the mean for "sample1" (_Hint: apply what you have learned previously using indices_)  
 
 ```r
-mean(rpkm_ordered[,'sample1'])
+mean(rpkm_ordered[,"sample1"])
 ```
 
 > ### Missing values
