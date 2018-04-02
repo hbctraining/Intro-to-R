@@ -286,7 +286,7 @@ Let's derive some nested functions similar to those we will use in our RNA-Seq a
    which(row.names(meta) == "KD.2")
    ```
    
-   - Using the `which()` function, write the R code you would use to determine the location of row names `KD.2`, `OE.2`, and `IR.2` in the `meta` dataset (use the OR operator ( | ) to return multiple locations):
+   - Using the `which()` function, write the R code you would use to determine the location of row names `KD.2`, `OE.2`, and `IR.2` in the `meta` dataset (use the OR operator ( "\|" ) to return multiple locations):
     
    ```r
    which(row.names(meta) == "KD.2" | row.names(meta) == "OE.2" | row.names(meta) == "IR.2")
