@@ -325,28 +325,57 @@ Dplyr has a powerful group of join operations, which join together a pair of dat
 
 - `full_join`: Keeps all rows in both datasets. Rows without matching keys will have NA values for those variables from the other dataset.
 
-To practice with the join functions, we can use a couple of built-in R datasets.
+To practice with the join functions, we can create the data detailed below.
+
+- **Description:** For a research project, we asked healthy volunteers and cancer patients questions about their diet and exercise. We also collected blood work for each individual, and each person was given a unique ID. Create the following dataframes, behavior and blood by copy/pasting the code below:
+
+- **Data:**
 
 	```r
-	# Bring in datasets
-	data(band_instruments2)
-	head(band_instruments2)
-
-	data(band_members)
-	head(band_members)
-
-	# Inner join
-	inner_join(band_instruments2, band_members, artist = name)
-
-	# Left join
-	left_join(band_instruments2, band_members, artist = name)
-
-	# Right join
-	right_join(band_instruments2, band_members, artist = name)
-
-	# Full join
-	full_join(band_instruments2, band_members, artist = name)
+	# Creating behavior dataframe
+		
+	ID <- c(546, 983, 042, 952, 853, 061)
+	diet <- c("veg", "pes", "omni", "omni", "omni", "omni")
+	exercise <- c("high", "low", "low", "low", "med", "high")
+	behavior <- data.frame(ID, diet, exercise)
+		
+	# Creating blood dataframe
+		
+	ID <- c(983, 952, 704, 555, 853, 061, 042, 237, 145, 581, 249, 467, 841, 546)
+	blood_levels <- c(43543, 465, 4634, 94568, 134, 347, 2345, 5439, 850, 6840, 5483, 66452, 54371, 1347)
+	blood <- data.frame(ID, blood_levels)
 	```
+
+Not all individuals with blood samples have associated behavioral information. Using the `_join` family of functions, there are many different options available for joining the two data frames.
+
+
+To join only the IDs present in both data frames, we could use the `inner_join()` function:
+
+```r
+# Inner join
+inner_join(blood, behavior, ID = ID)
+```
+
+Alternatively, if we wanted to return all blood IDs, but merge the behavior IDs that are present, we could use the `left_join()` function:
+
+```r
+# Left join
+left_join(blood, behavior, ID = ID)
+```
+
+We could also do the same thing but return all behavior IDs and matching blood IDs using `right_join()`:
+
+```r
+# Right join
+right_join(blood, behavior, ID = ID)
+```
+
+Finally, we could return all IDs from both data frames:
+
+```r
+# Full join
+full_join(blood, behavior, ID = ID)
+```
 
 ## Tidyr
 
