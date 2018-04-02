@@ -152,7 +152,7 @@ The most useful tool in the [tidyverse](http://tidyverse.org/) is [dplyr](http:/
 -   `pull()` extracts a single column as a vector.
 -   `_join()` group of functions that merge two data frames together, includes (`inner_join()`, `left_join()`, `right_join()`, and `full_join()`).
 
-**Note:** [dplyr](http://dplyr.tidyverse.org/) underwent a massive revision this year, switching versions from 0.5 to 0.7. If you consult other [dplyr](http://dplyr.tidyverse.org/) tutorials online, note that many materials developed prior to 2017 are no longer correct. In particular, this applies to writing functions with [dplyr](http://dplyr.tidyverse.org/) (see Notes section below).
+**Note:** [dplyr](http://dplyr.tidyverse.org/) underwent a massive revision in 2017, switching versions from 0.5 to 0.7. If you consult other [dplyr](http://dplyr.tidyverse.org/) tutorials online, note that many materials developed prior to 2017 are no longer correct. In particular, this applies to writing functions with [dplyr](http://dplyr.tidyverse.org/) (see Notes section below).
 
 
 `select()`
@@ -190,7 +190,7 @@ res_tableOE %>%
 `arrange()`
 -----------
 
-Note that the rows are sorted by the gene symbol. Let's fix that and sort them by adjusted P value instead with `arrange()`.
+Note that the rows are sorted by the gene symbol. Let's sort them by adjusted P value instead with `arrange()`.
 
 ``` r
 sub_res <- arrange(sub_res, padj)
@@ -317,7 +317,7 @@ Dplyr has a powerful group of join operations, which join together a pair of dat
 
 To practice with the join functions, we can create the data detailed below.
 
-- **Description:** For a research project, we asked healthy volunteers and cancer patients questions about their diet and exercise. We also collected blood work for each individual, and each person was given a unique ID. Create the following dataframes, behavior and blood by copy/pasting the code below:
+- **Description:** For a research project, we asked healthy volunteers and cancer patients questions about their diet and exercise. We also collected blood work for each individual, and each person was given a unique ID. Create the data frames `behavior` and `blood` by copy/pasting the code below:
 
 - **Data:**
 
@@ -336,7 +336,7 @@ blood_levels <- c(43543, 465, 4634, 94568, 134, 347, 2345, 5439, 850, 6840, 5483
 blood <- data.frame(ID, blood_levels)
 ```
 
-Not all individuals with blood samples have associated behavioral information. Using the `_join` family of functions, there are many different options available for joining the two data frames.
+Not all individuals with blood samples have associated behavioral information. Using the `_join` family of functions, let's practice the different options for joining the two data frames.
 
 
 To join only the IDs present in both data frames, we could use the `inner_join()` function:
@@ -346,7 +346,7 @@ To join only the IDs present in both data frames, we could use the `inner_join()
 inner_join(blood, behavior, ID = ID)
 ```
 
-Alternatively, if we wanted to return all blood IDs, but merge the behavior IDs that are present, we could use the `left_join()` function:
+Alternatively, if we wanted to return all blood IDs, but include only the behavior IDs that match, we could use the `left_join()` function:
 
 ```r
 # Left join
@@ -360,7 +360,7 @@ We could also do the same thing but return all behavior IDs and matching blood I
 right_join(blood, behavior, ID = ID)
 ```
 
-Finally, we could return all IDs from both data frames:
+Finally, we could return all IDs from both data frames regardless whether there is a matching key (ID):
 
 ```r
 # Full join
@@ -409,6 +409,87 @@ gathered %>%
 <img src="../img/gather_spread_tidyr.png" width="800">
 
 -----------------
+
+## Stringr
+
+Stringr is a powerful tool for working with sequences of characters, or **strings**. Often to efficiently work with strings, regular expressions (regexps) are used, which describe patterns within strings. When using regular expressions there are special characters that are useful to know, and details regarding these are available in the [R for Data Science book](r4ds.had.co.nz/strings.html) and [these materials](http://www2.stat.duke.edu/~cr173/Sta523_Fa16/regex.html), but we have listed some frequently used characters below:
+
+- **`"."`:** matches every character (if wanting to match a literal `.`, then need to escape it using `\\.`)
+- **`"^characters"`:** matches start of string
+- **`"characters$"`:** matches end of string
+- **`"[characters]"`:** matches any of characters inside the []
+- **`"[^characters]"`:** matches any of characters NOT inside the []
+- **`"[A-z0-9]"`:** matches any letter or number
+- **`"*"`:** matches zero or more times
+
+There are a plethora of functions available in stringr that are helpful for finding and matching patterns in strings. We will cover a handful of these functions that we find to be most useful:
+
+`str_c`
+--------
+
+The `str_c()` function concatenates values together with a designated separator. There is also a `collapse` argument for whether to collapse multiple objects to a single string.
+
+```r
+metadata <- metadata %>%
+  mutate(sample = str_c(genotype, celltype, replicate, sep = "_"))
+```
+
+`str_sub`
+--------
+
+For extracting characters from a string, the `str_sub()` function can be used to denote which positions in the string to extract:
+
+```r
+metadata %>% 
+  pull(sample) %>% 
+  str_sub(start = 1, end = 8)
+```
+
+
+`str_detect`
+--------
+
+The `str_detect()` function identifies whether a pattern exists in each of the elements in a vector. The function returns a logical value for whether element matches pattern for each element in vector.
+
+```r
+idx <- str_detect(metadata$sample, "typeA_1")
+metadata[idx, ]
+```
+
+`str_subset`
+--------
+
+To only return those values that match a pattern, the `str_subset()` function will extract only those values:
+
+metadata %>% 
+  pull(sample) %>% 
+  str_subset("typeA_1")
+
+# Changes case of the elements
+
+metadata %>%
+  pull(genotype) %>%
+  str_to_upper()
+
+metadata %>%
+  pull(genotype) %>%
+  str_to_lower()
+
+metadata %>%
+  pull(genotype) %>%
+  str_to_title()
+
+# Replace a string with another string 
+
+metadata %>%
+  pull(celltype) %>%
+  str_replace("typeA", "typeP")
+
+# By default will only replace first encountered instance in each line
+
+metadata %>% 
+  pull(sample) %>% 
+  str_split("_")
 
 
 Programming notes
