@@ -158,6 +158,6 @@ Let's derive some nested functions similar to those we will use in our RNA-Seq a
 
    - Using the `which()` function, write the R code you would run to determine the location of the row name `KD.2` in the `meta` dataset: 
 
-   - Using the `which()` function, write the R code you would use to determine the location of row names `KD.2`, `OE.2`, and `IR.2` in the `meta` dataset (use the OR operator ("|") to return multiple locations):
+   - Using the `which()` function, write the R code you would use to determine the location of row names `KD.2`, `OE.2`, and `IR.2` in the `meta` dataset (use the OR operator ("\|") to return multiple locations):
  
    - Now, extract the rows from the `meta` dataset with row names `KD.2`, `OE.2`, and `IR.2` using a single line of code using nested functions: 
