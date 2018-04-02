@@ -111,15 +111,15 @@ A nice feature of a tibble is that when printing a variable to screen, it will s
 
 ```r
 # Default printing of data.frame
-normalized_counts
+rpkm_data
 
 # Default printing of tibble
-normalized_counts %>% 
+rpkm_data %>% 
   rownames_to_column() %>% 
   as_tibble()
 
 # Printing of tibble with print() - change defaults
-normalized_counts %>% 
+rpkm_data %>% 
   rownames_to_column() %>% 
   as_tibble() %>% 
   print(n = 20, width = Inf)
@@ -135,14 +135,16 @@ Also note that if you use piping to subset a data frame, then the notation is sl
 
 ```r
 ## Normal subsetting
-mov10_meta$sampletype
 
-mov10_meta[ , "sampletype"]
+metadata$genotype
+## OR
+metadata[ , "genotype"]
 
 ## Subsetting the output from a pipe
-mov10_meta %>% .$sampletype
 
-mov10_meta %>% .[ , "sampletype"]
+metadata %>% .$genotype
+## OR
+metadata %>% .[ , "genotype"]
 ```
 
 ## Tidyverse tools
@@ -331,20 +333,20 @@ To practice with the join functions, we can create the data detailed below.
 
 - **Data:**
 
-	```r
-	# Creating behavior dataframe
-		
-	ID <- c(546, 983, 042, 952, 853, 061)
-	diet <- c("veg", "pes", "omni", "omni", "omni", "omni")
-	exercise <- c("high", "low", "low", "low", "med", "high")
-	behavior <- data.frame(ID, diet, exercise)
-		
-	# Creating blood dataframe
-		
-	ID <- c(983, 952, 704, 555, 853, 061, 042, 237, 145, 581, 249, 467, 841, 546)
-	blood_levels <- c(43543, 465, 4634, 94568, 134, 347, 2345, 5439, 850, 6840, 5483, 66452, 54371, 1347)
-	blood <- data.frame(ID, blood_levels)
-	```
+```r
+# Creating behavior dataframe
+	
+ID <- c(546, 983, 042, 952, 853, 061)
+diet <- c("veg", "pes", "omni", "omni", "omni", "omni")
+exercise <- c("high", "low", "low", "low", "med", "high")
+behavior <- data.frame(ID, diet, exercise)
+	
+# Creating blood dataframe
+	
+ID <- c(983, 952, 704, 555, 853, 061, 042, 237, 145, 581, 249, 467, 841, 546)
+blood_levels <- c(43543, 465, 4634, 94568, 134, 347, 2345, 5439, 850, 6840, 5483, 66452, 54371, 1347)
+blood <- data.frame(ID, blood_levels)
+```
 
 Not all individuals with blood samples have associated behavioral information. Using the `_join` family of functions, there are many different options available for joining the two data frames.
 
@@ -395,10 +397,14 @@ The `gather()` function changes a wide data format into a long data format. This
 To use this function, you need to give the columns in the data frame you would like to gather together as a single column. Then, provide a name to give the column where all of the column names will be present using the `key` argument, and the name to give the column where all of the values will be present using the `value` argument.
 
 ```r
-gathered <- normalized_counts %>%
-        	  gather(colnames(normalized_counts)[2:9],
-               	  key =  "samplename",
-               	  value = "normalized_counts")
+rpkm_data_tb <- rpkm_data %>% 
+  rownames_to_column() %>% 
+  as_tibble()
+
+gathered <- rpkm_data_tb %>%
+  gather(colnames(rpkm_data_tb)[2:13],
+         key =  "samplename",
+         value = "rpkm")
 ```               
         
 
@@ -409,8 +415,8 @@ The `spread()` function is the reverse of the `gather()` function. The categorie
 
 ```r
 gathered %>% 
-        spread(key = samplename, 
-               value = normalized_counts)
+  spread(key = "samplename", 
+         value = "rpkm")
 ```               
 
 -----------------
