@@ -225,7 +225,7 @@ If you are looking for a function to do a particular task, you can use `help.sea
 help.search("scatter")
 ```
 
-If you can't find what you are looking for, you can use the [rdocumention.org](http://www.rdocumentation.org) website that search through the help files across all packages available.
+If you can't find what you are looking for, you can use the [rdocumention.org](https://www.rdocumentation.org/) website that search through the help files across all packages available.
 
 ### Cryptic error messages
 
