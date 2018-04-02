@@ -18,7 +18,7 @@ Approximate time: 60 minutes
 Let's take a closer look at our counts data. Each column represents a sample in our experiment, and each sample has ~38K values corresponding to the expression of different transcripts. Suppose we wanted to compute the average value of expression for a sample (across all transcripts), the R base package provides many built-in functions such as `mean`, `median`, `min`, `max`, and `range`, just to name a few. Try computing the mean for "sample1" (_Hint: apply what you have learned previously using indices_)  
 
 ```r
-mean(rpkm_data[,'sample1'])
+mean(rpkm_ordered[,'sample1'])
 ```
 
 > ### Missing values
@@ -79,7 +79,7 @@ When we are working with large sets of numbers it can be useful to display that 
 
 More recently, R users have moved away from base graphic options towards `ggplot2` since it offers a lot more functionality as compared to the base R plotting functions. The `ggplot2` syntax takes some getting used to, but once you get it, you will find it's extremely powerful and flexible. We will start with drawing a simple x-y scatterplot of `samplemeans` versus `age_in_days` from the `new_metadata` data frame. `ggplot2` assumes that the input is a  data frame.
 
-Let's start by loading the `ggplot2` library.
+Let's start by loading the `ggplot2` library, you downloaded and installed this library as part of the `tidyverse` package.
 
 ```r
 library(ggplot2)
@@ -92,6 +92,7 @@ Let's start:
 ```r
 ggplot(new_metadata) # what happens? 
 ```
+
 You get an blank plot, because you need to **specify layers** using the `+` operator.
 
 One type of layer is **geometric objects**. These are the actual marks we put on a plot. Examples include:
