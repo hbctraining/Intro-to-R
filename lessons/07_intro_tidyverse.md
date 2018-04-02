@@ -1,7 +1,7 @@
 ---
 title: "Tidyverse data wrangling"
 author: "Michael Steinbaugh, Mary Piper"
-date: "Tuesday, March 27th, 2018"
+date: "Monday, April 2nd, 2018"
 ---
 
 Approximate time: 75 minutes
@@ -12,31 +12,20 @@ The [Tidyverse suite of integrated packages](https://www.tidyverse.org/packages/
 
 ![](../img/tidyverse_website.png)
 
-All of these packages use the same style of code, which is `snake_case` formatting for all function names and arguments. The [tidy style guide](http://style.tidyverse.org/) is available for perusal.
+All of these packages use the same style of code, which is `snake_case` formatting for all function names and arguments. You can peruse the [tidy style guide](http://style.tidyverse.org/) for additional information.
 
 ## Adding files to your working directory
 
-We have three files that we need to bring in for this lesson: 
-
-2. A normalized counts file (gene expression counts normalized for library size)
-3. A metadata file corresponding to the samples in our normalized counts dataset
-4. The differential expression results output from our DE analysis using DESeq2
-
-Download the files to the `data` folder by **right-clicking** the links below:
-
-  - **Normalized counts file:** right-click [here](https://github.com/hbctraining/Training-modules/raw/master/Visualization_in_R/data/normalized_counts.txt)
- - **Differential expression results:** right-click [here](https://github.com/hbctraining/Training-modules/raw/master/Visualization_in_R/data/Mov10oe_DE_results.csv)
- 
-Choose to `Save Link As` or `Download Linked File As` and navigate to your `Visualizations-in-R/data` folder. You should now see the files appear in the `data` folder in the RStudio file directory.
+We will be bringing in a new file with results from a differential expression analysis, to work with in this lesson. Please right-click [here](https://github.com/hbctraining/Training-modules/raw/master/Visualization_in_R/data/Mov10oe_DE_results.csv) to download it to your `data` folder as we did before (choose to `Save Link As` or `Download Linked File As`). You should see it in `data` folder in the RStudio "Files" tab.
 
 ### Reading in the data files
 
-Let's read in all of the files we have downloaded:
+Let's read in this new file we just downloaded and load the `tidyverse` library:
 
 ```r
-normalized_counts <- read.table(file = "data/normalized_counts.txt")
-
 res_tableOE <- read.csv(file = "data/Mov10oe_DE_results.csv", row.names = 1)
+
+library(tidyverse)
 ```
 
 ## Tidyverse basics
@@ -47,14 +36,13 @@ As it is difficult to change how fundamental base R structures/functions work, t
 
 Stringing together commands in R can be quite daunting. Also, trying to understand code that has many nested functions can be confusing. 
 
-To make R code more human readable, the Tidyverse tools use the pipe, `%>%`, which was acquired from the 'magrittr' package and comes installed automatically with Tidyverse. **The pipe allows the output of a previous command to be used as input to another command instead of using nested functions.**
+To make R code more human readable, the Tidyverse tools use the pipe, `%>%`, which was acquired from the `magrittr` package and is now part of the `dplyr` package that is installed automatically with Tidyverse. **The pipe allows the output of a previous command to be used as input to another command instead of using nested functions.**
 
 >**NOTE:** Shortcut to write the pipe is <kbd>shift</kbd> + <kbd>command</kbd> + <kbd>M</kbd>
 
 An example of using the pipe to run multiple commands:
 
 ```r
-
 ## A single command
 sqrt(83)
 
@@ -407,7 +395,6 @@ gathered <- rpkm_data_tb %>%
          value = "rpkm")
 ```               
         
-
 `spread()`
 --------
 
@@ -418,6 +405,8 @@ gathered %>%
   spread(key = "samplename", 
          value = "rpkm")
 ```               
+
+<img src="../img/gather_spread_tidyr.png" width="800">
 
 -----------------
 
