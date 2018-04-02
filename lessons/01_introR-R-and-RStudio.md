@@ -3,7 +3,7 @@ title: Introduction to R and RStudio
 authors: Mary Piper, Meeta Mistry
 date: "Friday, September 8, 2017"
 ---
-Approximate time: 30 minutes
+Approximate time: 45 minutes
 
 ## Learning Objectives
 
@@ -27,7 +27,6 @@ The R environment combines:
 ## Why use R?
 
 <img src="../img/why_R.png" width="600">
-
 
 
 R is a powerful, extensible environment. It has a wide range of statistics and general data analysis and visualization capabilities.
