@@ -61,13 +61,13 @@ Now if we wanted to take the median value for each of the components using the `
 list_purrr %>% map(median)
 ```
 
-This will return a list. However, if we wanted the output to be returned as a numeric vector, we could use the `map_dbl()` function:
+This will return a **list**. However, if we wanted the output to be returned as a **numeric vector**, we could use the `map_dbl()` function:
 
 ```r
 list_purrr %>% map_dbl(median)
 ```
 
-Or we could return a character vector:
+Or we could return a **character vector**:
 
 ```r
 list_purrr %>% map_chr(median)
