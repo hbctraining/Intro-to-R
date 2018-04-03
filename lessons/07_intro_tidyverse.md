@@ -412,7 +412,17 @@ gathered %>%
 
 ## Stringr
 
-Stringr is a powerful tool for working with sequences of characters, or **strings**. Often to efficiently work with strings, regular expressions (regexps) are used, which describe patterns within strings. When using regular expressions there are special characters that are useful to know, and details regarding these are available in the [R for Data Science book](r4ds.had.co.nz/strings.html) and [these materials from Duke](http://www2.stat.duke.edu/~cr173/Sta523_Fa16/regex.html), but we have listed some frequently used characters below:
+Stringr is a powerful tool for working with sequences of characters, or **strings**. Often to efficiently work with strings, regular expressions (regexps) are used, which describe patterns within strings. While there are a plethora of functions in stringr that are useful for working with strings, we will only cover a handful of these we find to be most useful: 
+
+-   `str_c()` concatenates strings together
+-   `str_sub()` extracts characters from a string at specific locations
+-   `str_replace()` replaces a string with another string 
+-   `str_split()` splits string by specifying a separator
+-   `str_to_()` group of functions that change the case of the strings, includes (`str_to_upper()`, `str_to_lower()`, and `str_to_title()`)
+-   `str_detect()` identifies whether a pattern exists in each of the elements in a vector
+-   `str_subset()` returns only those elements that match a pattern
+
+When using regular expressions there are special characters that are useful to know, and details regarding these are available in the [R for Data Science book](r4ds.had.co.nz/strings.html) and [these materials from Duke](http://www2.stat.duke.edu/~cr173/Sta523_Fa16/regex.html), but we have listed some frequently used characters below:
 
 - **`"."`:** matches every character (if wanting to match a literal `.`, then need to escape it using `\\.`)
 - **`"^characters"`:** matches start of string
@@ -453,6 +463,8 @@ The `str_detect()` function identifies whether a pattern exists in each of the e
 
 ```r
 idx <- str_detect(metadata$sample, "typeA_1")
+
+# Allows for subsetting dataframes using the logical operators
 metadata[idx, ]
 ```
 
