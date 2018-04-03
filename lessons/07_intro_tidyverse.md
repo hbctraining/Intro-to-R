@@ -514,10 +514,11 @@ metadata[idx, ]
 
 To only return those values that match a pattern, the `str_subset()` function will extract only those values:
 
+```r
 metadata %>% 
   pull(sample) %>% 
   str_subset("typeA_1")
-
+```
 
 Programming notes
 -----------
