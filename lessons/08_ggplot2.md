@@ -238,9 +238,9 @@ ggplot(new_metadata) +
 
 ***
 
-### Using custom functions with plots
+### Consistent formatting using custom functions
 
-When we are creating multiple plots for publication purposes, it is helpful to ensure all plots have a similar formating. We can do this by creating a custom function with our preferences for the theme. Remember that the structure of a function is:
+When publishing, it is helpful to ensure all plots have similar formatting. To do thism we can create a custom function with our preferences for the theme. Remember the structure of a function is:
 
 ```r
 name_of_function <- function(arguments) {
@@ -248,7 +248,7 @@ name_of_function <- function(arguments) {
 }
 ```
 
-Let's suppose we always wanted our theme to include the following:
+Now, let's suppose we always wanted our theme to include the following:
 
 ```r
 theme_bw() +
@@ -268,12 +268,12 @@ personal_theme <- function(){
 }
 ```
 
-Now to run our personal theme with any plot, we could do:
+Now to run our personal theme with any plot, we can use this function in place of the `theme()` code:
 
 ```r
 ggplot(new_metadata) +
   geom_point(aes(x=age_in_days, y=samplemeans, color=genotype, shape=celltype), size=rel(3.0)) +
-  **personal_theme() +**
+  personal_theme() +
   xlab("Age (days)") +
   ylab("Mean expression") +
   ggtitle("Expression with Age")
