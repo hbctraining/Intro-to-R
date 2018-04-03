@@ -30,7 +30,7 @@ These materials are intended to provide both basic R programming knowledge and i
 |[Data wrangling: subsetting vectors and factors](lessons/04_introR-data-wrangling.md) | 65 min |
 |[Data wrangling: subsetting data frames, matrices and lists)](lessons/05_introR-data-wrangling2.md) | 75 min |
 |[Matching and reordering](lessons/06_advR-matching.md) | 90 min |
-|[Data visualization with ggplot2](lessons/07_ggplot2.md) | 60 min |
+|[Data visualization with ggplot2](lessons/08_ggplot2.md) | 60 min |
 
 
 ### Extra Contents
