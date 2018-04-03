@@ -156,50 +156,77 @@ Write out the R code you would use to perform the following operations (question
 
      - Read in the count matrix file using: `data <- read.delim("normalized_counts.txt", sep="\t", row.names=1)`
 
-     - Create a vector called `expression` that contains the normalized count values from the row in normalized_counts that corresponds to the MOV10 gene.  
+     - Create a vector called `expression` that contains the normalized count values from the row in `data` that corresponds to the `MOV10` gene.  
+    
+     ```r
+     expression <- data["MOV10", ]
+     ```     
 
-     - Check the class of this expression vector. You will need to convert this to a numeric vector using `as.numeric(expression)`
+     - Check the class of this expression vector. `data.frame`
+     
+     Then, will need to convert this to a numeric vector using `as.numeric(expression)`
       
      ```r
- 
+     class(expression)
+     
+     expression <- as.numeric(expression)
+     
+     class(expression)
+     
      ```
      
      - Bind that vector to your metadata data frame (`meta`) and call the new data frame `df`. 
       
      ```r
- 
+     df <- cbind(meta, expression) #or
+     
+     df <- data.frame(meta, expression)
      ```
      
      - Create a ggplot by constructing the plot line by line:
      
           - Initialize a  ggplot with your `df` as input.
 
-          - Add the `geom_jitter()` geometric object with the required aesthetics which are x and y.
+          - Add the `geom_jitter()` geometric object with the required aesthetics where x = rownames(df) and y reflects the MOV10 expression values.
 
           - Color the points based on `sampletype`
 
           - Add the `theme_bw()` layer 
 
-          - Add the title “Expression of MOV10” to the plot
+          - Add the title "Expression of MOV10" to the plot
 
           - Change the x-axis label to be blank
 
-          - Change the y-axis label to “Normalized counts”
+          - Change the y-axis label to "Normalized counts"
 
           - Using `theme()` change the following properties of the plot:
 
                - Remove the legend (Hint: use ?theme help and scroll down to legend.position)
 
-               - Change the plot title size to 1.5x the default
+               - Change the plot title size to 1.5x the default and center align
 
                - Change the axis title to 1.5x the default size
 
                - Change the size of the axis text only on the y-axis to 1.25x the default size
-            
+               
+               - Rotate the x-axis text to 45 degrees using `axis.text.x=element_text(angle=45, hjust=1)`
+           
           ```r
- 
+          ggplot(df) +
+            geom_jitter(aes(x= rownames(df), y= expression, color = sampletype)) +
+            theme_bw() +
+            ggtitle("Expression of MOV10") +
+            xlab(NULL) +
+            ylab("Normalized counts") +
+            theme(legend.position = "none",
+                  plot.title=element_text(hjust=0.5, size=rel(1.5)),
+                  axis.text=element_text(size=rel(1.25)),
+                  axis.title=element_text(size=rel(1.5)),
+                  axis.text.x=element_text(angle=45, hjust=1))
           ```
-     
+
+     ![plot_image](plotcounts.png) 
+  
 ## Practice with nested functions (optional)
 
 Let's derive some nested functions similar to those we will use in our RNA-Seq analysis. The following dataframes, `value_table` and `meta`, should be used to address the questions below (you do not actually need to create these dataframes):
