@@ -13,24 +13,11 @@ Approximate time: 60 minutes
 * Export plots for use outside of the R environment.
 
 
-## Calculating simple statistics
+## The `map` family Functions
 
-Let's take a closer look at our counts data. Each column represents a sample in our experiment, and each sample has ~38K values corresponding to the expression of different transcripts. Suppose we wanted to compute the average value of expression for a sample (across all transcripts), the R base package provides many built-in functions such as `mean`, `median`, `min`, `max`, and `range`, just to name a few. Try computing the mean for "sample1" (_Hint: apply what you have learned previously using indices_)  
+Programming languages typically have a way to allow the execution of a single line of code or several lines of code multiple times, or in a "loop". While "loops" are possible in R, there are functions that more directly achieve this purpose, such as the `apply()` family of functions and the `map()` family of functions. The `map()` family is a bit more intuitive to use than `apply()`, so we will explore this family in more detail. However, we have [similar materials available](https://hbctraining.github.io/Intro-to-R/lessons/apply_functions.html) using the `apply()` function if you would like to explore more on your own.
 
-```r
-mean(rpkm_ordered[,"sample1"])
-```
-
-> ### Missing values
-> By default, all **R functions operating on vectors that contains missing data will return NA**. It's a way to make sure that users know they have missing data, and make a conscious decision on how to deal with it. When dealing with simple statistics like the mean, the easiest way to ignore `NA` (the missing data) is to use `na.rm=TRUE` (`rm` stands for remove). 
-> In some cases, it might be useful to remove the missing data from the vector. For this purpose, R comes with the function `na.omit` to generate a vector that has NA's removed. For some applications, it's useful to keep all observations, for others, it might be best to remove all observations that contain missing data. The function
-`complete.cases()` returns a logical vector indicating which rows have no missing values. 
-
-## The `map` Functions
-
-To obtain mean values for all samples we can use `mean` on each column individually, but there is also an easier way to go about it. Programming languages typically have a way to allow the execution of a single line of code or several lines of code multiple times, or in a "loop". While "loops" are possible in R, there are functions that more directly achieve this purpose, such as the `apply()` family of functions and the `map()` family of functions. The `map()` family is a bit more intuitive to use than `apply()`, so we will explore this family in more detail. However, we have [similar materials available](https://hbctraining.github.io/Intro-to-R/lessons/apply_functions.html) using the `apply()` function if you would like to explore more on your own.
-
-The `map()` family of functions is available from the **purrr** package, which is part of the tidyverse suite of packages. More detailed information is available in the [R for Data Science](http://r4ds.had.co.nz/iteration.html#the-map-functions) book. This family includes several functions, each taking a vector as input and outputting a vector of a specified type. For example, we can use these functions to execute some task/function on every element in a vector, or every column in a dataframe, or every component of a list, and so on. 
+The `map()` family of functions is available from the **`purrr`** package, which is part of the tidyverse suite of packages. More detailed information is available in the [R for Data Science](http://r4ds.had.co.nz/iteration.html#the-map-functions) book. This family includes several functions, each taking a vector as input and outputting a vector of a specified type. For example, we can use these functions to execute some task/function on every element in a vector, or every column in a dataframe, or every component of a list, and so on. 
 
 - `map()` creates a list.
 - `map_lgl()` creates a logical vector.
@@ -79,7 +66,20 @@ This flexibility of the `map()` family of functions can be really useful.
 
 ### Wrangling our data with `map_dbl()`
 
-Now, we want to determine the mean normalized count values for each column in the data frame. We would like this to return a vector of numeric values, so we will use the `map_dbl()` function.
+#### Calculating simple statistics
+
+Let's take a closer look at our counts data. Each column represents a sample in our experiment, and each sample has ~38K values corresponding to the expression of different transcripts. Suppose we wanted to compute **the average value of expression for Sample 1 (across all transcripts)**, the R base package provides a built-in function called 'mean()`:
+
+```r
+mean(rpkm_ordered[,"sample1"])
+```
+
+> **Missing values**
+> 
+> By default, all **R functions operating on vectors that contains missing data will return NA**. It's a way to make sure that users know they have missing data, and make a conscious decision on how to deal with it. When dealing with simple statistics like the mean, the easiest way to ignore `NA` (the missing data) is to use `na.rm=TRUE` (`rm` stands for remove). 
+> In some cases, it might be useful to remove the missing data from the vector. For this purpose, R comes with the function `na.omit` to generate a vector that has NA's removed. For some applications, it's useful to keep all observations, for others, it might be best to remove all observations that contain missing data. The function `complete.cases()` returns a logical vector indicating which rows have no missing values. 
+
+To obtain **mean values for all samples** we can use `mean()` on each column individually, but there is also an easier way to go about it. Instead, we will use the `map_dbl()` function. 
 
 ```r
 samplemeans <- rpkm_ordered %>% map_dbl(mean) 
