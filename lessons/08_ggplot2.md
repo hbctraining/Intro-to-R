@@ -30,12 +30,12 @@ mean(rpkm_ordered[,"sample1"])
 
 To obtain mean values for all samples we can use `mean` on each column individually, but there is also an easier way to go about it. Programming languages typically have a way to allow the execution of a single line of code or several lines of code multiple times, or in a "loop". While "loops" are possible in R, there are functions that more directly achieve this purpose, such as the `apply()` family of functions and the `map()` family of functions. The `map()` family is a bit more intuitive to use than `apply()`, so we will explore this family in more detail. However, we have [similar materials available](https://hbctraining.github.io/Intro-to-R/lessons/apply_functions.html) using the `apply()` function if you would like to explore more on your own.
 
-The `map()` family of functions is available from the **purrr** package, which is part of the tidyverse suite of packages. More detailed information is available in the [R for Data Science](http://r4ds.had.co.nz/iteration.html#the-map-functions) book. This family includes several functions, each taking a vector as input and outputting a vector of a specified type. For example, we can use these functions to execute some task on every element in a vector, every column in a dataframe, every component of a list, and so on. 
+The `map()` family of functions is available from the **purrr** package, which is part of the tidyverse suite of packages. More detailed information is available in the [R for Data Science](http://r4ds.had.co.nz/iteration.html#the-map-functions) book. This family includes several functions, each taking a vector as input and outputting a vector of a specified type. For example, we can use these functions to execute some task/function on every element in a vector, or every column in a dataframe, or every component of a list, and so on. 
 
 - `map()` creates a list.
 - `map_lgl()` creates a logical vector.
 - `map_int()` creates an integer vector.
-- `map_dbl()` creates a double, or numeric, vector.
+- `map_dbl()` creates a "double" or numeric vector.
 - `map_chr()` creates a character vector.
 
 ### Practice with the `map()` family of functions
