@@ -68,19 +68,19 @@
      subset(meta, myc > 5000, select = c("stage", "treatment"))
      ```
      
-     - remove the `treatment` column from the dataset:
+     - remove the `treatment` column from the dataset using `[]`:
           
      ```r
      meta[, -3]
      ```
      
-     - remove samples 7, 8 and 9 from the dataset:
+     - remove samples 7, 8 and 9 from the dataset using `[]`:
           
      ```r
      meta[-7:-9, ]
      ```
      
-     - keep only samples 1-6:
+     - keep only samples 1-6 using `[]`:
           
      ```r
      meta [1:6, ]
