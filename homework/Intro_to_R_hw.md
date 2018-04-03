@@ -98,7 +98,7 @@ Write out the R code you would use to perform the following operations (question
 
                - Remove the legend (Hint: use ?theme help and scroll down to legend.position)
 
-               - Change the plot title size to 1.5x the default
+               - Change the plot title size to 1.5x the default and center align
 
                - Change the axis title to 1.5x the default size
 
