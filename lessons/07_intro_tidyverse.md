@@ -412,27 +412,15 @@ gathered %>%
 
 ## Stringr
 
-Stringr is a powerful tool for working with sequences of characters, or **strings**. Often to efficiently work with strings, regular expressions (regexps) are used, which describe patterns within strings. While there are a plethora of functions in stringr that are useful for working with strings, we will only cover a handful of these we find to be most useful: 
+Stringr is a powerful tool for working with sequences of characters, or **strings**. While there are a plethora of functions in stringr that are useful for working with strings, we will only cover a those we find to be the most useful: 
 
 -   `str_c()` concatenates strings together
+-   `str_split()` splits string by specifying a separator
 -   `str_sub()` extracts characters from a string at specific locations
 -   `str_replace()` replaces a string with another string 
--   `str_split()` splits string by specifying a separator
--   `str_to_()` group of functions that change the case of the strings, includes (`str_to_upper()`, `str_to_lower()`, and `str_to_title()`)
+-   `str_to_()` group of functions that change the case of the strings, includes `str_to_upper()`, `str_to_lower()`, and `str_to_title()`
 -   `str_detect()` identifies whether a pattern exists in each of the elements in a vector
 -   `str_subset()` returns only those elements that match a pattern
-
-When using regular expressions there are special characters that are useful to know, and details regarding these are available in the [R for Data Science book](r4ds.had.co.nz/strings.html) and [these materials from Duke](http://www2.stat.duke.edu/~cr173/Sta523_Fa16/regex.html), but we have listed some frequently used characters below:
-
-- **`"."`:** matches every character (if wanting to match a literal `.`, then need to escape it using `\\.`)
-- **`"^characters"`:** matches start of string
-- **`"characters$"`:** matches end of string
-- **`"[characters]"`:** matches any of characters inside the []
-- **`"[^characters]"`:** matches any of characters NOT inside the []
-- **`"[A-z0-9]"`:** matches any letter or number
-- **`"*"`:** matches zero or more times
-
-There are a plethora of functions available in stringr that are helpful for finding and matching patterns in strings. We will cover a handful of these functions that we find to be most useful:
 
 `str_c`
 --------
@@ -444,6 +432,17 @@ metadata <- metadata %>%
   mutate(sample = str_c(genotype, celltype, replicate, sep = "_"))
 ```
 
+`str_split`
+--------
+
+In contrast to `str_c()`, `str_split()` will separate values based on a designated separator.
+
+```r
+metadata %>% 
+  pull(sample) %>% 
+  str_split("_")
+```  
+
 `str_sub`
 --------
 
@@ -454,6 +453,48 @@ metadata %>%
   pull(sample) %>% 
   str_sub(start = 1, end = 8)
 ```
+
+To replace a string with another string, the `str_replace()` function can be helpful:
+
+`str_replace`
+--------
+
+```r
+metadata %>%
+  pull(celltype) %>%
+  str_replace("typeA", "typeP")
+```
+
+By default `str_replace()` will only replace the first encountered instance in each element/component. If you wanted to replace all instances, then there is the `str_replace_all()` function.
+
+`str_to_`
+--------
+
+Frequently during data tidying we need to ensure that all values of the column have the same case, since R is case sensitive. An easy way to change the case of any value is to use the `str_to_` family of functions, including `str_to_upper()`, `str_to_lower()`, and `str_to_title()`.
+
+```r
+metadata %>%
+  pull(genotype) %>%
+  str_to_upper()
+
+metadata %>%
+  pull(genotype) %>%
+  str_to_lower()
+
+metadata %>%
+  pull(genotype) %>%
+  str_to_title()
+```
+
+The last two functions, `str_detect()` and `str_subset()` require a pattern to match. Often to specify patterns in strings, regular expressions (regexps) are used, which describe these patterns. When using regular expressions there are special characters that are useful to know, and details regarding these are available in the [R for Data Science book](r4ds.had.co.nz/strings.html) and [these materials from Duke](http://www2.stat.duke.edu/~cr173/Sta523_Fa16/regex.html), but we have listed some frequently used characters below:
+
+- **`"."`:** matches every character (if wanting to match a literal `.`, then need to escape it using `\\.`)
+- **`"^characters"`:** matches start of string
+- **`"characters$"`:** matches end of string
+- **`"[characters]"`:** matches any of characters inside the []
+- **`"[^characters]"`:** matches any of characters NOT inside the []
+- **`"[A-z0-9]"`:** matches any letter or number
+- **`"*"`:** matches zero or more times
 
 
 `str_detect`
@@ -476,32 +517,6 @@ To only return those values that match a pattern, the `str_subset()` function wi
 metadata %>% 
   pull(sample) %>% 
   str_subset("typeA_1")
-
-# Changes case of the elements
-
-metadata %>%
-  pull(genotype) %>%
-  str_to_upper()
-
-metadata %>%
-  pull(genotype) %>%
-  str_to_lower()
-
-metadata %>%
-  pull(genotype) %>%
-  str_to_title()
-
-# Replace a string with another string 
-
-metadata %>%
-  pull(celltype) %>%
-  str_replace("typeA", "typeP")
-
-# By default will only replace first encountered instance in each line
-
-metadata %>% 
-  pull(sample) %>% 
-  str_split("_")
 
 
 Programming notes
