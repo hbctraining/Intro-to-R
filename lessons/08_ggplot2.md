@@ -82,7 +82,7 @@ This flexibility of the `map()` family of functions can be really useful.
 Now, we want to determine the mean normalized count values for each column in the data frame. We would like this to return a vector of numeric values, so we will use the `map_dbl()` function.
 
 ```r
-samplemeans <- map_dbl(rpkm_ordered, mean) 
+samplemeans <- rpkm_ordered %>% map_dbl(mean) 
 ```
 
 Now, we can add `samplemeans` to the end of the `metadata` dataframe:
