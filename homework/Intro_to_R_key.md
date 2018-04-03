@@ -102,7 +102,7 @@
      
  
 ## Extracting components from lists
-3. Create a new list, `list3` with three components, the `glengths` vector, the dataframe `df`, and `number` value. Use this list to answer the questions below . `list3` has the following structure (NOTE: the components of this list are not currently named):
+3. Create a new list, `list_hw` with three components, the `glengths` vector, the dataframe `df`, and `number` value. Use this list to answer the questions below . `list_hw` has the following structure (NOTE: the components of this list are not currently named):
 
           [[1]]
           [1]   4.6  3000.0 50000.0 
@@ -120,27 +120,27 @@ Write out the R code you would use to perform the following operations (question
  - return the second component of the list:
  
  ```r
- list2[[2]]
+ list_hw[[2]]
  ```
  
  - return `50000.0` from the first component of the list:
   
  ```r
- list2[[1]][3]
+ list_hw[[1]][3]
  ```
  
  - return the value `human` from the second component: 
   
  ```r
- list2[[2]][2, 1]
+ list_hw[[2]][2, 1]
  ```
  
  - give the components of the list the following names: "genome_lengths", "genomes", "record":
   
  ```r
- names(list2) <- c("genome_lengths","genomes","record")
+ names(list_hw) <- c("genome_lengths","genomes","record")
  
- list2$record
+ list_hw$record
  ```
  
    
