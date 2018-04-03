@@ -211,12 +211,12 @@ reorder_teach <- teaching_team[c(3, 1, 2)] # Saving the results to a variable
 
 
 <details>
+<pre>
 <style>
 p.test {
     word-wrap: break-word;
 }
 <\style>
-	<pre>
 <body>
 
 <p class="test"> For a research project, we asked healthy volunteers and cancer patients questions about their diet and exercise. We also collected blood work for each individual, and each person was given a unique ID. Create the following dataframes, `behavior` and `blood` by copy/pasting the code below: <\p>
