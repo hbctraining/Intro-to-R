@@ -310,16 +310,40 @@ some_data <- load(file="~/Downloads/iris.RData")
 
 ## User-defined Functions
 
-One of the great strengths of R is the user's ability to add functions. Sometimes there is a small task (or series of tasks) you need done and you find yourself having to repeat it multiple times. In these types of situations it can be helpful to create your own custom function. The structure of a function is given below:
+One of the great strengths of R is the user's ability to add functions. Sometimes there is a small task (or series of tasks) you need done and you find yourself having to repeat it multiple times. In these types of situations it can be helpful to create your own custom function. The **structure of a function is given below**:
 
 ```r
-myfunction <- function(arg1, arg2, ... ){
-statements
-return(object)
+name.of.function <- function(argument1, argument2) {
+    statements or code that does something
+    return(something)
 }
 ```
 
-First you give your function a name. Then you assign value to it, where the value is the function. When defining the function you will want to provide the list of arguments required (inputs and/or options to modify behaviour of the function), and tasks that are being executed on/using those arguments, and you close by returning some object.
+* First you give your function a name. 
+* Then you assign value to it, where the value is the function. 
+
+When **defining the function** you will want to provide the **list of arguments required** (inputs and/or options to modify behaviour of the function), and **tasks that are being executed on/using those arguments**.  The argument can be any type of object (like a scalar, a matrix, a dataframe, a vector, a logical, etc), and it’s not necessary to define what it is in any way. 
+
+Finally, you can **“return” the value of the object from the function**, meaning pass the value of it into the global environment. The important idea behind functions is that objects that are created within the function are local to the environment of the function – they don’t exist outside of the function. 
+
+> **NOTE:** You can also have a function that doesnt require any arguments, nor will it return anything.
+
+Let's try creating a simple example function. We know that the `sqrt()` function exists, but suppose we wanted the opposite - that is the a value squared. We know we need a numeric value as input and we have to multiply it by itself.
+
+```r
+square.it <- function(x) {
+    square <- x * x
+    return(square)
+}
+```
+
+Now, when we call the function, we need to provide the argument `x` inside the parentheses, which is a numeric value:
+
+```r
+square.it(5)
+```
+
+
 
 
 ---
