@@ -8,8 +8,8 @@ Approximate time: 60 minutes
 
 ## Learning Objectives 
 
-* Use the "map" function for iterative tasks on data structures.
 * Plot graphs using the external package "ggplot2".
+* Use the "map" function for iterative tasks on data structures.
 * Export plots for use outside of the R environment.
 
 
