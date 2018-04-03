@@ -240,7 +240,7 @@ ggplot(new_metadata) +
 
 ### Consistent formatting using custom functions
 
-When publishing, it is helpful to ensure all plots have similar formatting. To do thism we can create a custom function with our preferences for the theme. Remember the structure of a function is:
+When publishing, it is helpful to ensure all plots have similar formatting. To do this we can create a custom function with our preferences for the theme. Remember the structure of a function is:
 
 ```r
 name_of_function <- function(arguments) {
