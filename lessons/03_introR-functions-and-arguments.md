@@ -12,6 +12,7 @@ Approximate time: 50 min
 * Identify R-specific sources of help to get more information about functions.
 * Demonstrate how to install external packages to extend R’s functionality. 
 * Identify different R-specific and external sources of help to (1) troubleshoot errors and (2) get more information about functions and packages.
+* Demonstrate how to create user-defined functions in R
 
 ## Functions and their arguments
 
@@ -306,6 +307,19 @@ some_data <- load(file="~/Downloads/iris.RData")
   useful guidelines
 * The [Introduction to R](http://cran.r-project.org/doc/manuals/R-intro.pdf) can also be dense for people with little programming experience but it is a good place to understand the underpinnings of the R language.
 * The [R FAQ](http://cran.r-project.org/doc/FAQ/R-FAQ.html) is dense and technical but it is full of useful information.
+
+## User-defined Functions
+
+One of the great strengths of R is the user's ability to add functions. Sometimes there is a small task (or series of tasks) you need done and you find yourself having to repeat it multiple times. In these types of situations it can be helpful to create your own custom function. The structure of a function is given below:
+
+```r
+myfunction <- function(arg1, arg2, ... ){
+statements
+return(object)
+}
+```
+
+First you give your function a name. Then you assign value to it, where the value is the function. When defining the function you will want to provide the list of arguments required (inputs and/or options to modify behaviour of the function), and tasks that are being executed on/using those arguments, and you close by returning some object.
 
 
 ---
