@@ -209,11 +209,17 @@ reorder_teach <- teaching_team[c(3, 1, 2)] # Saving the results to a variable
 ***
 [**Exercise 3**](https://github.com/hbctraining/Intro-to-R/blob/master/results/answer_keys/07_matching_answer_key.md)
 
+
 <details>
-<pre>
+<style>
+p.test {
+    word-wrap: break-word;
+}
+<\style>
+	<pre>
 <body>
 
-For a research project, we asked healthy volunteers and cancer patients questions about their diet and exercise. We also collected blood work for each individual, and each person was given a unique ID. Create the following dataframes, `behavior` and `blood` by copy/pasting the code below:
+<p class="test"> For a research project, we asked healthy volunteers and cancer patients questions about their diet and exercise. We also collected blood work for each individual, and each person was given a unique ID. Create the following dataframes, `behavior` and `blood` by copy/pasting the code below: <\p>
 
 ```r
 # Creating behavior dataframe
