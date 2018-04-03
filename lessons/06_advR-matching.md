@@ -249,17 +249,19 @@ blood <- data.frame(ID, blood_levels) <br>
 <tab> **c.** Combine the dataframes blood_reordered and behavior using the data.frame() function and save this to a new dataframe called `blood_behavior`. *Note: you will find that there are now two "ID" columns, this will help verify that you have reordered correctly.*
 <br><br>
 >**NOTE:** This was an exercise in matching and reordering, but not the best way to join two data frames. There are many functions available for joining data frames, such as `merge()` (base) and `inner_join()` (tidyverse) functions. These functions could be used to easily merge the `blood` and `behavior` data frames without having to reorder and combine them. For example: <br><br>
-<br> <code>
-> merge(x=blood, y=behavior, by.x="ID", by.y="ID")` <br>
-> <br><br>
-> # or <br>
-> <br><br>
-> inner_join(blood, behavior, ID = ID) <br>
+
+<code>
+merge(x=blood, y=behavior, by.x="ID", by.y="ID")` <br>
+<br><br>
+# or <br>
+<br><br>
+inner_join(blood, behavior, ID = ID) <br>
 </code>
 
 </body>
 </pre-wrap>
 </details>
+
 
 ## The `match` function
 
