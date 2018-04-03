@@ -321,20 +321,20 @@ To practice with the join functions, we can create the data detailed below.
 
 - **Data:**
 
-```r
-# Creating behavior dataframe
-	
-ID <- c(546, 983, 042, 952, 853, 061)
-diet <- c("veg", "pes", "omni", "omni", "omni", "omni")
-exercise <- c("high", "low", "low", "low", "med", "high")
-behavior <- data.frame(ID, diet, exercise)
-	
-# Creating blood dataframe
-	
-ID <- c(983, 952, 704, 555, 853, 061, 042, 237, 145, 581, 249, 467, 841, 546)
-blood_levels <- c(43543, 465, 4634, 94568, 134, 347, 2345, 5439, 850, 6840, 5483, 66452, 54371, 1347)
-blood <- data.frame(ID, blood_levels)
-```
+	```r
+	# Creating behavior dataframe
+
+	ID <- c(546, 983, 042, 952, 853, 061)
+	diet <- c("veg", "pes", "omni", "omni", "omni", "omni")
+	exercise <- c("high", "low", "low", "low", "med", "high")
+	behavior <- data.frame(ID, diet, exercise)
+
+	# Creating blood dataframe
+
+	ID <- c(983, 952, 704, 555, 853, 061, 042, 237, 145, 581, 249, 467, 841, 546)
+	blood_levels <- c(43543, 465, 4634, 94568, 134, 347, 2345, 5439, 850, 6840, 5483, 66452, 54371, 1347)
+	blood <- data.frame(ID, blood_levels)
+	```
 
 Not all individuals with blood samples have associated behavioral information. Using the `_join` family of functions, let's practice the different options for joining the two data frames.
 
