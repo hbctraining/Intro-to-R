@@ -77,7 +77,7 @@ list_purrr %>% map_chr(median)
 
 This flexibility of the `map()` family of functions can be really useful. 
 
-### Wrangling our data with map()
+### Wrangling our data with `map_dbl()`
 
 Now, we want to determine the mean normalized count values for each column in the data frame. We would like this to return a vector of numeric values, so we will use the `map_dbl()` function.
 
