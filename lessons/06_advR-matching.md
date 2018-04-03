@@ -218,7 +218,7 @@ For a research project, we asked healthy volunteers and cancer patients question
 
 <br>
 
-```r
+<code>
 # Creating behavior dataframe
 	
 ID <- c(546, 983, 042, 952, 853, 061)
@@ -231,7 +231,7 @@ behavior <- data.frame(ID, diet, exercise)
 ID <- c(983, 952, 704, 555, 853, 061, 042, 237, 145, 581, 249, 467, 841, 546)
 blood_levels <- c(43543, 465, 4634, 94568, 134, 347, 2345, 5439, 850, 6840, 5483, 66452, 54371, 1347)
 blood <- data.frame(ID, blood_levels)
-```
+</code>
 
 <br>
 
