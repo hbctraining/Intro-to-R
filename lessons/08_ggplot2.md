@@ -238,7 +238,46 @@ ggplot(new_metadata) +
 
 ***
 
+### Using custom functions with plots
 
+When we are creating multiple plots for publication purposes, it is helpful to ensure all plots have a similar formating. We can do this by creating a custom function with our preferences for the theme. Remember that the structure of a function is:
+
+```r
+name_of_function <- function(arguments) {
+    statements or code that does something
+}
+```
+
+Let's suppose we always wanted our theme to include the following:
+
+```r
+theme_bw() +
+    theme(axis.text=element_text(size=rel(1.5)),
+          axis.title=element_text(size=rel(1.5)),
+          plot.title=element_text(hjust=0.5))
+```
+
+If there is nothing that we want to change when we run this, then we do not need to specify any arguments. Creating the function is simple; we can just put the code inside the `{}`:
+
+```r
+personal_theme <- function(){
+  theme_bw() +
+    theme(axis.text=element_text(size=rel(1.5)),
+          axis.title=element_text(size=rel(1.5)),
+          plot.title=element_text(hjust=0.5)) 
+}
+```
+
+Now to run our personal theme with any plot, we could do:
+
+```r
+ggplot(new_metadata) +
+  geom_point(aes(x=age_in_days, y=samplemeans, color=genotype, shape=celltype), size=rel(3.0)) +
+  **personal_theme() +**
+  xlab("Age (days)") +
+  ylab("Mean expression") +
+  ggtitle("Expression with Age")
+```
 
 ## Histogram
 
