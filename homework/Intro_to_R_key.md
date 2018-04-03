@@ -187,7 +187,7 @@ Write out the R code you would use to perform the following operations (question
      
           - Initialize a  ggplot with your `df` as input.
 
-          - Add the `geom_jitter()` geometric object with the required aesthetics where x = rownames(df) and y reflects the MOV10 expression values.
+          - Add the `geom_jitter()` geometric object with the required aesthetics
 
           - Color the points based on `sampletype`
 
@@ -225,7 +225,7 @@ Write out the R code you would use to perform the following operations (question
                   axis.text.x=element_text(angle=45, hjust=1))
           ```
 
-     ![plot_image](plotcounts.png) 
+     ![plot_image](MOV10_homework_ggplot.png) 
   
 ## Practice with nested functions (optional)
 
