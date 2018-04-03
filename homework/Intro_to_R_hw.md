@@ -74,7 +74,7 @@ Write out the R code you would use to perform the following operations (question
 
      - Create a vector called `expression` that contains the normalized count values from the row in normalized_counts that corresponds to the MOV10 gene.  
 
-     - Check the class of this expression vector. You will need to convert this to a numeric vector using `as.numeric(expression)`
+     - Check the class of this expression vector. Then, convert it to a numeric vector using `as.numeric(expression)`
 
      - Bind that vector to your metadata data frame (`meta`) and call the new data frame `df`. 
 
