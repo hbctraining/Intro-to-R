@@ -309,8 +309,8 @@ ggplot(new_metadata) +
 
 **Exercise**
 
-1. Use what you learned previously about the `theme()` layer to make the text larger for x- and y-axis (not the tick labels).
-2. Also, add an appropriate title to this plot.
+1. Add an appropriate title to this plot.
+2. Make the theme consistent with the scatterplot.
 
 ***
 
