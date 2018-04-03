@@ -88,11 +88,11 @@ Write out the R code you would use to perform the following operations (question
 
           - Add the `theme_bw()` layer 
 
-          - Add the title “Expression of MOV10” to the plot
+          - Add the title "Expression of MOV10" to the plot
 
           - Change the x-axis label to be blank
 
-          - Change the y-axis label to “Normalized counts”
+          - Change the y-axis label to "Normalized counts"
 
           - Using `theme()` change the following properties of the plot:
 
@@ -103,6 +103,8 @@ Write out the R code you would use to perform the following operations (question
                - Change the axis title to 1.5x the default size
 
                - Change the size of the axis text only on the y-axis to 1.25x the default size
+               
+               - Rotate the x-axis text to 45 degrees using `axis.text.x=element_text(angle=45, hjust=1)`
 
 ## Practice with nested functions (optional)
 
