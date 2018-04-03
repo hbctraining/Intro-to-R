@@ -8,7 +8,7 @@ Approximate time: 60 minutes
 
 ## Learning Objectives 
 
-* Use the "apply" function for iterative tasks on data structures.
+* Use the "map" function for iterative tasks on data structures.
 * Plot graphs using the external package "ggplot2".
 * Export plots for use outside of the R environment.
 
@@ -26,36 +26,62 @@ mean(rpkm_ordered[,"sample1"])
 > In some cases, it might be useful to remove the missing data from the vector. For this purpose, R comes with the function `na.omit` to generate a vector that has NA's removed. For some applications, it's useful to keep all observations, for others, it might be best to remove all observations that contain missing data. The function
 `complete.cases()` returns a logical vector indicating which rows have no missing values. 
 
-## The `apply` Function
-To obtain mean values for all samples we can use `mean` on each column individually, but there is also an easier way to go about it. Programming languages typically have a way to allow the execution of a single line of code or several lines of code multiple times, or in a "loop". By default R is not very good at looping, hence the `apply()` family of functions are used for this purpose. This family includes several functions, each differing slightly on the inputs or outputs. For example, we can use `apply()` to execute some task on every element in a vector, every row/column in a dataframe, and so on. 
+## The `map` Function
 
-```r
-base::apply             Apply Functions Over Array Margins
-base::by                Apply a Function to a Data Frame Split by Factors
-base::eapply            Apply a Function Over Values in an Environment
-base::lapply            Apply a Function over a List or Vector (returns list)
-base::sapply            Apply a Function over a List or Vector (returns vector)
-base::mapply            Apply a Function to Multiple List or Vector Arguments
-base::rapply            Recursively Apply a Function to a List
-base::tapply            Apply a Function Over a Ragged Array
-```
+To obtain mean values for all samples we can use `mean` on each column individually, but there is also an easier way to go about it. Programming languages typically have a way to allow the execution of a single line of code or several lines of code multiple times, or in a "loop". While "loops" are possible in R, there are functions that more directly achieve this purpose, such as the `apply()` family of functions and the `map()` family of functions. The `map()` family is a bit more intuitive to use than `apply()`, so we will explore this family in more detail. However, we have [similar materials available](https://hbctraining.github.io/Intro-to-R/lessons/apply_functions.html) using the `apply()` function if you would like to explore more on your own.
 
-We will be using `apply` in our examples today, but do take a moment on your own to explore the many options that are available. The `apply` function returns a vector or array or list of values obtained by applying a function to margins of an array or matrix. We know about vectors/arrays and functions, but what are these “margins”? Margins are referring to either the rows (denoted by 1), the columns (denoted by 2) or both (1:2). By “both”, we mean  apply the function to each individual value.
+The `map()` family of functions is available from the **purrr** package, which is part of the tidyverse suite of packages. More detailed information is available in the [R for Data Science book](http://r4ds.had.co.nz/iteration.html#the-map-functions). This family includes several functions, each taking a vector as input and outputting a vector of a specified type. For example, we can use these functions to execute some task on every element in a vector, every column in a dataframe, every component of a list, and so on. 
 
-The syntax for the apply function is: 
+- map() creates a list.
+- map_lgl() creates a logical vector.
+- map_int() creates an integer vector.
+- map_dbl() creates a double, or numeric, vector.
+- map_chr() creates a character vector.
+
+The syntax for the `map()` family of functions is: 
 
 ```r
 ## DO NOT RUN
-apply(dataframe/matrix, margin, function_to_apply)
+map(object, function_to_apply)
 ```
 
-Let's try this to obtain mean expression values for each sample in our RPKM matrix:
+For example, let's practice with creating a list called `list_purrr`:
 
 ```r
-samplemeans <- apply(rpkm_ordered, 2, mean) 
+library(purrr)
+
+list_purrr <- list(c(0:10), c(20:30), c(40:50))
+
+list_purrr
 ```
 
-Now, add `samplemeans` to the end of the `metadata` dataframe:
+Now if we wanted to take the median value for each of the components using the `map()` function:
+
+```r
+list_purrr %>% map(median)
+```
+
+This will return a list. However, if we wanted the output to be returned as a numeric vector, we could use the `map_dbl()` function:
+
+```r
+list_purrr %>% map_dbl(median)
+```
+
+Or we could return a character vector:
+
+```r
+list_purrr %>% map_chr(median)
+```
+
+This flexibility of the `map()` family of functions can be really useful. 
+
+Now, we want to determine the mean normalized count values for each column in the data frame. We would like this to return a vector of numeric values, so we will use the `map_dbl()` function.
+
+```r
+samplemeans <- map_dbl(rpkm_ordered, mean) 
+```
+
+Now, we can add `samplemeans` to the end of the `metadata` dataframe:
 	
 ```r
 new_metadata <- cbind(metadata, samplemeans)
