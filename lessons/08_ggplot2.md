@@ -32,11 +32,11 @@ To obtain mean values for all samples we can use `mean` on each column individua
 
 The `map()` family of functions is available from the **purrr** package, which is part of the tidyverse suite of packages. More detailed information is available in the [R for Data Science book](http://r4ds.had.co.nz/iteration.html#the-map-functions). This family includes several functions, each taking a vector as input and outputting a vector of a specified type. For example, we can use these functions to execute some task on every element in a vector, every column in a dataframe, every component of a list, and so on. 
 
-- map() creates a list.
-- map_lgl() creates a logical vector.
-- map_int() creates an integer vector.
-- map_dbl() creates a double, or numeric, vector.
-- map_chr() creates a character vector.
+- `map()` creates a list.
+- `map_lgl()` creates a logical vector.
+- `map_int()` creates an integer vector.
+- `map_dbl()` creates a double, or numeric, vector.
+- `map_chr()` creates a character vector.
 
 The syntax for the `map()` family of functions is: 
 
