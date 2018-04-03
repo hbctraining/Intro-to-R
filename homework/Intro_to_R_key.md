@@ -213,7 +213,7 @@ Write out the R code you would use to perform the following operations (question
            
           ```r
           ggplot(df) +
-            geom_jitter(aes(x= rownames(df), y= expression, color = sampletype)) +
+            geom_jitter(aes(x= sampletype, y= expression, color = sampletype)) +
             theme_bw() +
             ggtitle("Expression of MOV10") +
             xlab(NULL) +
