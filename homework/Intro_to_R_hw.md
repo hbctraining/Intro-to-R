@@ -29,18 +29,18 @@
 
 2. Using the `meta` data frame from question #1, write out the R code you would use to perform the following operations (questions **DO NOT** build upon each other):
 
-     - return only the `treatment` and `sex` columns:
-     - return the `treatment` values for samples 5, 7, 9, and 10:
+     - return only the `treatment` and `sex` columns using `[]`:
+     - return the `treatment` values for samples 5, 7, 9, and 10 using `[]`:
      - use `subset()` to return all data for those samples receiving treatment `P`:
      - use `subset()` to return only the `stage` and `treatment` data for those samples with `myc` > 5000:
-     - remove the `treatment` column from the dataset:
-     - remove samples 7, 8 and 9 from the dataset:
-     - keep only samples 1-6:
+     - remove the `treatment` column from the dataset using `[]`:
+     - remove samples 7, 8 and 9 from the dataset using `[]`:
+     - keep only samples 1-6 using `[]`:
      - add a column called `pre_treatment` to the beginning of the dataframe with the values T, F, F, F, T, T, F, T, F, F, T, T (Hint: use `cbind()`): 
      - change the names of the columns to: "A", "B", "C", "D":
  
 ## Extracting components from lists
-3. Create a new list, `list3` with three components, the `glengths` vector, the dataframe `df`, and `number` value. Use this list to answer the questions below . `list3` has the following structure (NOTE: the components of this list are not currently named):
+3. Create a new list, `list_hw` with three components, the `glengths` vector, the dataframe `df`, and `number` value. Use this list to answer the questions below . `list_hw` has the following structure (NOTE: the components of this list are not currently named):
 
           [[1]]
           [1]   4.6  3000.0 50000.0 
