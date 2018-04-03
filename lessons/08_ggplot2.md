@@ -38,6 +38,8 @@ The `map()` family of functions is available from the **purrr** package, which i
 - `map_dbl()` creates a double, or numeric, vector.
 - `map_chr()` creates a character vector.
 
+### Practice with the `map()` family of functions
+
 The syntax for the `map()` family of functions is: 
 
 ```r
@@ -74,6 +76,8 @@ list_purrr %>% map_chr(median)
 ```
 
 This flexibility of the `map()` family of functions can be really useful. 
+
+### Wrangling our data with map()
 
 Now, we want to determine the mean normalized count values for each column in the data frame. We would like this to return a vector of numeric values, so we will use the `map_dbl()` function.
 
