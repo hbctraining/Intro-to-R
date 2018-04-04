@@ -118,9 +118,11 @@ Or we could find the indices for the metadata replicates 2 and 3:
 idx <- which(metadata$replicate > 1)
 	
 metadata[idx, ]
+```
 
 Let's save this output to a variable:
 
+```r
 sub_meta <- metadata[idx, ]
 ```
 
