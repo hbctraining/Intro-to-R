@@ -235,7 +235,7 @@ Everything we have done so far has only modified the data in R; the files have r
 To write our matrix to file in comma separated format (.csv), we can use the `write.csv` function. There are two required arguments: the variable name of the data structure you are exporting, and the path and filename that you are exporting to. By default the delimiter is set, and columns will be separated by a comma:
 
 ```r
-write.csv(, file="data/subset_meta.csv")
+write.csv(sub_meta, file="data/subset_meta.csv")
 ```
 
 Similar to reading in data, there are a wide variety of functions available allowing you to export data in specific formats. Another commonly used function is `write.table`, which allows you to specify the delimiter you wish to use. This function is commonly used to create tab-delimited files.
