@@ -134,7 +134,7 @@ Subset the `metadata` dataframe to return only the rows of data with a genotype 
 	
 ***
 
-> **NOTE:** There are easier methods for subsetting **dataframes** using logical expressions, including the `filter()` and the `subset()` functions. These functions will return the rows of the dataframe for which the logical expression is TRUE. Allowing us to the subset the data in a single step. We will explore the `filter()` function in more detail in a later lesson.
+> **NOTE:** There are easier methods for subsetting **dataframes** using logical expressions, including the `filter()` and the `subset()` functions. These functions will return the rows of the dataframe for which the logical expression is TRUE, allowing us to subset the data in a single step. We will explore the `filter()` function in more detail in a later lesson.
 
 ### Lists
 
