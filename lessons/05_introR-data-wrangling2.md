@@ -242,22 +242,18 @@ write.csv(sub_meta, file="data/subset_meta.csv")
 
 Similar to reading in data, there are a wide variety of functions available allowing you to export data in specific formats. Another commonly used function is `write.table`, which allows you to specify the delimiter you wish to use. This function is commonly used to create tab-delimited files.
 
-> **NOTE**:
->  
-> Sometimes when writing a dataframe with row names to file, the column names will align starting with the row names column. To avoid this, you can include the argument `col.names = NA` when writing to file to ensure all of the column names line up with the correct column values.
+> **NOTE:** Sometimes when writing a dataframe with row names to file, the column names will align starting with the row names column. To avoid this, you can include the argument `col.names = NA` when writing to file to ensure all of the column names line up with the correct column values.
 
-> Writing a vector of values to file requires a different function than the functions available for writing dataframes. You can use `write()` to save a vector of values to file. For example:
->
+Writing a vector of values to file requires a different function than the functions available for writing dataframes. You can use `write()` to save a vector of values to file. For example:
 
 ```r
 write(glengths, file="data/genome_lengths.txt", ncolumns=1)
 ```
->
 
 ***
 
 > ### An R package for data wrangling
-> The methods presented above are using base R functions for data wrangling. Later we will explore the Tidyverse suite of packages, specifically designed to make data wrangling easier.
+> The methods presented above are using base R functions for data wrangling. Later we will explore the **Tidyverse suite of packages**, specifically designed to make data wrangling easier.
 
 ---
 
