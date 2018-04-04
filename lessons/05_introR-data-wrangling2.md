@@ -134,7 +134,7 @@ Subset the `metadata` dataframe to return only the rows of data with a genotype 
 	
 ***
 
-> **NOTE:** There are easier methods for subsetting **dataframes** using logical expressions, including the `filter()` and the `subset()` > functions. These functions will return the rows of the dataframe for which the logical expression is TRUE. Allowing us to the subset the > data in a single step. We will explore the `filter()` function in more detail in a later lesson.
+> **NOTE:** There are easier methods for subsetting **dataframes** using logical expressions, including the `filter()` and the `subset()` functions. These functions will return the rows of the dataframe for which the logical expression is TRUE. Allowing us to the subset the data in a single step. We will explore the `filter()` function in more detail in a later lesson.
 
 ### Lists
 
@@ -169,7 +169,7 @@ list1[[1]][1]
 
 You can also do the same for dataframes and matrices, although with larger datasets it is not advisable. Instead, it is better to save the contents of a list component to a variable (as we did above) and further manipulate it. Also, it is important to note that when selecting components we can only **access one at a time**. To access multiple components of a list, see the note below. 
 
-> Note: Using the single bracket notation also works wth lists. The difference is the class of the information that is retrieved. Using single bracket notation i.e. `list1[1]` will return the contents in a list form and *not the original data structure*. The benefit of this notation is that it allows indexing by vectors so you can access multiple components of the list at once.
+> **NOTE:** Using the single bracket notation also works wth lists. The difference is the class of the information that is retrieved. Using single bracket notation i.e. `list1[1]` will return the contents in a list form and *not the original data structure*. The benefit of this notation is that it allows indexing by vectors so you can access multiple components of the list at once.
 
 
 ***
