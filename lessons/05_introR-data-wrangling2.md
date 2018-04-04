@@ -1,7 +1,7 @@
 ---
 title: "Data wrangling: dataframes, matrices, and lists"
 authors: Meeta Mistry, Mary Piper
-date: "Friday, September 8, 2017"
+date: "Wednesday, April, 4th, 2018"
 ---
 Approximate time: 60 min
 
@@ -118,6 +118,10 @@ Or we could find the indices for the metadata replicates 2 and 3:
 idx <- which(metadata$replicate > 1)
 	
 metadata[idx, ]
+
+Let's save this output to a variable:
+
+sub_meta <- metadata[idx, ]
 ```
 
 ***
@@ -128,64 +132,7 @@ Subset the `metadata` dataframe to return only the rows of data with a genotype 
 	
 ***
 
-#### Subsetting dataframes using logical operators and the `subset()` function
-
-Another way of partitioning **dataframes** is using the `subset()` function to return the rows of the dataframe for which the logical expression is TRUE. Allowing us to the subset the data in a single step. The syntax for the `subset()` function is:
-
-```r
-subset(dataframe, column_name == "value") # Any logical expression could replace the `== "value"`
-```
-
-For example, we can look at the samples of a specific celltype "typeA":
-
-```r
-subset(metadata, celltype == "typeA")
-```
-
-```r
-         genotype celltype replicate
-sample1       Wt    typeA         1
-sample2       Wt    typeA         2
-sample3       Wt    typeA         3
-sample4       KO    typeA         1
-sample5       KO    typeA         2
-sample6       KO    typeA         3
-```
-
-We can also use the `subset` function with the other logical operators in R. For example, suppose we wanted to subset to keep only the **Wt samples** from the **typeA** celltype.
-
-```r
-subset(metadata, celltype == "typeA" & genotype == "Wt")
-```
-
-```r
-        genotype celltype replicate
-sample1       Wt    typeA         1
-sample2       Wt    typeA         2
-sample3       Wt    typeA         3
-```
-
-Alternatively, we could try looking at only the first two replicates of each sample set. Here, we can use the less than operator since replicate is currently a numeric vector. Adding in the argument `select` allows us to specify which columns to keep, with the syntax:
-
-```r
-subset(dataframe, column_name == "value", select = name_of_column_to_return)
-```
-
-Which columns are left?
-
-```r
-sub_meta <- subset(metadata, replicate < 3, select = c(genotype, celltype))
-```
-
-***
-
-**Exercises** 
-
-1. Return only the rows of data from the `metadata` dataframe with `genotype` of `Wt`. 
-
-2. Return only the `celltype` information for those samples from `metadata` dataframe with genotype `KO`.
-
-***
+There are easier methods for subsetting **dataframes** using logical expressions, including the `filter()` and the `subset()` functions. These functions will return the rows of the dataframe for which the logical expression is TRUE. Allowing us to the subset the data in a single step. We will explore the `filter()` function in more detail in a later lesson.
 
 ### Lists
 
@@ -288,7 +235,7 @@ Everything we have done so far has only modified the data in R; the files have r
 To write our matrix to file in comma separated format (.csv), we can use the `write.csv` function. There are two required arguments: the variable name of the data structure you are exporting, and the path and filename that you are exporting to. By default the delimiter is set, and columns will be separated by a comma:
 
 ```r
-write.csv(sub_meta, file="data/subset_meta.csv")
+write.csv(, file="data/subset_meta.csv")
 ```
 
 Similar to reading in data, there are a wide variety of functions available allowing you to export data in specific formats. Another commonly used function is `write.table`, which allows you to specify the delimiter you wish to use. This function is commonly used to create tab-delimited files.
