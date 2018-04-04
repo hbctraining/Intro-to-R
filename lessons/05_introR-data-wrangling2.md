@@ -257,25 +257,7 @@ write(glengths, file="data/genome_lengths.txt", ncolumns=1)
 ***
 
 > ### An R package for data wrangling
-> The methods presented above are using base R functions for data wrangling. For more advanced R users, 
-> the package `dplyr` is a fairly new (2014) package that tries to provide easy
-> tools for the most common data wrangling tasks. It is built to work directly
-> with data frames. The thinking behind it was largely inspired by the package
-> `plyr` which has been in use for some time but suffered from being slow in some
-> cases.` dplyr` addresses this by porting much of the computation to C++. An
-> additional feature is the ability to work with data stored directly in an
-> external database. The benefits of doing this are that the data can be managed
-> natively in a relational database, queries can be conducted on that database, and only the results of the query returned.
->
-> `dplyr` is part of the [tidyverse suite of packages](http://tidyverse.org), which were designed to work together to quickly and easily perform the most common operations needed for data science. We have [materials available](tidyverse_data_wrangling.md) to learn about some convenient functions from these tools.
-
-
-
-
-
-
-
-
+> The methods presented above are using base R functions for data wrangling. Later we will explore the Tidyverse suite of packages, specifically designed to make data wrangling easier.
 
 ---
 
