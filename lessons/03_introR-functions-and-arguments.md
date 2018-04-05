@@ -157,7 +157,7 @@ CRAN is a repository where the latest downloads of R (and legacy versions) are f
 
 Packages for R can be installed from the [CRAN](http://cran.r-project.org/) package repository using the `install.packages` function. This function will download the source code from on the CRAN mirrors and install the package (and any dependencies) locally on your computer. 
 
-An example is given below for the `ggplot2` package that will be required for some plots we will create later on. Run this code to install `ggplot2`.
+An example is given below for the `tidyverse` package that comes with the `ggplot2` package thar we will be using to create plots later on. Run this code to install `tidyverse`.
 
 
 ```r
@@ -181,7 +181,7 @@ source("http://bioconductor.org/biocLite.R")
 biocLite()
 ```
 
-Once you have the standard packages installed, you can install additional packages using the `biocLite.R` script. If it's a new R session you will also have to source the script again. Here we show that the same package `ggplot2` is available through Bioconductor:
+Once you have the standard packages installed, you can install additional packages using the `biocLite.R` script. If it's a new R session you will also have to source the script again. Here we show that the same package `tidyverse` is available through Bioconductor:
 
 
 ```r
@@ -205,15 +205,17 @@ Once you have the package installed, you can **load the library** into your R se
 
 
 ```r
-library(ggplot2)
+library(tidyverse)
 ```
 
 You can also check what is loaded in your current environment by using `sessionInfo()` or `search()` and you should see your package listed as:
 
 ```r
 other attached packages:
-[1] ggplot2_2.0.0
+[1] tidyverse_1.2.1
 ```
+
+In this case there are several other packages that were also loaded along with `tidyverse`.
 
 ### Finding functions specific to a package
 
