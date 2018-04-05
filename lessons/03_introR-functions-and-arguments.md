@@ -157,12 +157,12 @@ CRAN is a repository where the latest downloads of R (and legacy versions) are f
 
 Packages for R can be installed from the [CRAN](http://cran.r-project.org/) package repository using the `install.packages` function. This function will download the source code from on the CRAN mirrors and install the package (and any dependencies) locally on your computer. 
 
-An example is given below for the `tidyverse` package that comes with the `ggplot2` package thar we will be using to create plots later on. Run this code to install `tidyverse`.
-
+An example is given below for the `ggplot2` package that will be required for some plots we will create later on. Run this code to install `ggplot2`.
 
 ```r
-install.packages("tidyverse")
+install.packages("ggplot2")
 ```
+
 ### Package installation from Bioconductor
 Alternatively, packages can also be installed from [Bioconductor](https://www.bioconductor.org/), another repository of packages which provides tools for the analysis and comprehension of high-throughput **genomic data**. These packages includes (but is not limited to) tools for performing statistical analysis, annotation packages, and accessing public datasets.
 
@@ -181,13 +181,12 @@ source("http://bioconductor.org/biocLite.R")
 biocLite()
 ```
 
-Once you have the standard packages installed, you can install additional packages using the `biocLite.R` script. If it's a new R session you will also have to source the script again. Here we show that the same package `tidyverse` is available through Bioconductor:
-
+Once you have the standard packages installed, you can install additional packages using the `biocLite.R` script. If it's a new R session you will also have to source the script again. Here we show that the same package `ggplot2` is available through Bioconductor:
 
 ```r
 # DO NOT RUN THIS!
 
-biocLite("tidyverse")
+biocLite("ggplot2")
 ```
 ### Package installation from source
 
@@ -198,24 +197,25 @@ To install from source, we use the same `install.packages` function but we have 
 ```r
 # DO NOT RUN THIS!
 
-install.packages("tidyverse_1.2.1.tgz", type="source", repos=NULL)
+install.packages("ggplot2_1.0.1.tar.gz", type="source", repos=NULL)
 ```
+
 ### Loading libraries
 Once you have the package installed, you can **load the library** into your R session for use. Any of the functions that are specific to that package will be available for you to use by simply calling the function as you would for any of the base functions. *Note that quotations are not required here.*
 
 
 ```r
-library(tidyverse)
+library(ggplot2)
 ```
 
 You can also check what is loaded in your current environment by using `sessionInfo()` or `search()` and you should see your package listed as:
 
 ```r
 other attached packages:
-[1] tidyverse_1.2.1
+[1] ggplot2_2.0.0
 ```
 
-In this case there are several other packages that were also loaded along with `tidyverse`.
+In this case there are several other packages that were also loaded along with `ggplot2`.
 
 ### Finding functions specific to a package
 
