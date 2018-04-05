@@ -161,7 +161,7 @@ An example is given below for the `ggplot2` package that will be required for so
 
 
 ```r
-install.packages('ggplot2')
+install.packages("tidyverse")
 ```
 ### Package installation from Bioconductor
 Alternatively, packages can also be installed from [Bioconductor](https://www.bioconductor.org/), another repository of packages which provides tools for the analysis and comprehension of high-throughput **genomic data**. These packages includes (but is not limited to) tools for performing statistical analysis, annotation packages, and accessing public datasets.
@@ -187,7 +187,7 @@ Once you have the standard packages installed, you can install additional packag
 ```r
 # DO NOT RUN THIS!
 
-biocLite('ggplot2')
+biocLite("tidyverse")
 ```
 ### Package installation from source
 
@@ -198,7 +198,7 @@ To install from source, we use the same `install.packages` function but we have 
 ```r
 # DO NOT RUN THIS!
 
-install.packages('ggplot2_1.0.1.tar.gz', type="source", repos=NULL)
+install.packages("tidyverse_1.2.1.tgz", type="source", repos=NULL)
 ```
 ### Loading libraries
 Once you have the package installed, you can **load the library** into your R session for use. Any of the functions that are specific to that package will be available for you to use by simply calling the function as you would for any of the base functions. *Note that quotations are not required here.*
