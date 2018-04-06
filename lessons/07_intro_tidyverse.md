@@ -160,9 +160,13 @@ The most useful tool in the [tidyverse](http://tidyverse.org/) is [dplyr](http:/
 
 To extract columns from a tibble we can use the `select()`.
 
-``` r
+```r
+# Convert the res_tableOE data frame to a tibble
+res_tableOE <- res_tableOE %>% rownames_to_column(var="gene") %>% as.tibble()
+
+# extract selected columns from res_tableOE and save into a new tibble
 sub_res <- res_tableOE %>%
-    select(baseMean, log2FoldChange, padj)
+    select(gene, baseMean, log2FoldChange, padj)
 ```
 
 Conversely, you can remove columns you don't want with negative selection.
