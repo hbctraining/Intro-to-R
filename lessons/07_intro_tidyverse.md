@@ -162,7 +162,7 @@ To extract columns from a tibble we can use the `select()`.
 
 ``` r
 sub_res <- res_tableOE %>%
-    select(gene, baseMean, log2FoldChange, padj)
+    select(baseMean, log2FoldChange, padj)
 ```
 
 Conversely, you can remove columns you don't want with negative selection.
