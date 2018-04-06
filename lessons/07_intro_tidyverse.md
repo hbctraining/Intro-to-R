@@ -490,7 +490,7 @@ metadata %>%
   str_to_title()
 ```
 
-The last two functions, `str_detect()` and `str_subset()` require a pattern to match. Often to specify patterns in strings, regular expressions (regexps) are used, which describe these patterns. When using regular expressions there are special characters that are useful to know, and details regarding these are available in the [R for Data Science book](r4ds.had.co.nz/strings.html) and [these materials from Duke](http://www2.stat.duke.edu/~cr173/Sta523_Fa16/regex.html), but we have listed some frequently used characters below:
+The last two functions, `str_detect()` and `str_subset()` require a pattern to match. Often to specify patterns in strings, regular expressions (regexps) are used, which describe these patterns. When using regular expressions there are special characters that are useful to know, and details regarding these are available in the [R for Data Science book](http://r4ds.had.co.nz/strings.html) and [these materials from Duke](http://www2.stat.duke.edu/~cr173/Sta523_Fa16/regex.html), but we have listed some frequently used characters below:
 
 - **`"."`:** matches every character (if wanting to match a literal `.`, then need to escape it using `\\.`)
 - **`"^characters"`:** matches start of string
