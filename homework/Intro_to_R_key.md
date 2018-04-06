@@ -65,7 +65,7 @@
      - use `filter()`/`select()` to return only the `stage` and `treatment` data for those samples with `myc` > 5000:
           
      ```r
-     filter(meta, myc > 5000) %>% select(c(stage, treatment))
+     filter(meta, myc > 5000) %>% select(stage, treatment)
      ```
      
      - remove the `treatment` column from the dataset using `[]`:
