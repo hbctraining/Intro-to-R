@@ -17,9 +17,9 @@
      - Use the `rownames()` function to assign row names to the dataframe (Hint: you can type out the row names as a vector, or if you want the process go faster try exploring the `paste()` function).
      
      ```r
-     row.names(meta) <- c("sample1", "sample2",... , "sample12") # or use:
+     rownames(meta) <- c("sample1", "sample2",... , "sample12") # or use:
      
-     row.names(meta) <- paste("sample12", 1:12, sep="")
+     rownames(meta) <- paste("sample12", 1:12, sep="")
      ```
      
      Your finished metadata table should have information for the variables `sex`, `stage`, `treatment`, and `myc` levels: 
