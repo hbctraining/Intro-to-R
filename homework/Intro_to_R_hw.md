@@ -32,7 +32,7 @@
      - return only the `treatment` and `sex` columns using `[]`:
      - return the `treatment` values for samples 5, 7, 9, and 10 using `[]`:
      - use `filter()` to return all data for those samples receiving treatment `P`:
-     - use `filter()`/`select()`to return only the `stage` and `treatment` data for those samples with `myc` > 5000:
+     - use `filter()`/`select()`to return only the `stage` and `treatment` columns for those samples with `myc` > 5000:
      - remove the `treatment` column from the dataset using `[]`:
      - remove samples 7, 8 and 9 from the dataset using `[]`:
      - keep only samples 1-6 using `[]`:
