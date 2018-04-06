@@ -17,7 +17,7 @@ Often when working with genomic data, we have a data file that corresponds with 
 Let's read in our expression data (RPKM matrix) that we downloaded previously:
 
 ```r
-rpkm_data <- read.csv("data/counts.rpkm.txt")
+rpkm_data <- read.csv("data/counts.rpkm.csv")
 ```
 
 Take a look at the first few lines of the data matrix to see what's in there.
