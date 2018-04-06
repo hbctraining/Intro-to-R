@@ -56,16 +56,16 @@
      meta[c(5,7,9,10), 3]
      ```
      
-     - use `subset()` to return all data for those samples receiving treatment `P`:
+     - use `filter()` to return all data for those samples receiving treatment `P`:
           
      ```r
-     subset(meta, treatment == "P")
+     filter(meta, treatment == "P")
      ```
      
-     - use `subset()` to return only the `stage` and `treatment` data for those samples with `myc` > 5000:
+     - use `filter()`/`select()` to return only the `stage` and `treatment` data for those samples with `myc` > 5000:
           
      ```r
-     subset(meta, myc > 5000, select = c("stage", "treatment"))
+     filter(meta, myc > 5000) %>% select(c(stage, treatment))
      ```
      
      - remove the `treatment` column from the dataset using `[]`:
