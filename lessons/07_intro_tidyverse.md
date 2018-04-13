@@ -347,29 +347,35 @@ To join only the IDs present in both data frames, we could use the `inner_join()
 
 ```r
 # Inner join
-inner_join(blood, behavior, ID = ID)
+inner_join(blood, behavior)
 ```
 
 Alternatively, if we wanted to return all blood IDs, but include only the behavior IDs that match, we could use the `left_join()` function:
 
 ```r
 # Left join
-left_join(blood, behavior, ID = ID)
+left_join(blood, behavior)
 ```
 
 We could also do the same thing but return all behavior IDs and matching blood IDs using `right_join()`:
 
 ```r
 # Right join
-right_join(blood, behavior, ID = ID)
+right_join(blood, behavior)
 ```
 
 Finally, we could return all IDs from both data frames regardless whether there is a matching key (ID):
 
 ```r
 # Full join
-full_join(blood, behavior, ID = ID)
+full_join(blood, behavior)
 ```
+
+>**NOTE: If the names in the two data frames do not have the same column names, then you would need to include the `by` argument. For example:
+>
+> ```r
+> inner_join(df1, df2, by = c("df1_colname"="df2_colname"))
+>```
 
 ## Tidyr
 
