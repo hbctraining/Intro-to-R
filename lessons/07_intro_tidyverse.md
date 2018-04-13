@@ -374,7 +374,7 @@ full_join(blood, behavior)
 >**NOTE: If the names in the two data frames do not have the same column names, then you would need to include the `by` argument. For example:
 >
 > ```r
-> inner_join(df1, df2, by = c("df1_colname"="df2_colname"))
+> inner_join(df1, df2, by = c("df1_colname" = "df2_colname"))
 >```
 
 ## Tidyr
