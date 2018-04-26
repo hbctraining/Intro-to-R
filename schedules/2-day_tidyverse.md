@@ -2,7 +2,7 @@
 
 ## Day 1
 
-| Time            |  Topic  | Instructor |
+| Time            |  ************************ Topic ************************ | Instructor |
 |:------------------------:|:------------------------------------------------:|:--------:|
 |09:00 - 09:40 | [Workshop Introduction](https://hbctraining.github.io/Intro-to-R/lectures/Intro_to_workshop.pdf) | Radhika |
 |09:40 - 10:25 | [Introduction to R and RStudio](https://hbctraining.github.io/Intro-to-R/lessons/01_introR-R-and-RStudio.html) | Radhika |
@@ -18,7 +18,7 @@
 
 ## Day 2
 
-| Time            |  Topic  | Instructor |
+| Time            |  ************************ Topic ************************ | Instructor |
 |:------------------------:|:------------------------------------------------:|:--------:|
 |09:00 - 09:45 | [Refresher](https://hbctraining.github.io/Intro-to-R/lessons/animal_table.html) | Mary/Meeta |
 |09:45 - 10:30 | [Matching and Reordering](https://hbctraining.github.io/Intro-to-R/lessons/06_advR-matching.html) | Meeta |
