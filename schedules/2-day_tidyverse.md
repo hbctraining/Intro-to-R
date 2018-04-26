@@ -28,7 +28,7 @@
 |12:30 - 13:30 | Lunch | |
 |13:30 - 14:15 | [Data wrangling with Tidyverse](https://hbctraining.github.io/Intro-to-R/lessons/07_intro_tidyverse.html) | Meeta |
 |14:15 - 14:30 | Break
-|13:30 - 14:15 | [Data wrangling with Tidyverse (contd.)](https://hbctraining.github.io/Intro-to-R/lessons/07_intro_tidyverse.html) | Mary |
-|15:00 - 15:15 | [Wrap-up]()
-|15:00 - 16:00 | [Practice exercises](https://hbctraining.github.io/Intro-to-R/homework/Intro_to_R_hw.html)
+|14:30 - 15:15 | [Data wrangling with Tidyverse (contd.)](https://hbctraining.github.io/Intro-to-R/lessons/07_intro_tidyverse.html) | Mary |
+|15:15 - 15:30 | [Wrap-up]()
+|15:30 - 16:00 | [Practice exercises](https://hbctraining.github.io/Intro-to-R/homework/Intro_to_R_hw.html)
 
