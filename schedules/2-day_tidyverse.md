@@ -21,9 +21,9 @@
 | Time            |  ************************ Topic ************************ | Instructor |
 |:------------------------:|:------------------------------------------------:|:--------:|
 |09:00 - 09:45 | [Refresher](https://hbctraining.github.io/Intro-to-R/lessons/animal_table.html) | Mary/Meeta |
-|09:45 - 10:30 | [Matching and Reordering](https://hbctraining.github.io/Intro-to-R/lessons/06_advR-matching.html) | Meeta |
+|09:45 - 10:30 | [Matching and Reordering](https://hbctraining.github.io/Intro-to-R/lessons/matching_shortened.html) | Meeta |
 |10:30 - 10:45 | Break | |
-|10:45 - 11:15 | [Matching and Reordering (contd.)](https://hbctraining.github.io/Intro-to-R/lessons/06_advR-matching.html) | Mary |
+|10:45 - 11:15 | [Matching and Reordering (contd.)](https://hbctraining.github.io/Intro-to-R/lessons/matching_shortened.html) | Mary |
 |11:15 - 12:30 | [Data Visualization with R](https://hbctraining.github.io/Intro-to-R/lessons/07_ggplot2.html) | Radhika |
 |12:30 - 13:30 | Lunch | |
 |13:30 - 14:15 | [Data wrangling with Tidyverse](https://hbctraining.github.io/Intro-to-R/lessons/07_intro_tidyverse.html) | Meeta |
