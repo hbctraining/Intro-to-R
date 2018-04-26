@@ -26,7 +26,9 @@
 |10:45 - 11:15 | [Matching and Reordering (contd.)](https://hbctraining.github.io/Intro-to-R/lessons/06_advR-matching.html) | Mary |
 |11:15 - 12:30 | [Data Visualization with R](https://hbctraining.github.io/Intro-to-R/lessons/07_ggplot2.html) | Radhika |
 |12:30 - 13:30 | Lunch | |
-|13:30 - 15:00 | [Data wrangling with Tidyverse](https://hbctraining.github.io/Intro-to-R/lessons/07_intro_tidyverse.html)
+|13:30 - 14:15 | [Data wrangling with Tidyverse](https://hbctraining.github.io/Intro-to-R/lessons/07_intro_tidyverse.html) | Meeta |
+|14:15 - 14:30 | Break
+|13:30 - 14:15 | [Data wrangling with Tidyverse (cont.)](https://hbctraining.github.io/Intro-to-R/lessons/07_intro_tidyverse.html) | Mary |
 |15:00 - 15:15 | [Wrap-up]()
 |15:00 - 16:00 | [Practice exercises](https://hbctraining.github.io/Intro-to-R/homework/Intro_to_R_hw.html)
 
