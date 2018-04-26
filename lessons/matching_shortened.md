@@ -303,25 +303,6 @@ match(first,second)
 
 >**NOTE:** For values that don't match by default return an `NA` value. You can specify what values you would have it assigned using `nomatch` argument. Also, if there is more than one matching value found only the first is reported.
 
-
-
-```r
-first <- c("A","B","C","D","E")
-second <- c("B","D","E","A","C") 
-```
-
-![matching4](../img/match1.png)
-
-```
-reorder_idx <- match(first,second)
-reorder_idx
-[1] 4 1 5 2 3
-```
-
-![matching5](../img/match4-idx.png)
-
-
-
 ***
 **Exercise 4**
 
