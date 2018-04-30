@@ -69,9 +69,9 @@ The pipe represents a much easier way of writing and deciphering R code, and we 
 
 ### Tibbles
 
-A core component of the [tidyverse](http://tidyverse.org/) is the [tibble](http://tibble.tidyverse.org/). Tibbles are a modern rework of the standard data.frame, with some internal improvements to make code more reliable.  They are data frames, but do not follow all of the same rules. For example, tibbles can have column names that are not normally allowed, such as numbers/symbols. 
+A core component of the [tidyverse](http://tidyverse.org/) is the [tibble](http://tibble.tidyverse.org/). Tibbles are a modern rework of the standard `data.frame`, with some internal improvements to make code more reliable.  They are data frames, but do not follow all of the same rules. For example, tibbles can have column names that are not normally allowed, such as numbers/symbols. 
 
-*Important*: [tidyverse](http://tidyverse.org/) is very opininated about row names. These packages insist that all column data (e.g. `data.frame`) be treated equally, and that special designation of a column as `rownames` should be deprecated. [Tibble](http://tibble.tidyverse.org/) provides simple utility functions to handle rownames: `rownames_to_column()` and `column_to_rownames()`. More help for dealing with row names in tibbles can be found:
+***Important*: [tidyverse](http://tidyverse.org/) is very opininated about row names**. These packages insist that all column data (e.g. `data.frame`) be treated equally, and that special designation of a column as `rownames` should be deprecated. [Tibble](http://tibble.tidyverse.org/) provides simple utility functions to handle rownames: `rownames_to_column()` and `column_to_rownames()`. More help for dealing with row names in tibbles can be found:
 
 ```r
 help("rownames", "tibble")
@@ -90,12 +90,8 @@ Tibbles can be created directly using the `tibble()` function or data frames can
 
 ***
 
-#### Differences between tibbles and data.frames
+A nice feature of a tibble is that **when printing a variable to screen, it will show only the first 10 rows and the columns that fit to the screen by default**. This is nice since you don't have to specify `head()` to take a quick look at your dataset. 
 
-The main differences between tibbles and data.frames relate to *printing* and *subsetting*. 
-
-#### Printing
-A nice feature of a tibble is that when printing a variable to screen, it will show only the first 10 rows and the columns that fit to the screen by default. This is nice since you don't have to specify head to take a quick look at your dataset. If it is desirable to view more of the dataset, the `print()` function can change the number of rows or columns displayed.
 
 ```r
 # Default printing of data.frame
@@ -105,39 +101,25 @@ rpkm_data
 rpkm_data %>% 
   rownames_to_column() %>% 
   as_tibble()
-
-# Printing of tibble with print() - change defaults
-rpkm_data %>% 
-  rownames_to_column() %>% 
-  as_tibble() %>% 
-  print(n = 20, width = Inf)
 ```
 
-#### Subsetting
 
-When subsetting base R data.frames the default behavior is to simplify the output to the simplest data structure. Therefore, if subsetting a single column from a data.frame, R will output a vector (unless `drop=FALSE` is specified). In contrast, subsetting a single column of a tibble will by default return another tibble, not a vector.
+> **NOTE:** If it is desirable to view more of the dataset, the `print()` function can change the number of rows or columns displayed.
+>
+> ```
+> # Printing of tibble with print() - change defaults
+>  rpkm_data %>% 
+>  rownames_to_column() %>% 
+>  as_tibble() %>% 
+>  print(n = 20, width = Inf)
+> ```
 
-Due to this behavior, some older functions do not work with tibbles, so if you need to convert a tibble to a data.frame, the function `as.data.frame(name_of_tibble)` will easily convert it.
-
-Also note that if you use piping to subset a data frame, then the notation is slightly different, requiring a placeholder `.` prior to the `[ ]` or `$`. 
-
-```r
-## Normal subsetting
-
-metadata$genotype
-## OR
-metadata[ , "genotype"]
-
-## Subsetting the output from a pipe
-
-metadata %>% .$genotype
-## OR
-metadata %>% .[ , "genotype"]
-```
 
 ## Tidyverse tools
 
 While all of the tools in the Tidyverse suite are deserving of being explored in more depth, we are going to investigate only the tools we will be using most for data wrangling and tidying.
+
+> **NOTE**: A large number of tidyverse functions will work with both tibbles and dataframes, and the data structure of the output will be identical to the input. However, there are some functions that will return a tibble (without row names), whether or not a tibble or dataframe is provided.
 
 ## Dplyr
 
@@ -152,7 +134,7 @@ The most useful tool in the [tidyverse](http://tidyverse.org/) is [dplyr](http:/
 -   `pull()` extracts a single column as a vector.
 -   `_join()` group of functions that merge two data frames together, includes (`inner_join()`, `left_join()`, `right_join()`, and `full_join()`).
 
-**Note:** [dplyr](http://dplyr.tidyverse.org/) underwent a massive revision in 2017, switching versions from 0.5 to 0.7. If you consult other [dplyr](http://dplyr.tidyverse.org/) tutorials online, note that many materials developed prior to 2017 are no longer correct. In particular, this applies to writing functions with [dplyr](http://dplyr.tidyverse.org/) (see Notes section below).
+> **NOTE: [dplyr](http://dplyr.tidyverse.org/) underwent a massive revision in 2017, switching versions from 0.5 to 0.7**. If you consult other [dplyr](http://dplyr.tidyverse.org/) tutorials online, note that many materials developed prior to 2017 are no longer correct. In particular, this applies to writing functions with [dplyr](http://dplyr.tidyverse.org/) (see Notes section below).
 
 
 `select()`
@@ -162,11 +144,14 @@ To extract columns from a tibble we can use the `select()`.
 
 ```r
 # Convert the res_tableOE data frame to a tibble
-res_tableOE <- res_tableOE %>% rownames_to_column(var="gene") %>% as.tibble()
+res_tableOE <- res_tableOE %>% 
+               rownames_to_column(var="gene") %>% 
+	       as.tibble()
 
-# extract selected columns from res_tableOE and save into a new tibble
-sub_res <- res_tableOE %>%
+# extract selected columns from res_tableOE 
+res_tableOE %>%
     select(gene, baseMean, log2FoldChange, padj)
+
 ```
 
 Conversely, you can remove columns you don't want with negative selection.
@@ -191,14 +176,22 @@ res_tableOE %>%
     ## 10       A4GNT   0.1912781    0.009458374           NA
     ## # ... with 23,358 more rows
 
+Let's save that tibble as a new variable called `sub_res`:
+
+```
+sub_res <- res_tableOE %>%
+    select(-c(lfcSE, stat, pvalue))
+    
+```
+
 `arrange()`
 -----------
 
 Note that the rows are sorted by the gene symbol. Let's sort them by adjusted P value instead with `arrange()`.
 
 ``` r
-sub_res <- arrange(sub_res, padj)
-sub_res
+arrange(sub_res, padj)
+
 ```
 
     ## # A tibble: 23,368 x 4
@@ -222,9 +215,8 @@ sub_res
 Let's keep only genes that are expressed (`baseMean` above 0) with an adjusted P value below 0.01. You can perform multiple `filter()` operations together in a single command.
 
 ``` r
-sub_res <- sub_res %>%
-    filter(baseMean > 0,
-           padj < 0.01)
+sub_res %>%
+    filter(baseMean > 0, padj < 0.01)
 ```
 
 `mutate()`
@@ -278,24 +270,6 @@ sub_res %>%
     ## 10    WDFY1  1422.7361      1.0629160  1.298076e-61
     ## # ... with 4,899 more rows
 
-`summarise()`
--------------
-
-You can perform column summarization operations with `summarise()`.
-
-``` r
-sub_res %>%
-    summarise(avgBaseMean = mean(baseMean))
-```
-
-    ## # A tibble: 1 x 1
-    ##   avgBaseMean
-    ##         <dbl>
-    ## 1      1911.6
-
-*Advanced:* `summarise()` is particularly powerful in combination with the `group_by()` function, which allows you to group related rows together.
-
-*Note*: `summarize()` also works if you prefer to use American English. This applies across the board to any tidy functions, including in [ggplot2](http://ggplot2.tidyverse.org/) (e.g. `color` in place of `colour`).
 
 `pull()`
 --------
@@ -304,7 +278,7 @@ In the recent [dplyr](http://dplyr.tidyverse.org/) 0.7 update, `pull()` was adde
 
 ``` r
 # Extract first 10 values from the gene column
-pull(sub_res, gene) %>% .[1:10]
+pull(sub_res, gene) %>% head()
 ```
 
 `_join()`
