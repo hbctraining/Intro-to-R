@@ -11,8 +11,6 @@
 
 *Source: http://www.speedofanimals.com*
 
-> Download [animals.csv](https://raw.githubusercontent.com/hbctraining/Intro-to-R/master/data/animals.csv).
-
 Questions:
 
 1. Extract the `speed` of 40 km/h.
