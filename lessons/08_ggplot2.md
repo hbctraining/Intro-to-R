@@ -168,7 +168,6 @@ ggplot(new_metadata) +
 
  ![ggscatter1.1](../img/ggscatter-2.png) 
 
-
 Alternatively, we could color based on celltype by changing it to `color =celltype`. Let's try something different and have both **celltype and genotype identified on the plot**. To do this we can assign the `shape` aesthetic the column header, so that each celltype is plotted with a different shaped data point. Add in `shape = celltype` to your aesthetic and see how it changes your plot:
 
 ```r
@@ -334,6 +333,9 @@ Outliers are determined using the interquartile range (IQR), which is defined as
 
  ![ggbox](../img/ggboxplot_new.png)
 
+> *NOTE:* If you wanted to change the colors in these plots you would add another layer `scale_color_manual()` to the code, and within the function specify which colors you want to use using the `values` argument.  For example, if the factor column you are coloring with has 2 levels, you will need to give 2 values as follows `scale_color_manual(values=c("purple","orange"))`.
+>
+> *NOTE:* You are not restricted to colors specified as above, you have the choice of a lot of colors using their *hexadecimal code*, [click here for more information about color palettes in R](http://www.cookbook-r.com/Graphs/Colors_(ggplot2)/).
 
 ## Exporting figures to file
 
