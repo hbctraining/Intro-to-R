@@ -304,10 +304,13 @@ match(first,second)
 >**NOTE:** For values that don't match by default return an `NA` value. You can specify what values you would have it assigned using `nomatch` argument. Also, if there is more than one matching value found only the first is reported.
 
 ***
+
 **Exercise 4**
 
 Similar to Exercise 3, using the `behavior` data frames given below, reorder the columns of the `behavior_SF` data frame to match the order of the columns in the `behavior_ATL` data frame using the `match()` function. Save the reordered `behavior_SF` dataframe as `behavior_SF_reordered_match`. 
+
 ***
+
 
 ### Reordering genomic data using `match()` function
 
