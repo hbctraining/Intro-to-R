@@ -58,19 +58,21 @@ list_purrr
 Now if we wanted to take the median value for each of the components using the `map()` function:
 
 ```r
-list_purrr %>% map(median)
+map(list_purrr, median)
 ```
 
 This will return a **list**. However, if we wanted the output to be returned as a **numeric vector**, we could use the `map_dbl()` function:
 
 ```r
-list_purrr %>% map_dbl(median)
+map_dbl(list_purrr, median)
+
 ```
 
 Or we could return a **character vector**:
 
 ```r
-list_purrr %>% map_chr(median)
+map_chr(list_purrr, median)
+
 ```
 
 This flexibility of the `map()` family of functions can be really useful. 
@@ -80,7 +82,7 @@ This flexibility of the `map()` family of functions can be really useful.
 Coming back to our counts data, to obtain **mean values for all samples** we can use the `map_dbl()` function. 
 
 ```r
-samplemeans <- rpkm_ordered %>% map_dbl(mean) 
+samplemeans <- map_dbl(rpkm_ordered, mean) 
 ```
 We can add this vector with 12 elements as a column to our metadata data.frame, thus combining the average expression with experimental metadata. The `cbind()` or "column bind" function allows us to do this very easily.
 	
