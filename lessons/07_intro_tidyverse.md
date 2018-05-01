@@ -256,7 +256,7 @@ sub_res %>%
 ```
 
     ## # A tibble: 4,909 x 4
-    ##        gene   baseMean log2FoldChange          padj
+    ##        symbol   baseMean log2FoldChange          padj
     ##       <chr>      <dbl>          <dbl>         <dbl>
     ##  1    MOV10 21681.7998      4.7695983  0.000000e+00
     ##  2     H1F0  7881.0811      1.5250811 2.007733e-162
