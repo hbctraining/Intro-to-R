@@ -223,7 +223,7 @@ ID <- c(896, 250, 184, 856, 111, 627)
 diet <- c("veg", "pes", "veg", "veg", "omni", "omni")
 exercise <- c("high", "med", "low", "med", "med", "high")
 locale <- rep("San Franscisco", 6)
-behavior_SF <- data.frame(exercise, location, ID, diet)
+behavior_SF <- data.frame(exercise, locale, ID, diet)
 ```
 
 We can use the `rbind` command to add another data frame as rows in another data frame. However, before we can combine the tables, we need to make sure that are columns are present and in the same order.
@@ -233,7 +233,7 @@ We can use the `rbind` command to add another data frame as rows in another data
 
 1. Check if the column names in the Atlanta dataset are present in the San Francisco dataset.
 
-2. Correct the column name in the San Francisco dataset to match the column with the same type of information in the Atlanta dataset.
+2. Correct the column name in the San Francisco dataset so it is labeled similarily to the column with the same type of information in the Atlanta dataset.
 
 3. Check if the column names are in the same order in both datasets.
 
