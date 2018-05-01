@@ -333,7 +333,7 @@ Outliers are determined using the interquartile range (IQR), which is defined as
 
  ![ggbox](../img/ggboxplot_new.png)
 
-> *NOTE:* If you wanted to change the colors in these plots you would add another layer `scale_color_manual()` to the code, and within the function specify which colors you want to use using the `values` argument.  For example, if the factor column you are coloring with has 2 levels, you will need to give 2 values as follows `scale_color_manual(values=c("purple","orange"))`.
+> *NOTE:* If you wanted to change the colors of these boxplots you would add another layer `scale_fill_manual()` to the code, and within the function specify which colors you want to use using the `values` argument.  For example, if the factor column you are coloring with has 2 levels, you will need to give 2 values as follows `scale_fill_manual(values=c("purple","orange"))`.
 >
 > *NOTE:* You are not restricted to colors specified as above, you have the choice of a lot of colors using their *hexadecimal code*, [click here for more information about color palettes in R](http://www.cookbook-r.com/Graphs/Colors_(ggplot2)/).
 
