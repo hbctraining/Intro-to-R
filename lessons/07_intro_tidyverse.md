@@ -150,7 +150,6 @@ res_tableOE <- res_tableOE %>%
 # extract selected columns from res_tableOE 
 res_tableOE %>%
     select(gene, baseMean, log2FoldChange, padj)
-
 ```
 
 Conversely, you can remove columns you don't want with negative selection.
@@ -180,7 +179,6 @@ Let's save that tibble as a new variable called `sub_res`:
 ```
 sub_res <- res_tableOE %>%
     select(-c(lfcSE, stat, pvalue))
-    
 ```
 
 ### `arrange()`
@@ -189,7 +187,6 @@ Note that the rows are sorted by the gene symbol. Let's sort them by adjusted P 
 
 ``` r
 arrange(sub_res, padj)
-
 ```
 
     ## # A tibble: 23,368 x 4
