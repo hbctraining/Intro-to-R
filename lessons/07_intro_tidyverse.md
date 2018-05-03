@@ -207,8 +207,7 @@ arrange(sub_res, padj)
     ## 10    WDFY1  1422.7361      1.0629160  1.298076e-61
     ## # ... with 23,358 more rows
 
-`filter()`
-----------
+### `filter()`
 
 Let's keep only genes that are expressed (`baseMean` above 0) with an adjusted P value below 0.01. You can perform multiple `filter()` operations together in a single command.
 
@@ -216,6 +215,21 @@ Let's keep only genes that are expressed (`baseMean` above 0) with an adjusted P
 sub_res %>%
     filter(baseMean > 0, padj < 0.01)
 ```
+
+    ## # A tibble: 4,959 x 4
+    ##    gene     baseMean log2FoldChange     padj
+    ##    <chr>       <dbl>          <dbl>    <dbl>
+    ##  1 A4GALT       64.5          0.798 2.40e- 5
+    ##  2 AAGAB      2614.          -0.390 1.68e-11
+    ##  3 AAMP       3157.          -0.380 9.11e-13
+    ##  4 AARS       3690.           0.167 2.10e- 3
+    ##  5 AARS2      2255.          -0.204 3.77e- 4
+    ##  6 AASDHPPT   3561.          -0.293 3.79e- 7
+    ##  7 AASS       1018.           0.347 7.94e- 5
+    ##  8 AATF       2613.          -0.290 1.97e- 7
+    ##  9 ABAT        384.           0.384 1.99e- 4
+    ## 10 ABCA1       108.           0.833 4.19e- 7
+    ## # ... with 4,949 more rows
 
 ### `mutate()`
 
@@ -227,20 +241,20 @@ sub_res %>%
     select(gene, baseMean, log10BaseMean)
 ```
 
-    ## # A tibble: 4,909 x 3
-    ##      gene   baseMean log10BaseMean
-    ##       <chr>      <dbl>         <dbl>
-    ##  1    MOV10 21681.7998      4.336095
-    ##  2     H1F0  7881.0811      3.896586
-    ##  3    HSPA6   168.2522      2.225961
-    ##  4 HIST1H1C  1741.3830      3.240894
-    ##  5    TXNIP  5133.7486      3.710435
-    ##  6    NEAT1 21973.7061      4.341903
-    ##  7    KLF10  1694.2109      3.228967
-    ##  8   INSIG1 11872.5106      4.074543
-    ##  9    NR1D1   969.9119      2.986732
-    ## 10    WDFY1  1422.7361      3.153124
-    ## # ... with 4,899 more rows
+    ## # A tibble: 23,368 x 3
+    ##    gene        baseMean log10BaseMean
+    ##    <chr>          <dbl>         <dbl>
+    ##  1 1/2-SBSRNA4   45.7           1.66 
+    ##  2 A1BG          61.1           1.79 
+    ##  3 A1BG-AS1     176.            2.24 
+    ##  4 A1CF           0.238        -0.624
+    ##  5 A2LD1         89.6           1.95 
+    ##  6 A2M            5.86          0.768
+    ##  7 A2ML1          2.42          0.385
+    ##  8 A2MP1          1.32          0.121
+    ##  9 A4GALT        64.5           1.81 
+    ## 10 A4GNT          0.191        -0.718
+    ## # ... with 23,358 more rows
 
 ### `rename()`
 
@@ -251,20 +265,20 @@ sub_res %>%
     rename(symbol = gene)
 ```
 
-    ## # A tibble: 4,909 x 4
-    ##        symbol   baseMean log2FoldChange          padj
-    ##       <chr>      <dbl>          <dbl>         <dbl>
-    ##  1    MOV10 21681.7998      4.7695983  0.000000e+00
-    ##  2     H1F0  7881.0811      1.5250811 2.007733e-162
-    ##  3    HSPA6   168.2522      4.4993734 1.969313e-134
-    ##  4 HIST1H1C  1741.3830      1.4868361 5.116720e-101
-    ##  5    TXNIP  5133.7486      1.3868320  4.882246e-90
-    ##  6    NEAT1 21973.7061      0.9087853  2.269464e-83
-    ##  7    KLF10  1694.2109      1.2093969  9.257431e-78
-    ##  8   INSIG1 11872.5106      1.2260848  8.853278e-70
-    ##  9    NR1D1   969.9119      1.5236259  1.376753e-64
-    ## 10    WDFY1  1422.7361      1.0629160  1.298076e-61
-    ## # ... with 4,899 more rows
+    ## # A tibble: 23,368 x 4
+    ##    symbol      baseMean log2FoldChange       padj
+    ##    <chr>          <dbl>          <dbl>      <dbl>
+    ##  1 1/2-SBSRNA4   45.7          0.268    0.264    
+    ##  2 A1BG          61.1          0.209    0.357    
+    ##  3 A1BG-AS1     176.          -0.0519   0.781    
+    ##  4 A1CF           0.238        0.0130  NA        
+    ##  5 A2LD1         89.6          0.345    0.0722   
+    ##  6 A2M            5.86        -0.274    0.226    
+    ##  7 A2ML1          2.42         0.240   NA        
+    ##  8 A2MP1          1.32         0.0811  NA        
+    ##  9 A4GALT        64.5          0.798    0.0000240
+    ## 10 A4GNT          0.191        0.00952 NA        
+    ## # ... with 23,358 more rows
 
 
 ### `pull()`
