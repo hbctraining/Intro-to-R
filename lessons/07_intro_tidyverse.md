@@ -137,7 +137,7 @@ The most useful tool in the [tidyverse](http://tidyverse.org/) is [dplyr](http:/
 > **NOTE: [dplyr](http://dplyr.tidyverse.org/) underwent a massive revision in 2017, switching versions from 0.5 to 0.7**. If you consult other [dplyr](http://dplyr.tidyverse.org/) tutorials online, note that many materials developed prior to 2017 are no longer correct. In particular, this applies to writing functions with [dplyr](http://dplyr.tidyverse.org/) (see Notes section below).
 
 
-### `select()`
+### select()
 
 To extract columns from a tibble we can use the `select()`.
 
@@ -181,7 +181,7 @@ sub_res <- res_tableOE %>%
     select(-c(lfcSE, stat, pvalue))
 ```
 
-### `arrange()`
+### arrange()
 
 Note that the rows are sorted by the gene symbol. Let's sort them by adjusted P value instead with `arrange()`.
 
@@ -204,7 +204,7 @@ arrange(sub_res, padj)
     ## 10    WDFY1  1422.7361      1.0629160  1.298076e-61
     ## # ... with 23,358 more rows
 
-### `filter()`
+### filter()
 
 Let's keep only genes that are expressed (`baseMean` above 0) with an adjusted P value below 0.01. You can perform multiple `filter()` operations together in a single command.
 
@@ -228,7 +228,7 @@ sub_res %>%
     ## 10 ABCA1       108.           0.833 4.19e- 7
     ## # ... with 4,949 more rows
 
-### `mutate()`
+### mutate()
 
 `mutate()` enables you to create a new column from an existing column. Let's generate log10 calculations of our baseMeans for each gene.
 
