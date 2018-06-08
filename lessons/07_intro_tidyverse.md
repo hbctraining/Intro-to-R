@@ -410,6 +410,8 @@ Stringr is a powerful tool for working with sequences of characters, or **string
 -   `str_detect()` identifies whether a pattern exists in each of the elements in a vector
 -   `str_subset()` returns only those elements that match a pattern
 
+To help with using these functions in addition to other stringr functions there is a handy [stringr cheatsheet](https://github.com/rstudio/cheatsheets/blob/master/strings.pdf).
+
 ### str_c()
 
 The `str_c()` function concatenates values together with a designated separator. There is also a `collapse` argument for whether to collapse multiple objects to a single string.
