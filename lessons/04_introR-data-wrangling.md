@@ -267,55 +267,35 @@ Extract only those elements in `samplegroup` that are not KO (*nesting the logic
 
 #### Releveling factors
 
-We have briefly talked about factors, but this data type only becomes more intuitive once you've had a chance to work with it.  Let's take a slight detour and learn about how to **order and/or relevel categories within a factor**. 
+We have briefly talked about factors, but this data type only becomes more intuitive once you've had a chance to work with it.  Let's take a slight detour and learn about how to **relevel categories within a factor**. 
 
-As we learned earlier, the categories in the `expression` factor were assigned integers alphabetically, with high=1, low=2, medium=3. To view the integer assignments under the hood you can use str:
+To view the integer assignments under the hood you can use `str()`:
 
 ```r
+expression
+
 str(expression)
 Factor w/ 3 levels "high","low","medium": 2 1 3 1 2 3 1
 ```
-The unique elements are referred to as "factor levels".
+The categories are referred to as "factor levels". As we learned earlier, the levels in the `expression` factor were assigned integers alphabetically, with high=1, low=2, medium=3. However, it makes more sense for us if low=1, high=3 and high=3, i.e. it makes sense for us to "relevel" the categories in this factor.
+
+To relevel the categories, you can add the `levels` argument to the `factor()` function, and give it a vector with the categories listed in the required order:
 
 ```r
-expression[expression > "low"]
-```
-
-In the example above, the logical expression to obtain all levels greater than "low" does not work because the factor is unordered, i.e. there is no notation to say that high is greater than medium etc. In fact, the high category is the middle category because of the alphabetical order of the factor names. 
-
-To order factor levels, you can add an argument to the `factor()` function, `ordered=TRUE`:
-
-```r
-expression <- factor(expression, ordered=TRUE)    ## Note that the `factor()` function is used to create a factor, & to modify the characteristics of an existing factor
+expression <- factor(expression, levels=c("low", "medium", "high"))     # you can re-factor a factor 
 
 str(expression)
-Ord.factor w/ 3 levels "high"<"low"<"medium": 2 1 3 1 2 3 1
-
-expression[expression > "low"]     ## Now that this factor is ordered what do you expect the output of this line of code to be?
+Factor w/ 3 levels "low","medium",..: 1 3 2 3 1 2 3
 ```
 
-Now the output of the `str()` function states that this is an `Ord.factor`, and there are "<" signs to denote that low is the lowest category. 
+Now we have a releveled factor with low as the lowest or first category, medium as the second and high as the third. This is reflected in the way they are listed in the output of `str()`, as well as in the numbering of which category is where in the factor.
 
-However, the order of categories is still incorrect and this is even more obvious now with the "<" notation. This is because R is still ordering the levels alphabetically. R does not consider the meaning of the words here, so we have to coerce the **releveling** such that `"low" < "medium" < "high"` using the `levels` option within the `factor()` function.
-
-```r
-expression <- factor(expression, levels=c("low", "medium", "high"))      ## note the nested combine function
-	
-str(expression)
-Ord.factor w/ 3 levels "low"<"medium"<..: 1 3 2 3 1 2 3
-
-expression[expression > "low"]
-```
-
-> **Note**: 
->
-> The `ordered` and `levels` options within `factor()` are *independent of each other*, and can be used separately or together. 
-
+> Note: Releveling becomes necessary when you need a specific category in a factor to be the "base" category, i.e. category that is equal to 1. One example would be if you need the "control" to be the "base" in a given RNA-seq experiment.
 
 ***
 **Exercise**
 
-Use the `samplegroup` factor we created in a previous lesson, and change that to an ordered factor such that KO < CTL < OE. 
+Use the `samplegroup` factor we created in a previous lesson, and relevel it such that KO is the first level followed by CTL and OE. 
 
 ---
 
