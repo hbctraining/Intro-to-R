@@ -146,7 +146,7 @@ To extract columns from a tibble we can use the `select()` function.
 # Convert the res_tableOE data frame to a tibble
 res_tableOE <- res_tableOE %>% 
                rownames_to_column(var="gene") %>% 
-	       as.tibble()
+	       as_tibble()
 
 # extract selected columns from res_tableOE 
 res_tableOE %>%
