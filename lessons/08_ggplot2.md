@@ -43,7 +43,7 @@ The syntax for the `map()` family of functions is:
 map(object, function_to_apply)
 ```
 
-If you would like to practice with the `map()` family of functions, we have [additional material](https://hbctraining.github.io/Intro-to-R/lessons/map_purrr.html) available.
+If you would like to practice with the `map()` family of functions, we have [additional materials](https://hbctraining.github.io/Intro-to-R/lessons/map_purrr.html) available.
 ### Wrangling our data with `map_dbl()`
 
 To obtain **mean values for all samples** we can use the `map_dbl()` function which generates a numeric vector. 
