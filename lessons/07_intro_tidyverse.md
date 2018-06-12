@@ -30,7 +30,7 @@ library(tidyverse)
 
 ## Tidyverse basics
 
-As it is difficult to change how fundamental base R structures/functions work, the Tidyverse suite of packages create and use data structures, functions and operators to make working with data more intuitive. The two most basic changes are in the use of **pipes** and **tibbles**.
+The Tidyverse suite of packages introduces users to a set of data structures, functions and operators to make working with data more intuitive, but is slightly different from the way we do things in base R. Two important new concepts we will focus on are **pipes** and **tibbles**.
 
 ### Pipes
 
