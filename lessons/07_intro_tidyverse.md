@@ -30,7 +30,7 @@ library(tidyverse)
 
 ## Tidyverse basics
 
-The Tidyverse suite of packages introduces users to a set of data structures, functions and operators to make working with data more intuitive, but is slightly different from the way we do things in base R. Two important new concepts we will focus on are **pipes** and **tibbles**.
+The Tidyverse suite of packages introduces users to a set of data structures, functions and operators to make working with data more intuitive, but is slightly different from the way we do things in base R. **Two important new concepts we will focus on are pipes and tibbles**.
 
 ### Pipes
 
@@ -53,7 +53,7 @@ round(sqrt(83), digit = 2)
 sqrt(83) %>% round(digit = 2)
 ```
 
-The pipe represents a much easier way of writing and deciphering R code, and we will be taking advantage of it for all future activities.
+The pipe represents a much easier way of writing and deciphering R code, and so we will be taking advantage of it, when possible, as we work through the remaining lesson.
 
 ***
 **Exercises**
@@ -69,9 +69,9 @@ The pipe represents a much easier way of writing and deciphering R code, and we 
 
 ### Tibbles
 
-A core component of the [tidyverse](http://tidyverse.org/) is the [tibble](http://tibble.tidyverse.org/). Tibbles are a modern rework of the standard `data.frame`, with some internal improvements to make code more reliable.  They are data frames, but do not follow all of the same rules. For example, tibbles can have column names that are not normally allowed, such as numbers/symbols. 
+A core component of the [tidyverse](http://tidyverse.org/) is the [tibble](http://tibble.tidyverse.org/). **Tibbles are a modern rework of the standard `data.frame`, with some internal improvements** to make code more reliable.  They are data frames, but do not follow all of the same rules. For example, tibbles can have numbers/symbols for column names, which is not normally allowed in base R. 
 
-***Important*: [tidyverse](http://tidyverse.org/) is very opininated about row names**. These packages insist that all column data (e.g. `data.frame`) be treated equally, and that special designation of a column as `rownames` should be deprecated. [Tibble](http://tibble.tidyverse.org/) provides simple utility functions to handle rownames: `rownames_to_column()` and `column_to_rownames()`. More help for dealing with row names in tibbles can be found:
+**Important: [tidyverse](http://tidyverse.org/) is very opininated about row names**. These packages insist that all column data (e.g. `data.frame`) be treated equally, and that special designation of a column as `rownames` should be deprecated. [Tibble](http://tibble.tidyverse.org/) provides simple utility functions to handle rownames: `rownames_to_column()` and `column_to_rownames()`. More help for dealing with row names in tibbles can be found:
 
 ```r
 help("rownames", "tibble")
@@ -114,6 +114,7 @@ rpkm_data %>%
 >  print(n = 20, width = Inf)
 > ```
 
+*** 
 
 ## Tidyverse tools
 
@@ -137,7 +138,7 @@ The most useful tool in the [tidyverse](http://tidyverse.org/) is [dplyr](http:/
 > **NOTE: [dplyr](http://dplyr.tidyverse.org/) underwent a massive revision in 2017, switching versions from 0.5 to 0.7**. If you consult other [dplyr](http://dplyr.tidyverse.org/) tutorials online, note that many materials developed prior to 2017 are no longer correct. In particular, this applies to writing functions with [dplyr](http://dplyr.tidyverse.org/) (see Notes section below).
 
 
-### select()
+### `select()`
 
 To extract columns from a tibble we can use the `select()`.
 
@@ -181,7 +182,7 @@ sub_res <- res_tableOE %>%
     select(-c(lfcSE, stat, pvalue))
 ```
 
-### arrange()
+### `arrange()`
 
 Note that the rows are sorted by the gene symbol. Let's sort them by adjusted P value instead with `arrange()`.
 
@@ -204,7 +205,7 @@ arrange(sub_res, padj)
     ## 10    WDFY1  1422.7361      1.0629160  1.298076e-61
     ## # ... with 23,358 more rows
 
-### filter()
+### `filter()`
 
 Let's keep only genes that are expressed (`baseMean` above 0) with an adjusted P value below 0.01. You can perform multiple `filter()` operations together in a single command.
 
@@ -228,7 +229,7 @@ sub_res %>%
     ## 10 ABCA1       108.           0.833 4.19e- 7
     ## # ... with 4,949 more rows
 
-### mutate()
+### `mutate()`
 
 `mutate()` enables you to create a new column from an existing column. Let's generate log10 calculations of our baseMeans for each gene.
 
@@ -253,7 +254,7 @@ sub_res %>%
     ## 10 A4GNT          0.191        -0.718
     ## # ... with 23,358 more rows
 
-### rename()
+### `rename()`
 
 You can quickly rename an existing column with `rename()`. The syntax is `new_name` = `old_name`.
 
@@ -278,7 +279,7 @@ sub_res %>%
     ## # ... with 23,358 more rows
 
 
-### pull()
+### `pull()`
 
 In the recent [dplyr](http://dplyr.tidyverse.org/) 0.7 update, `pull()` was added as a quick way to access column data as a vector. This is very handy in chain operations with the pipe operator.
 
@@ -287,7 +288,7 @@ In the recent [dplyr](http://dplyr.tidyverse.org/) 0.7 update, `pull()` was adde
 pull(sub_res, gene) %>% head()
 ```
 
-### \_join()
+### `\_join()`
 
 Dplyr has a powerful group of join operations, which join together a pair of data frames based on a variable or set of variables present in both data frames that uniquely identify all observations. These variables are called **keys**.
 
@@ -367,7 +368,7 @@ The purpose of Tidyr is to have well-organized or tidy data, which Tidyverse def
 
 There are two main functions in Tidyr, `gather()` and `spread()`. These functions allow for conversion between long data format and wide data format. The downstream use of the data will determine which format is required.
 
-### gather()
+### `gather()`
 
 The `gather()` function changes a wide data format into a long data format. This function is particularly helpful when using 'ggplot2' to get all of the values to plot into a single column. 
 
@@ -384,7 +385,7 @@ gathered <- rpkm_data_tb %>%
          value = "rpkm")
 ```               
         
-### spread()
+### `spread()`
 
 The `spread()` function is the reverse of the `gather()` function. The categories of the `key` column will become separate columns, and the values in the `value` column split across the associated `key` columns.
 
@@ -412,7 +413,7 @@ Stringr is a powerful tool for working with sequences of characters, or **string
 
 To help with using these functions in addition to other stringr functions there is a handy [stringr cheatsheet](https://github.com/rstudio/cheatsheets/blob/master/strings.pdf).
 
-### str_c()
+### `str_c()`
 
 The `str_c()` function concatenates values together with a designated separator. There is also a `collapse` argument for whether to collapse multiple objects to a single string.
 
@@ -421,7 +422,7 @@ metadata <- metadata %>%
   mutate(sample = str_c(genotype, celltype, replicate, sep = "_"))
 ```
 
-### str_split()
+### `str_split()`
 
 In contrast to `str_c()`, `str_split()` will separate values based on a designated separator.
 
@@ -431,7 +432,7 @@ metadata %>%
   str_split("_")
 ```  
 
-### str_sub()
+### `str_sub()`
 
 For extracting characters from a string, the `str_sub()` function can be used to denote which positions in the string to extract:
 
@@ -443,7 +444,7 @@ metadata %>%
 
 To replace a string with another string, the `str_replace()` function can be helpful:
 
-### str_replace()
+### `str_replace()`
 
 ```r
 metadata %>%
@@ -453,7 +454,7 @@ metadata %>%
 
 By default `str_replace()` will only replace the first encountered instance in each element/component. If you wanted to replace all instances, then there is the `str_replace_all()` function.
 
-### str_to_()
+### `str_to_()`
 
 Frequently during data tidying we need to ensure that all values of the column have the same case, since R is case sensitive. An easy way to change the case of any value is to use the `str_to_` family of functions, including `str_to_upper()`, `str_to_lower()`, and `str_to_title()`.
 
@@ -482,7 +483,7 @@ The last two functions, `str_detect()` and `str_subset()` require a pattern to m
 - **`"*"`:** matches zero or more times
 
 
-### str_detect()
+### `str_detect()`
 
 The `str_detect()` function identifies whether a pattern exists in each of the elements in a vector. The function returns a logical value for whether element matches pattern for each element in vector.
 
@@ -493,7 +494,7 @@ idx <- str_detect(metadata$sample, "typeA_1")
 metadata[idx, ]
 ```
 
-### str_subset()
+### `str_subset()`
 
 To only return those values that match a pattern, the `str_subset()` function will extract only those values:
 
