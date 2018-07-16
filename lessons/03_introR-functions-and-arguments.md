@@ -10,9 +10,10 @@ Approximate time: 50 min
 * Describe and utilize functions in R. 
 * Modify default behavior of functions using arguments in R.
 * Identify R-specific sources of help to get more information about functions.
+* Demonstrate how to create user-defined functions in R
 * Demonstrate how to install external packages to extend R’s functionality. 
 * Identify different R-specific and external sources of help to (1) troubleshoot errors and (2) get more information about functions and packages.
-* Demonstrate how to create user-defined functions in R
+
 
 ## Functions and their arguments
 
