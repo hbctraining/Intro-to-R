@@ -163,11 +163,11 @@ Alternatively, if you wanted the reverse could try `4:1` for instance, and see w
 ***
 **Exercises** 
 
-1. Create a vector called alphabets with the following alphabets, C, D, X, L, F.
+1. Create a vector called alphabets with the following letters, C, D, X, L, F.
 2. Use the associated indices along with `[ ]` to do the following:
 	* only display C, D and F
 	* display all except X
-	* display the alphabets in the opposite order (F, L, X, D, C)
+	* display the letters in the opposite order (F, L, X, D, C)
 
 ***
 
@@ -277,7 +277,7 @@ expression
 str(expression)
 Factor w/ 3 levels "high","low","medium": 2 1 3 1 2 3 1
 ```
-The categories are referred to as "factor levels". As we learned earlier, the levels in the `expression` factor were assigned integers alphabetically, with high=1, low=2, medium=3. However, it makes more sense for us if low=1, high=3 and high=3, i.e. it makes sense for us to "relevel" the categories in this factor.
+The categories are referred to as "factor levels". As we learned earlier, the levels in the `expression` factor were assigned integers alphabetically, with high=1, low=2, medium=3. However, it makes more sense for us if low=1, medium=2 and high=3, i.e. it makes sense for us to "relevel" the categories in this factor.
 
 To relevel the categories, you can add the `levels` argument to the `factor()` function, and give it a vector with the categories listed in the required order:
 
