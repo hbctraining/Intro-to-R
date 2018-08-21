@@ -211,7 +211,7 @@ Let's keep only genes that are expressed (`baseMean` above 0) with an adjusted P
 
 ``` r
 sub_res %>%
-    filter(baseMean > 0, padj < 0.01)
+    filter(baseMean > 0 & padj < 0.01)
 ```
 
     ## # A tibble: 4,959 x 4
