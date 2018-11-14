@@ -147,7 +147,7 @@ When **defining the function** you will want to provide the **list of arguments 
 
 Finally, you can **“return” the value of the object from the function**, meaning pass the value of it into the global environment. The important idea behind functions is that objects that are created within the function are local to the environment of the function – they don’t exist outside of the function. 
 
-> **NOTE:** You can also have a function that doesnt require any arguments, nor will it return anything.
+> **NOTE:** You can also have a function that doesn't require any arguments, nor will it return anything.
 
 Let's try creating a simple example function. This function will take in a numeric value as input, and return the squared value.
 
@@ -208,23 +208,20 @@ Alternatively, packages can also be installed from [Bioconductor](https://www.bi
 
 There are many packages that are available in CRAN and Bioconductor, but there are also packages that are specific to one repository. Generally, you can find out this information with a Google search or by trial and error. 
 
-To install from Bioconductor, you will first need to install Bioconductor and all the standard packages. *This only needs to be done once ever for your R installation.* 
-
-**If you were successful with the installation from CRAN, you do not need to run this**
+To install from Bioconductor, you will first need to install BiocManager. *This only needs to be done once ever for your R installation.* 
 
 ```r
 # DO NOT RUN THIS!
 
-source("http://bioconductor.org/biocLite.R")
-biocLite()
+install.packages(BiocManager)
 ```
 
-Once you have the standard packages installed, you can install additional packages using the `biocLite.R` script. If it's a new R session you will also have to source the script again. Here we show that the same package `ggplot2` is available through Bioconductor:
+Then you can use the `install()` function to install a package by providing the name in quotations. Here we show that the same package `ggplot2` is available through Bioconductor:
 
 ```r
 # DO NOT RUN THIS!
 
-biocLite("ggplot2")
+BiocManager::install("ggplot2")
 ```
 ### Package installation from source
 
