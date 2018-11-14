@@ -221,8 +221,10 @@ Then you can use the `install()` function to install a package by providing the 
 ```r
 # DO NOT RUN THIS!
 
-BiocManager::install("ggplot2")
+library(BiocManager)
+install("ggplot2")
 ```
+
 ### Package installation from source
 
 Finally, R packages can also be installed from source. This is useful when you do not have an internet connection (and have the source files locally), since the other two methods are retrieving the source files from remote sites. 
