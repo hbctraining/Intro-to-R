@@ -206,44 +206,6 @@ If we want to save our results, we need to assign to a variable:
 reorder_teach <- teaching_team[c(3, 1, 2)] # Saving the results to a variable
 ```
 
-Some tools or commands require two dataframes with a unique row or column ID be present in both and contain the same values in the same order. For instance, let's assume we have collected two datasets about eating and exercise behavior from two different locations. We would generally read in the data collected, but we will just re-create the datasets:
-
-```r
-# Creating Atlanta dataset
-
-ID <- c(546, 983, 042, 952, 853, 061)
-diet <- c("omni", "pes", "omni", "omni", "omni", "omni")
-exercise <- c("high", "low", "low", "low", "med", "high")
-location <- rep("Atlanta", 6)
-behavior_ATL <- data.frame(ID, diet, exercise, location)
-
-# Creating San Francisco dataset
-
-ID <- c(896, 250, 184, 856, 111, 627)
-diet <- c("veg", "pes", "veg", "veg", "omni", "omni")
-exercise <- c("high", "med", "low", "med", "med", "high")
-locale <- rep("San Franscisco", 6)
-behavior_SF <- data.frame(exercise, locale, ID, diet)
-```
-
-We can use the `rbind` command to add another data frame as rows in another data frame. However, before we can combine the tables, we need to make sure that are columns are present and in the same order.
-
-***
-**Exercise 3**
-
-1. Check if the column names in the Atlanta dataset are present in the San Francisco dataset.
-
-2. Correct the column name in the San Francisco dataset so it is labeled similarily to the column with the same type of information in the Atlanta dataset.
-
-3. Check if the column names are in the same order in both datasets.
-
-4. Manually reorder the column names in the San Francisco dataset to match the order of the column names in the Atlanta dataset and save as `behavior_SF_reordered`.
-
-5. Use the `rbind` function to combine the the `behavior_ATL` and `behavior_SF_reordered` into a single dataset.
-
-***
-
-
 ## The `match` function
 
 Now that we know how to reorder using indices, we can use the `match()` function to match the values in two vectors. We'll be using it to evaluate which samples are present in both our counts and metadata dataframes, and then to re-order the columns in the counts matrix to match the row names in the metadata matrix. 
