@@ -13,11 +13,10 @@ These materials are intended to provide both basic R programming knowledge and i
 
 ### Learning Objectives
 
-1. **R syntax**: Understanding the different 'parts of speech' in R; introducing variables and functions, demonstrating how functions work, and modifying arguments for specific use cases.
-2. **Data structures in R**: Getting a handle on the classes of data structures and the types of data used by R.
-3. **Data inspection and wrangling**: Reading in data from files. Using indices and various functions to subset, merge, and create datasets.
-4. **Visualizing data**: Visualizing data using plotting functions in base R as well as from external packages such as ggplot2.
-5. **Exporting data and graphics**: Generating new data tables and plots for use outside of the R environment.
+1. **R syntax**: Understand the different 'parts of speech'.
+2. **Data types structures in R**: Describe the various data types and data structures.
+3. **Data inspection and wrangling**: Demonstrate the utilization of functions and indices to inspect and subset data from various data structures.
+4. **Visualizing data**: Demonstrate the use of the ggplot2 package to create plots for easy data visualization.
 
 ### Lessons
 
