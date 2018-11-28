@@ -26,9 +26,16 @@ Below are links to the lessons and suggested schedules:
 * [2 day schedule](schedules/1.5-day.md)
 * [1.5 day schedule](schedules/2_day.md)
 
+### Installation Requirements
+
+Download the most recent versions of R and RStudio for the appropriate OS using the links below:
+
+ - [R](https://cran.r-project.org/) 
+ - [RStudio](https://www.rstudio.com/products/rstudio/download/#download)
+
 ### Dataset
 
-[Introduction to Shell: Dataset](https://github.com/hbctraining/Intro-to-R-with-DGE/tree/master/data)
+All the files used for the above lessons are linked within, but can also be [accessed here](https://github.com/hbctraining/Intro-to-R-with-DGE/tree/master/data).
 
 ---
 *These materials have been developed by members of the teaching team at the [Harvard Chan Bioinformatics Core (HBC)](http://bioinformatics.sph.harvard.edu/). These are open access materials distributed under the terms of the [Creative Commons Attribution license](https://creativecommons.org/licenses/by/4.0/) (CC BY 4.0), which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.*
