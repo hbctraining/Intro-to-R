@@ -22,8 +22,8 @@ These materials are intended to provide both basic R programming knowledge and i
 
 Below are links to the lessons and suggested schedules:
 
-* [2 day schedule](schedules/1.5-day.md)
-* [1.5 day schedule](schedules/2_day.md)
+* [2 day schedule](https://hbctraining.github.io/Intro-to-R/schedules/1.5-day.html)
+* [1.5 day schedule](https://hbctraining.github.io/Intro-to-R/schedules/2_day.html)
 
 ### Installation Requirements
 
