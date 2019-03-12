@@ -213,7 +213,7 @@ To install from Bioconductor, you will first need to install BiocManager. *This 
 ```r
 # DO NOT RUN THIS!
 
-install.packages(BiocManager)
+install.packages("BiocManager")
 ```
 
 Then you can use the `install()` function to install a package by providing the name in quotations. Here we show that the same package `ggplot2` is available through Bioconductor:
@@ -234,7 +234,7 @@ To install from source, we use the same `install.packages` function but we have 
 ```r
 # DO NOT RUN THIS!
 
-install.packages("ggplot2_1.0.1.tar.gz", type="source", repos=NULL)
+install.packages("~/Downloads/ggplot2_1.0.1.tar.gz", type="source", repos=NULL)
 ```
 
 ### Loading libraries
