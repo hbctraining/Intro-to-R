@@ -10,15 +10,22 @@ Approximate time: 110 min
 
 * Implement matching and re-ordering data within data structures.
 
-## Matching data 
+## Matching data
 
-Often when working with genomic data, we have a data file that corresponds with our metadata file. The data file contains measurements from the biological assay for each individual sample. In this case, the biological assay is gene expression and data was generated using RNA-Seq. 
+Often when working with genomic data, we have a data file that corresponds with our metadata file. The data file contains measurements from the biological assay for each individual sample. In this case, the biological assay is gene expression and data was generated using RNA-Seq.
 
-Let's read in our expression data (RPKM matrix) that we downloaded previously:
+Let's read in our expression data (RPKM matrix) that we downloaded previously from https://raw.githubusercontent.com/hbc/NGS_Data_Analysis_Course/master/sessionII/data/counts.rpkm.csv:
 
 ```r
 rpkm_data <- read.csv("data/counts.rpkm.csv")
 ```
+
+If you don't have the metadata loaded, download it from https://github.com/hbc/NGS_Data_Analysis_Course/raw/master/sessionII/data/mouse_exp_design.csv and load it with:
+
+```r
+metadata <- read.csv("data/mouse_exp_design.csv")
+```
+
 
 Take a look at the first few lines of the data matrix to see what's in there.
 
@@ -26,18 +33,18 @@ Take a look at the first few lines of the data matrix to see what's in there.
 head(rpkm_data)
 ```
 
-It looks as if the sample names (header) in our data matrix are similar to the row names of our metadata file, but it's hard to tell since they are not in the same order. We can do a quick check of the number of columns in the count data and the rows in the metadata and at least see if the numbers match up. 
+It looks as if the sample names (header) in our data matrix are similar to the row names of our metadata file, but it's hard to tell since they are not in the same order. We can do a quick check of the number of columns in the count data and the rows in the metadata and at least see if the numbers match up.
 
 ```r
 ncol(rpkm_data)
 nrow(metadata)
 ```
 
-What we want to know is, **do we have data for every sample that we have metadata?** 
+What we want to know is, **do we have data for every sample that we have metadata?**
 
 ## The `%in%` operator
- 
-Although lacking in [documentation](http://dr-k-lo.blogspot.com/2013/11/) this operator is well-used and convenient once you get the hang of it. The operator is used with the following syntax: 
+
+Although lacking in [documentation](http://dr-k-lo.blogspot.com/2013/11/) this operator is well-used and convenient once you get the hang of it. The operator is used with the following syntax:
 
 ```r
 vector1_of_values %in% vector2_of_values
@@ -49,7 +56,7 @@ It will take a vector as input to the left and will **evaluate each element to s
 A <- c(1,3,5,7,9,11)   # odd numbers
 B <- c(2,4,6,8,10,12)  # even numbers
 
-# test to see if each of the elements of A is in B	
+# test to see if each of the elements of A is in B
 A %in% B
 ```
 
@@ -62,7 +69,7 @@ Since vector A contains only odd numbers and vector B contains only even numbers
 
 ```r
 A <- c(1,3,5,7,9,11)   # odd numbers
-B <- c(2,4,6,8,1,5)  # add some odd numbers in 
+B <- c(2,4,6,8,1,5)  # add some odd numbers in
 ```
 
 ```r
@@ -74,7 +81,7 @@ A %in% B
 ## [1]  TRUE FALSE  TRUE FALSE FALSE FALSE
 ```
 
-The logical vector returned denotes which elements in `A` are also in `B` and which are not.  
+The logical vector returned denotes which elements in `A` are also in `B` and which are not.
 
 We saw previously that we could use the output from a logical expression to subset data by returning only the values corresponding to `TRUE`. Therefore, we can use the output logical vector to subset our data, and return only those elements in `A`, which are also in `B` by returning only the TRUE values:
 
@@ -116,7 +123,7 @@ Suppose we had **two vectors that had the same values but just not in the same o
 
 ```r
 A <- c(10,20,30,40,50)
-B <- c(50,40,30,20,10)  # same numbers but backwards 
+B <- c(50,40,30,20,10)  # same numbers but backwards
 
 # test to see if each element of A is in B
 A %in% B
@@ -166,7 +173,7 @@ We have a list of IDs for marker genes of particular interest. We want to extrac
 	```r
 	important_genes <- c("ENSMUSG00000083700", "ENSMUSG00000080990", "ENSMUSG00000065619", "ENSMUSG00000047945", "ENSMUSG00000081010", 	"ENSMUSG00000030970")
 	```
-	
+
 2. Extract the rows containing the important genes from your `rpkm_data` dataset using the `%in%` operator.
 
 3. **Extra Credit:** Using the `important_genes` vector, extract the rows containing the important genes from your `rpkm_data` dataset without using the `%in%` operator.
@@ -174,7 +181,7 @@ We have a list of IDs for marker genes of particular interest. We want to extrac
 ***
 
 ## Reordering data using indices
-Indexing `[ ]` can be used to extract values from a dataset as we saw earlier, but we can also use it to rearrange our data values. 
+Indexing `[ ]` can be used to extract values from a dataset as we saw earlier, but we can also use it to rearrange our data values.
 
 ```r
 teaching_team <- c("Mary", "Meeta", "Radhika")
@@ -208,9 +215,9 @@ reorder_teach <- teaching_team[c(3, 1, 2)] # Saving the results to a variable
 
 ## The `match` function
 
-Now that we know how to reorder using indices, we can use the `match()` function to match the values in two vectors. We'll be using it to evaluate which samples are present in both our counts and metadata dataframes, and then to re-order the columns in the counts matrix to match the row names in the metadata matrix. 
+Now that we know how to reorder using indices, we can use the `match()` function to match the values in two vectors. We'll be using it to evaluate which samples are present in both our counts and metadata dataframes, and then to re-order the columns in the counts matrix to match the row names in the metadata matrix.
 
-`match()` takes at least 2 arguments: 
+`match()` takes at least 2 arguments:
 
 1. a vector of values in the order you want
 2. a vector of values to be reordered
@@ -226,13 +233,13 @@ second <- c("B","D","E","A","C")  # same letters but different order
 ***How would you reorder `second` vector to match `first` using indices?***
 
 If we had large datasets, it would be difficult to reorder them by searching for the indices of the matching elements. This is where the `match` function comes in really handy:
-	
+
 ```r
 match(first,second)
 [1] 4 1 5 2 3
 ```
 
-The function should return a vector of size `length(first)`. Each number that is returned represents the index of the `second` vector where the matching value was observed. 
+The function should return a vector of size `length(first)`. Each number that is returned represents the index of the `second` vector where the matching value was observed.
 
 Now, we can just use the indices to reorder the elements of the `second` vector to be in the same positions as the matching elements in the `first` vector:
 
@@ -248,7 +255,7 @@ second_reordered <- second[reorder_idx]  # Reordering and saving the output to a
 
 Now that we know how `match()` works, let's change vector `second` so that only a subset are retained:
 
-```r	
+```r
 first <- c("A","B","C","D","E")
 second <- c("D","B","A")  # remove values
 ```
@@ -268,12 +275,12 @@ match(first,second)
 ### Reordering genomic data using `match()` function
 
 Using the `match` function, we now would like to match the row names of our metadata to the column names of our expression data*, so these will be the arguments for `match`. Using these two arguments we will retrieve a vector of match indices. The resulting vector represents the re-ordering of the column names in our data matrix to be identical to the rows in metadata:
- 
+
  ```r
 rownames(metadata)
-	
+
 colnames(rpkm_data)
-	
+
 genomic_idx <- match(rownames(metadata), colnames(rpkm_data))
 genomic_idx
 ```
