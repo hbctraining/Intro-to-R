@@ -188,7 +188,7 @@ teaching_team <- c("Mary", "Meeta", "Radhika")
 ```
 ![reordering](../img/teachin-team.png)
 
-Remember that we can return values in a vector by specifying it's position or index:
+Remember that we can return values in a vector by specifying its position or index:
 
 ```r
 teaching_team[c(2, 3)] # Extracting values from a vector
