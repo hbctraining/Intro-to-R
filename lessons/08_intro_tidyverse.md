@@ -408,7 +408,7 @@ gathered %>%
 
 ## Stringr
 
-Stringr is a powerful tool for working with sequences of characters, or **strings**. While there are a plethora of functions in stringr that are useful for working with strings, we will only cover a those we find to be the most useful:
+Stringr is a powerful tool for working with sequences of characters, or **strings**. While there are a plethora of functions in stringr that are useful for working with strings, we will only cover those we find to be the most useful:
 
 -   `str_c()` concatenates strings together
 -   `str_split()` splits string by specifying a separator
