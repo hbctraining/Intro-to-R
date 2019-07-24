@@ -28,13 +28,20 @@ res_tableOE <- read.csv(file = "data/Mov10oe_DE_results.csv", row.names = 1)
 library(tidyverse)
 ```
 
+If you haven't already loaded the metadata, download it [here](https://raw.githubusercontent.com/hbctraining/Intro-to-R-with-DGE/master/data/mouse_exp_design.csv) and load it with:
+
+```r
+ metadata <- read.csv(file="data/mouse_exp_design.csv")
+
+ ```
+
 ## Tidyverse basics
 
 The Tidyverse suite of packages introduces users to a set of data structures, functions and operators to make working with data more intuitive, but is slightly different from the way we do things in base R. **Two important new concepts we will focus on are pipes and tibbles**.
 
 ### Pipes
 
-Stringing together commands in R can be quite daunting. Also, trying to understand code that has many nested functions can be confusing. 
+Stringing together commands in R can be quite daunting. Also, trying to understand code that has many nested functions can be confusing.
 
 To make R code more human readable, the Tidyverse tools use the pipe, `%>%`, which was acquired from the `magrittr` package and is now part of the `dplyr` package that is installed automatically with Tidyverse. **The pipe allows the output of a previous command to be used as input to another command instead of using nested functions.**
 
@@ -61,7 +68,7 @@ The pipe represents a much easier way of writing and deciphering R code, and so 
 1. Extract the `replicate` column from the `metadata` data frame (use the `$` notation) and save the values to a vector named `rep_number`.
 
 2. Use the pipe (`%>%`) to perform two steps in a single line:
-	
+
 	1. Turn `rep_number` into a factor.
 	2. Use the `head()` function to return the first six values of the `rep_number` factor.
 
@@ -69,7 +76,7 @@ The pipe represents a much easier way of writing and deciphering R code, and so 
 
 ### Tibbles
 
-A core component of the [tidyverse](http://tidyverse.org/) is the [tibble](http://tibble.tidyverse.org/). **Tibbles are a modern rework of the standard `data.frame`, with some internal improvements** to make code more reliable.  They are data frames, but do not follow all of the same rules. For example, tibbles can have numbers/symbols for column names, which is not normally allowed in base R. 
+A core component of the [tidyverse](http://tidyverse.org/) is the [tibble](http://tibble.tidyverse.org/). **Tibbles are a modern rework of the standard `data.frame`, with some internal improvements** to make code more reliable.  They are data frames, but do not follow all of the same rules. For example, tibbles can have numbers/symbols for column names, which is not normally allowed in base R.
 
 **Important: [tidyverse](http://tidyverse.org/) is very opininated about row names**. These packages insist that all column data (e.g. `data.frame`) be treated equally, and that special designation of a column as `rownames` should be deprecated. [Tibble](http://tibble.tidyverse.org/) provides simple utility functions to handle rownames: `rownames_to_column()` and `column_to_rownames()`. More help for dealing with row names in tibbles can be found:
 
@@ -77,7 +84,7 @@ A core component of the [tidyverse](http://tidyverse.org/) is the [tibble](http:
 help("rownames", "tibble")
 ```
 
-Tibbles can be created directly using the `tibble()` function or data frames can be converted into tibbles using `as_tibble(name_of_df)`. 
+Tibbles can be created directly using the `tibble()` function or data frames can be converted into tibbles using `as_tibble(name_of_df)`.
 
 >**NOTE:** The function `as_tibble()` will ignore row names, so if a column representing the row names is needed, then the function `rownames_to_column(name_of_df)` should be run prior to turning the data.frame into a tibble. Also, `as_tibble()` will not coerce character vectors to factors by default.
 
@@ -90,7 +97,7 @@ Tibbles can be created directly using the `tibble()` function or data frames can
 
 ***
 
-A nice feature of a tibble is that **when printing a variable to screen, it will show only the first 10 rows and the columns that fit to the screen by default**. This is nice since you don't have to specify `head()` to take a quick look at your dataset. 
+A nice feature of a tibble is that **when printing a variable to screen, it will show only the first 10 rows and the columns that fit to the screen by default**. This is nice since you don't have to specify `head()` to take a quick look at your dataset.
 
 
 ```r
@@ -98,8 +105,8 @@ A nice feature of a tibble is that **when printing a variable to screen, it will
 rpkm_data
 
 # Default printing of tibble
-rpkm_data %>% 
-  rownames_to_column() %>% 
+rpkm_data %>%
+  rownames_to_column() %>%
   as_tibble()
 ```
 
@@ -108,13 +115,13 @@ rpkm_data %>%
 >
 > ```
 > # Printing of tibble with print() - change defaults
->  rpkm_data %>% 
->  rownames_to_column() %>% 
->  as_tibble() %>% 
+>  rpkm_data %>%
+>  rownames_to_column() %>%
+>  as_tibble() %>%
 >  print(n = 20, width = Inf)
 > ```
 
-*** 
+***
 
 ## Tidyverse tools
 
@@ -144,11 +151,11 @@ To extract columns from a tibble we can use the `select()` function.
 
 ```r
 # Convert the res_tableOE data frame to a tibble
-res_tableOE <- res_tableOE %>% 
-               rownames_to_column(var="gene") %>% 
+res_tableOE <- res_tableOE %>%
+               rownames_to_column(var="gene") %>%
 	       as_tibble()
 
-# extract selected columns from res_tableOE 
+# extract selected columns from res_tableOE
 res_tableOE %>%
     select(gene, baseMean, log2FoldChange, padj)
 ```
@@ -242,15 +249,15 @@ sub_res %>%
     ## # A tibble: 23,368 x 3
     ##    gene        baseMean log10BaseMean
     ##    <chr>          <dbl>         <dbl>
-    ##  1 1/2-SBSRNA4   45.7           1.66 
-    ##  2 A1BG          61.1           1.79 
-    ##  3 A1BG-AS1     176.            2.24 
+    ##  1 1/2-SBSRNA4   45.7           1.66
+    ##  2 A1BG          61.1           1.79
+    ##  3 A1BG-AS1     176.            2.24
     ##  4 A1CF           0.238        -0.624
-    ##  5 A2LD1         89.6           1.95 
+    ##  5 A2LD1         89.6           1.95
     ##  6 A2M            5.86          0.768
     ##  7 A2ML1          2.42          0.385
     ##  8 A2MP1          1.32          0.121
-    ##  9 A4GALT        64.5           1.81 
+    ##  9 A4GALT        64.5           1.81
     ## 10 A4GNT          0.191        -0.718
     ## # ... with 23,358 more rows
 
@@ -266,16 +273,16 @@ sub_res %>%
     ## # A tibble: 23,368 x 4
     ##    symbol      baseMean log2FoldChange       padj
     ##    <chr>          <dbl>          <dbl>      <dbl>
-    ##  1 1/2-SBSRNA4   45.7          0.268    0.264    
-    ##  2 A1BG          61.1          0.209    0.357    
-    ##  3 A1BG-AS1     176.          -0.0519   0.781    
-    ##  4 A1CF           0.238        0.0130  NA        
-    ##  5 A2LD1         89.6          0.345    0.0722   
-    ##  6 A2M            5.86        -0.274    0.226    
-    ##  7 A2ML1          2.42         0.240   NA        
-    ##  8 A2MP1          1.32         0.0811  NA        
+    ##  1 1/2-SBSRNA4   45.7          0.268    0.264
+    ##  2 A1BG          61.1          0.209    0.357
+    ##  3 A1BG-AS1     176.          -0.0519   0.781
+    ##  4 A1CF           0.238        0.0130  NA
+    ##  5 A2LD1         89.6          0.345    0.0722
+    ##  6 A2M            5.86        -0.274    0.226
+    ##  7 A2ML1          2.42         0.240   NA
+    ##  8 A2MP1          1.32         0.0811  NA
     ##  9 A4GALT        64.5          0.798    0.0000240
-    ## 10 A4GNT          0.191        0.00952 NA        
+    ## 10 A4GNT          0.191        0.00952 NA
     ## # ... with 23,358 more rows
 
 
@@ -370,30 +377,30 @@ There are two main functions in Tidyr, `gather()` and `spread()`. These function
 
 ### gather()
 
-The `gather()` function changes a wide data format into a long data format. This function is particularly helpful when using 'ggplot2' to get all of the values to plot into a single column. 
+The `gather()` function changes a wide data format into a long data format. This function is particularly helpful when using 'ggplot2' to get all of the values to plot into a single column.
 
 To use this function, you need to give the columns in the data frame you would like to gather together as a single column. Then, provide a name to give the column where all of the column names will be present using the `key` argument, and the name to give the column where all of the values will be present using the `value` argument.
 
 ```r
-rpkm_data_tb <- rpkm_data %>% 
-  rownames_to_column() %>% 
+rpkm_data_tb <- rpkm_data %>%
+  rownames_to_column() %>%
   as_tibble()
 
 gathered <- rpkm_data_tb %>%
   gather(colnames(rpkm_data_tb)[2:13],
          key =  "samplename",
          value = "rpkm")
-```               
-        
+```
+
 ### spread()
 
 The `spread()` function is the reverse of the `gather()` function. The categories of the `key` column will become separate columns, and the values in the `value` column split across the associated `key` columns.
 
 ```r
-gathered %>% 
-  spread(key = "samplename", 
+gathered %>%
+  spread(key = "samplename",
          value = "rpkm")
-```               
+```
 
 <img src="../img/gather_spread_tidyr.png" width="800">
 
@@ -401,12 +408,12 @@ gathered %>%
 
 ## Stringr
 
-Stringr is a powerful tool for working with sequences of characters, or **strings**. While there are a plethora of functions in stringr that are useful for working with strings, we will only cover a those we find to be the most useful: 
+Stringr is a powerful tool for working with sequences of characters, or **strings**. While there are a plethora of functions in stringr that are useful for working with strings, we will only cover a those we find to be the most useful:
 
 -   `str_c()` concatenates strings together
 -   `str_split()` splits string by specifying a separator
 -   `str_sub()` extracts characters from a string at specific locations
--   `str_replace()` replaces a string with another string 
+-   `str_replace()` replaces a string with another string
 -   `str_to_()` group of functions that change the case of the strings, includes `str_to_upper()`, `str_to_lower()`, and `str_to_title()`
 -   `str_detect()` identifies whether a pattern exists in each of the elements in a vector
 -   `str_subset()` returns only those elements that match a pattern
@@ -427,18 +434,18 @@ metadata <- metadata %>%
 In contrast to `str_c()`, `str_split()` will separate values based on a designated separator.
 
 ```r
-metadata %>% 
-  pull(sample) %>% 
+metadata %>%
+  pull(sample) %>%
   str_split("_")
-```  
+```
 
 ### str_sub()
 
 For extracting characters from a string, the `str_sub()` function can be used to denote which positions in the string to extract:
 
 ```r
-metadata %>% 
-  pull(sample) %>% 
+metadata %>%
+  pull(sample) %>%
   str_sub(start = 1, end = 8)
 ```
 
@@ -499,8 +506,8 @@ metadata[idx, ]
 To only return those values that match a pattern, the `str_subset()` function will extract only those values:
 
 ```r
-metadata %>% 
-  pull(sample) %>% 
+metadata %>%
+  pull(sample) %>%
   str_subset("typeA_1")
 ```
 
