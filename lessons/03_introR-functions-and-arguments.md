@@ -275,14 +275,6 @@ help.search("scatter")
 
 If you can't find what you are looking for, you can use the [rdocumention.org](https://www.rdocumentation.org/) website that search through the help files across all packages available.
 
-### Cryptic error messages
-
-It is very likely that someone else has encountered this same problem already! 
-
-* Start by googling the error message.  However, this doesn't always work very well because often, package developers rely on the error catching provided by R. You end up with general error messages that might not be very helpful to diagnose a problem (e.g. "subscript out of bounds").
-
-* Check stackoverflow. Search using the `[r]` tag. Most questions have already been answered, but the challenge is to use the right words in the search to find the answers: [http://stackoverflow.com/questions/tagged/r](http://stackoverflow.com/questions/tagged/r)
-
 ***
 
 **Exercise**
@@ -333,10 +325,11 @@ some_data <- load(file="~/Downloads/iris.RData")
 
 ### Where to ask for help?
 
+* **Google** is often your best friend for finding answers to specific questions regarding R. 
+	- Cryptic error messages are very common in R - it is very likely that someone else has encountered this problem already! Start by googling the error message.  However, this doesn't always work because often, package developers rely on the error catching provided by R. You end up with general error messages that might not be very helpful to diagnose a problem (e.g. "subscript out of bounds").
+* **Stackoverflow**: Search using the `[r]` tag. Most questions have already been answered, but the challenge is to use the right words in the search to find the answers: [http://stackoverflow.com/questions/tagged/r](http://stackoverflow.com/questions/tagged/r). If your question hasn't been answered before and is well crafted, chances are you will get an answer in less than 5 min.
 * **Your friendly colleagues**: if you know someone with more experience than you,
   they might be able and willing to help you.
-* **Stackoverflow**: if your question hasn't been answered before and is well
-  crafted, chances are you will get an answer in less than 5 min.
 * **The [R-help](https://stat.ethz.ch/mailman/listinfo/r-help)**: it is read by a
   lot of people (including most of the R core team), a lot of people post to it,
   but the tone can be pretty dry, and it is not always very welcoming to new
