@@ -315,13 +315,13 @@ not related to a `data.frame`, you can save any other R data structure that you 
 		save(iris, file="/tmp/iris.RData")
 		```
 
-The content of this `.RData` file is not human readable and cannot be posted directly on stackoverflow. It can, however, be emailed to someone who can read it with this command:
+	The content of this `.RData` file is not human readable and cannot be posted directly on stackoverflow. It can, however, be emailed to someone who can read it with this command:
 
-```r
-# DO NOT RUN THIS!
+		```r
+		# DO NOT RUN THIS!
 
-some_data <- load(file="~/Downloads/iris.RData")
-```
+		some_data <- load(file="~/Downloads/iris.RData")
+		```
 
 ### Where to ask for help?
 
