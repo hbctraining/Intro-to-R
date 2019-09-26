@@ -54,7 +54,7 @@ x <- 3
 
 The assignment operator (`<-`) assigns **values on the right** to **variables on the left**. 
 
-*In RStudio, typing `Alt + -` (push `Alt` at the same time as the `-` key) will write ` <- ` in a single keystroke.*
+*In RStudio, typing `Alt + -` (push `Alt` at the same time as the `-` key, on Mac type `option + -`) will write ` <- ` in a single keystroke.*
 
 
 ## Variables
