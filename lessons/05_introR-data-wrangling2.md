@@ -151,7 +151,7 @@ comp2 <- list1[[2]]
 class(comp2)
 ```
 
-You can also reference what is inside the component by adding and additional bracket. For example, in the first component we have a vector stored. 
+You can also reference what is inside the component by adding an additional bracket. For example, in the first component we have a vector stored. 
 
 ```r
 list1[[1]]
