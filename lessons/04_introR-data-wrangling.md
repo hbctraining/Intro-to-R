@@ -148,6 +148,11 @@ age[-5]
 If we wanted to select more than one element we would still use the square bracket syntax, but rather than using a single value we would pass in a *vector of several index values*:
 
 ```r
+age[c(3,5,6)]   ## nested
+
+# OR
+
+## create a vector first then select
 idx <- c(3,5,6) # create vector of the elements of interest
 age[idx]
 ```
@@ -206,15 +211,19 @@ Returned is a vector of logical values the same length as age with TRUE and FALS
 
 We can use these logical vectors to select only the elements in a vector with TRUE values at the same position or index as in the logical vector.
 
-Create an index with logical operators to select all values in the `age` vector over 50 **or** `age` less than 18:
+Select all values in the `age` vector over 50 **or** `age` less than 18:
 
 ```r
-idx <- age > 50 | age < 18
-	
-idx
-	
+age > 50 | age < 18
+
 age
 
+age[age > 50 | age < 18]  ## nested
+
+# OR
+
+## create a vector first then select
+idx <- age > 50 | age < 18
 age[idx]
 ```
 
@@ -223,21 +232,18 @@ age[idx]
 While logical expressions will return a vector of TRUE and FALSE  values of the same length, we could use the `which()` function to output the indices where the values are TRUE. Indexing with either method generates the same results, and personal preference determines which method you choose to use. For example:
 
 ```r
-idx <- which(age > 50 | age < 18)
+which(age > 50 | age < 18)
 
-idx
+age[which(age > 50 | age < 18)]  ## nested
 
-age[idx]
+# OR
+
+## create a vector first then select
+idx_num <- which(age > 50 | age < 18)
+age[idx_num]
 ```
 
 Notice that we get the same results regardless of whether or not we use the `which()`. Also note that while `which()` works the same as the logical expressions for indexing, it can be used for multiple other operations, where it is not interchangeable with logical expressions.
-
-> **Note about *Nesting* functions**:
->
-> Instead of creating the `idx` object in the above sections, we could have just place the logical operations and/or functions within the brackets. 
->
-> `age[which(age > 50 | age < 18)]` **is identical to** `age[idx]` above.
-
 
 ### Factors
 
