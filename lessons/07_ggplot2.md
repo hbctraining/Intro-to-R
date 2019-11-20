@@ -262,10 +262,13 @@ Outliers are determined using the interquartile range (IQR), which is defined as
 
 *BONUS: Use the `fill` aesthetic to look at differences in sample means between celltypes within each genotype.*
 
-
 **Our final figure should look something like that provided below.**
 
  ![ggbox](../img/ggboxplot_new.png)
+
+
+**Code for making the boxplot above can be [found here](boxplot_solution.md)**
+
 
 > *NOTE:* If you wanted to change the colors of these boxplots you would add another layer `scale_fill_manual()` to the code, and within the function specify which colors you want to use using the `values` argument.  For example, if the factor column you are coloring with has 2 levels, you will need to give 2 values as follows `scale_fill_manual(values=c("purple","orange"))`.
 >
