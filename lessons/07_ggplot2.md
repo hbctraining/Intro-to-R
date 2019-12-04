@@ -14,7 +14,11 @@ Approximate time: 60 minutes
 
 ## Setting up a data frame for visualization
 
-In this lesson we want to make various plots related to the average expression in each sample. When we make the plots, we also want to use all the metadata available to appropriately annotate the plots. 
+In this lesson we want to make plots to evaluate the average expression in each sample and its relationsh. So, we will be calculating the average expression in each sample and adding that information to the `metadata` data frame. In addition, we will be creating another . We also want to use the rest of the metadata in the data frame to annotate the plots. We are going to generate a data frame that looks something like the image below, and use it as input to ggplot2.
+
+ ![ggscatter1.1](../img/new_metadata.png) 
+
+### Calculating average expression
 
 Let's take a closer look at our counts data. Each column represents a sample in our experiment, and each sample has ~38K values corresponding to the expression of different transcripts. We want to compute **the average value of expression** for each sample eventually. Taking this one step at a time, what would we do if we just wanted the average expression for Sample 1 (across all transcripts)? We can use the R base package provided function called 'mean()`:
 
@@ -22,29 +26,11 @@ Let's take a closer look at our counts data. Each column represents a sample in 
 mean(rpkm_ordered[,"sample1"])
 ```
 
-That is great, if we only wanted the average from one of the samples (1 column in a data frame), but we need to get this information from all 12 samples, so all 12 columns. What is the best way to do this?
+That is great, if we only wanted the average from one of the samples (1 column in a data frame), but we need to get this information from all 12 samples, so all 12 columns. It would be ideal to get a vector of 12 values that we can add to the metadata data frame. What is the best way to do this?
 
-Programming languages typically have a way to allow the execution of a single line of code or several lines of code multiple times, or in a "loop". While "loops" are possible in R, there are functions that more directly achieve this purpose, such as the `apply()` family of functions and the `map()` family of functions. The `map()` family is a bit more intuitive to use than `apply()`, so we will explore this family in more detail. However, we have [similar materials available](https://hbctraining.github.io/Intro-to-R/lessons/apply_functions.html) using the `apply()` function if you would like to explore more on your own.
+Programming languages typically have a way to allow the execution of a single line of code or several lines of code multiple times, or in a "loop". While "for loops" are available in R, there are other easier-to-use functions that can achieve this -  for example, the `apply()` family of functions and the `map()` family of functions. 
 
-### The `map` family of functions
-
-The `map()` family of functions is available from the **`purrr`** package, which is part of the tidyverse suite of packages. More detailed information is available in the [R for Data Science](http://r4ds.had.co.nz/iteration.html#the-map-functions) book. This family includes several functions, each taking a vector as input and outputting a vector of a specified type. For example, we can use these functions to execute some task/function on every element in a vector, or every column in a dataframe, or every component of a list, and so on. 
-
-- `map()` creates a list.
-- `map_lgl()` creates a logical vector.
-- `map_int()` creates an integer vector.
-- `map_dbl()` creates a "double" or numeric vector.
-- `map_chr()` creates a character vector.
-
-The syntax for the `map()` family of functions is: 
-
-```r
-## DO NOT RUN
-map(object, function_to_apply)
-```
-
-If you would like to practice with the `map()` family of functions, we have [additional materials](https://hbctraining.github.io/Intro-to-R/lessons/map_purrr.html) available.
-### Wrangling our data with `map_dbl()`
+The `map()` family is a bit more intuitive to use than `apply()` and we will be using it today. However, if you are interested in learning more about the`apply()` family of functions we have [materials available here](https://hbctraining.github.io/Intro-to-R/lessons/apply_functions.html).
 
 To obtain **mean values for all samples** we can use the `map_dbl()` function which generates a numeric vector. 
 
@@ -54,37 +40,73 @@ library(purrr)  # Load the purrr
 samplemeans <- map_dbl(rpkm_ordered, mean) 
 ```
 
-We can add this 12 element containing vector as a column to our metadata data frame, thus combining the average expression with experimental metadata. The `cbind()` or "column bind" function allows us to do this very easily.
-	
+> #### The `map` family of functions
+> 
+> The `map()` family of functions is available from the **`purrr`** package, which is part of the tidyverse suite of packages. More detailed information is available in the [R for Data Science](http://r4ds.had.co.nz/iteration.html#the-map-functions) book. This family includes several functions, each taking a vector as input and outputting a vector of a specified type. For example, we can use these functions to execute some task/function on every element in a vector, or every column in a dataframe, or every component of a list, and so on. 
+> 
+> - `map()` creates a list.
+> - `map_lgl()` creates a logical vector.
+> - `map_int()` creates an integer vector.
+> - `map_dbl()` creates a "double" or numeric vector.
+> - `map_chr()` creates a character vector.
+> 
+> The syntax for the `map()` family of functions is: 
+> 
+> ```r
+> ## DO NOT RUN
+> map(object, function_to_apply)
+> ```
+> 
+> If you would like to practice with the `map()` family of functions, we have [additional materials](https://hbctraining.github.io/Intro-to-R/lessons/map_purrr.html) available.
+
+### Creating a new metadata with additional information
+
+Because the input was 12 columns of information the output of `map_dbl()` is a *named* vector of length 12. 
+
 ```r
-new_metadata <- cbind(metadata, samplemeans)
+# Named vectors have a name assigned to each element instead of just referring to them as indices ([1], [2] and so on)
+samplemeans
+
+# Check length of the vector before adding it to the data frame
+length(samplemeans)
 ```
 
-Before we start to plot, we also want to add an additional metadata column to `new_metadata`, this new column lists the age of each of the mouse samples in days.
+Since we have 12 rows in the data frame, we can add the 12 element vector as a column to our metadata data frame using the `data.frame()` function.
+	
+Before we add the new column, let's create a vector with the ages of each of the mice in our data set.
 
 ```r
-age_in_days <- c(40, 32, 38, 35, 41, 32, 34, 26, 28, 28, 30, 32)    
-# Create a numeric vector with ages. Note that there are 12 elements here.
-	
-new_metadata <- cbind(new_metadata, age_in_days)    
-# add the new vector as the last column to the new_metadata dataframe
+# Create a numeric vector with ages. Note that there are 12 elements here
+age_in_days <- c(40, 32, 38, 35, 41, 32, 34, 26, 28, 28, 30, 32)    	
+```
+
+Now, we are ready to combine the `metadata` data frame with the 2 new vectors to create a new data frame with 5 columns
+
+```r
+# Add the new vector as the last column to the new_metadata dataframe
+new_metadata <- data.frame(new_metadata, samplemeans, age_in_days) 
+
+# Take a look at the new_metadata object
+View(new_metadata)
 ```
 
 We are now ready for plotting and data visualization!
 
 ## Data Visualization with `ggplot2`
 
-When we are working with large sets of numbers it can be useful to display that information graphically to gain more insight. Visualization deserves an entire course of its own (there is that much to know!). If you are interested in learning about plotting with base R functions, we have a short lesson [available here](basic_plots_in_r.md). In this lesson we will be plotting with the popular Bioconductor package [`ggplot2`](http://docs.ggplot2.org/).
+When we are working with large sets of numbers it can be useful to display that information graphically to gain more insight. In this lesson we will be plotting with the popular Bioconductor package [`ggplot2`](http://docs.ggplot2.org/).
 
-More recently, R users have moved away from base graphic options towards `ggplot2` since it offers a lot more functionality as compared to the base R plotting functions. The `ggplot2` syntax takes some getting used to, but once you get it, you will find it's extremely powerful and flexible. We will start with drawing a simple x-y scatterplot of `samplemeans` versus `age_in_days` from the `new_metadata` data frame. `ggplot2` assumes that the input is a  data frame.
+> If you are interested in learning about plotting with base R functions, we have a short lesson [available here](basic_plots_in_r.md). 
 
-Let's start by loading the `ggplot2` library, you downloaded and installed this library as part of the `tidyverse` package.
+The `ggplot2` syntax takes some getting used to, but once you get it, you will find it's extremely powerful and flexible. We will start with drawing a simple x-y scatterplot of `samplemeans` versus `age_in_days` from the `new_metadata` data frame. Please note that `ggplot2` expects a data frame as input.
+
+Let's start by loading the `ggplot2` library:
 
 ```r
 library(ggplot2)
 ```
 
-The `ggplot()` function is used to **initialize the basic graph structure**, then we add to it. The basic idea is that you specify different parts of the plot, and add them together using the `+` operator. These parts are often referred to as layers.
+The `ggplot()` function is used to **initialize the basic graph structure**, then we add to it. The basic idea is that you specify different parts of the plot using additional functions one after the other and combine them into a "code chunk" using the `+` operator; the functions in the resulting code chunk are called layers.
 
 Let's start: 
 
@@ -92,24 +114,26 @@ Let's start:
 ggplot(new_metadata) # what happens? 
 ```
 
-You get an blank plot, because you need to **specify layers** using the `+` operator.
+You get an blank plot, because you need to **specify additional layers** using the `+` operator.
 
-One type of layer is **geometric objects**. These are the actual marks we put on a plot. Examples include:
+The **geom (geometric) object** is the layer that specifies what kind of plot we want to draw. A plot **must have at least one `geom`**; there is no upper limit. Examples include:
 
 * points (`geom_point`, `geom_jitter` for scatter plots, dot plots, etc)
 * lines (`geom_line`, for time series, trend lines, etc)
 * boxplot (`geom_boxplot`, for, well, boxplots!)
 
-For a more exhaustive list on all possible geometric objects and when to use them check out [Hadley Wickham's RPubs](http://rpubs.com/hadley/ggplot2-layers) or the [RStudio cheatsheet](https://www.rstudio.com/wp-content/uploads/2016/11/ggplot2-cheatsheet-2.1.pdf). 
-
-A plot **must have at least one `geom`**; there is no upper limit. You can add a `geom` to a plot using the `+` operator
+Let's add a "geom" layer to our plot using the `+` operator, and since we want a scatter plot so we will use `geom_point()`.
 
 ```r
 ggplot(new_metadata) +
   geom_point() # note what happens here
 ```
 
-You will find that even though we have added a layer by specifying `geom_point`, we get an error. This is because each type of geom usually has a **required set of aesthetics** to be set. Aesthetic mappings are set with the aes() function and can be set inside `geom_point()` to be specifically applied to that layer. If we supplied aesthetics within `ggplot()`, they will be used as defaults for every layer. Examples of aesthetics include:
+Why do we get an error? Is the error message easy to decipher?
+
+We get an error because each type of `geom` usually has a **required set of aesthetics** to be set. "Aesthetics" are set with the aes() function and can be set either nested within `geom_point()` (applies only to that layer) or within `ggplot()` (applies to the whole plot).
+
+The `aes()` function has many different arguments, and all of those arguments take columns from the original data frame as input. It can be used to specify many plot elements including the following:
 
 * position (i.e., on the x and y axes)
 * color ("outside" color)
@@ -118,7 +142,7 @@ You will find that even though we have added a layer by specifying `geom_point`,
 * linetype
 * size
 
-To start, we will add position for the x- and y-axis since `geom_point` requires the most basic information about a scatterplot, i.e. what you want to plot on the x and y axes. All of the others mentioned above are optional.
+To start, we will specify x- and y-axis since `geom_point` requires the most basic information about a scatterplot, i.e. what you want to plot on the x and y axes. All of the other plot elements mentioned above are optional.
 
 ```r
 ggplot(new_metadata) +
@@ -128,8 +152,7 @@ ggplot(new_metadata) +
  ![ggscatter1](../img/ggscatter-1.png) 
 
 
-Now that we have the required aesthetics, let's add some extras like color to the plot. We can **`color` the points on the plot based on genotype**, by specifying the column header. You will notice that there are a default set of colors that will be used so we do not have to specify. Also, the **legend has been conveniently plotted for us!**
-
+Now that we have the required aesthetics, let's add some extras like color to the plot. We can **`color` the points on the plot based on the genotype column** within `aes()`. You will notice that there are a default set of colors that will be used so we do not have to specify. Note that the legend has been conveniently plotted for us.
 
 ```r
 ggplot(new_metadata) +
@@ -138,7 +161,7 @@ ggplot(new_metadata) +
 
  ![ggscatter1.1](../img/ggscatter-2.png) 
 
-Alternatively, we could color based on celltype by changing it to `color =celltype`. Let's try something different and have both **celltype and genotype identified on the plot**. To do this we can assign the `shape` aesthetic the column header, so that each celltype is plotted with a different shaped data point. Add in `shape = celltype` to your aesthetic and see how it changes your plot:
+Let's try to have both **celltype and genotype represented on the plot**. To do this we can assign the `shape` argument in `aes()` the celltype column, so that each celltype is plotted with a different shaped data point. 
 
 ```r
 ggplot(new_metadata) +
@@ -149,12 +172,12 @@ ggplot(new_metadata) +
  ![ggscatter3](../img/ggscatter-3.png) 
 
 
-The **size of the data points** are quite small. We can adjust that within the `geom_point()` layer, but does **not** need to be **included in `aes()`** since we are specifying how large we want the data points, rather than mapping it to a variable. Add in the `size` argument by specifying a number for the size of the data point:
+The  are quite small. We can adjust the **size of the data points** within the `geom_point()` layer, but it should **not be within `aes()`** since we are not mapping it to a column in the input data frame, instead we are just specifying a number. 
 
 ```r
 ggplot(new_metadata) +
   geom_point(aes(x = age_in_days, y= samplemeans, color = genotype,
-  			shape=celltype), size=3.0) 
+  			shape=celltype), size=2.25) 
 ```
 
  ![ggscatter4](../img/ggscatter-4.png)
@@ -178,15 +201,14 @@ ggplot(new_metadata) +
   theme_bw() 
 ```
 
-Not in this case. But we can add arguments using `theme()` to change it ourselves. Since we are adding this layer on top (i.e later in sequence), any features we change will override what is set in the `theme_bw()`. Here we'll **increase the size of the axes labels and axes tick labels to be 1.5 times the default size.** When modfying the size of text we often use the `rel()` function. In this way the size we specify is relative to the default (similar to `cex` for base plotting). We can also provide the number vaue as we did with the data point size, but can be cumbersome if you don't know what the default font size is to begin with. 
+Not in this case. But we can add arguments using `theme()` to change it ourselves. Since we are adding this layer on top (i.e later in sequence), any features we change will override what is set in the `theme_bw()`. Here we'll **increase the size of the axes labels to be 1.5 times the default size.** When modfying the size of text we often use the `rel()` function. In this way the size we specify is relative to the default. We can also provide the number vaue as we did with the data point size, but can be cumbersome if you don't know what the default font size is to begin with. 
 
 ```r
 ggplot(new_metadata) +
   geom_point(aes(x = age_in_days, y= samplemeans, color = genotype,
   			shape=celltype), size=3.0) +
   theme_bw() +
-  theme(axis.text = element_text(size=rel(1.5)),
-  		axis.title = element_text(size=rel(1.5)))			
+  theme(axis.title = element_text(size=rel(1.5)))			
 ```
  
  ![ggscatter5](../img/ggscatter-5.png)
@@ -202,7 +224,9 @@ ggplot(new_metadata) +
 **Exercise**
 
 1. The current axis label text defaults to what we gave as input to `geom_point` (i.e the column headers). We can change this by **adding additional layers** called `xlab()` and `ylab()` for the x- and y-axis, respectively. Add these layers to the current plot such that the x-axis is labeled "Age (days)" and the y-axis is labeled "Mean expression".
-2. Use the `ggtitle` layer to add a title to your plot. *NOTE: Useful code to center your title over your plot can be done using `theme(plot.title=element_text(hjust=0.5))`.*
+2. Use the `ggtitle` layer to add a title to your plot. 
+
+*NOTE: Useful code to center your title over your plot can be done using `theme(plot.title=element_text(hjust=0.5))`.*
 
 ***
 
@@ -220,8 +244,7 @@ Now, let's suppose we always wanted our theme to include the following:
 
 ```r
 theme_bw() +
-    theme(axis.text=element_text(size=rel(1.5)),
-          axis.title=element_text(size=rel(1.5)),
+    theme(axis.title=element_text(size=rel(1.5)),
           plot.title=element_text(hjust=0.5))
 ```
 
@@ -230,8 +253,7 @@ If there is nothing that we want to change when we run this, then we do not need
 ```r
 personal_theme <- function(){
   theme_bw() +
-    theme(axis.text=element_text(size=rel(1.5)),
-          axis.title=element_text(size=rel(1.5)),
+    theme(axis.title=element_text(size=rel(1.5)),
           plot.title=element_text(hjust=0.5)) 
 }
 ```
@@ -256,19 +278,17 @@ Outliers are determined using the interquartile range (IQR), which is defined as
 1. Use the `geom_boxplot()` layer to plot the differences in sample means between the Wt and KO genotypes.
 2. Add a title to your plot.
 3. Add 'Genotype' as your x-axis label and 'Mean expression' as your y-axis labels.
-4. Change the size of your axes labels to 1.5x larger than the default.
-5. Change the size of your axes text (the labels on the tick marks) to 1.25x larger than the default.
-6. Change the size of your plot title in the same way that you change the size of the axes text but use `plot.title`.
-
-*BONUS: Use the `fill` aesthetic to look at differences in sample means between celltypes within each genotype.*
+4. Theme changes:
+	* Change the size of your axes labels to 1.5x larger than the default.
+	* Change the size of your plot title to 1.5x larger than default.
+	* Center the plot.
+5. Use the `fill` aesthetic to look at differences in sample means between celltypes within each genotype.
 
 **Our final figure should look something like that provided below.**
 
  ![ggbox](../img/ggboxplot_new.png)
 
-
 **Code for making the boxplot above can be [found here](boxplot_solution.md)**
-
 
 > *NOTE:* If you wanted to change the colors of these boxplots you would add another layer `scale_fill_manual()` to the code, and within the function specify which colors you want to use using the `values` argument.  For example, if the factor column you are coloring with has 2 levels, you will need to give 2 values as follows `scale_fill_manual(values=c("purple","orange"))`.
 >
@@ -276,19 +296,24 @@ Outliers are determined using the interquartile range (IQR), which is defined as
 
 ## Exporting figures to file
 
-There are two ways in which figures and plots can be output to a file (rather than simply displaying on screen). The first (and easiest) is to export directly from the RStudio 'Plots' panel, by clicking on `Export` when the image is plotted. This will give you the option of `png` or `pdf` and selecting the directory to which you wish to save it to. It will also give you options to dictate the size and resolution of the output image.
+There are two ways in which figures and plots can be output to a file (rather than simply displaying on screen). 
 
-The second option is to use R functions and have the write to file hard-coded in to your script. This would allow you to run the script from start to finish and automate the process (not requiring human point-and-click actions to save).  In R’s terminology, **output is directed to a particular output device and that dictates the output format that will be produced**.  A device must be created or “opened” in order to receive graphical output and, for devices that create a file
+(1) The first (and easiest) is to export directly from the RStudio 'Plots' panel, by clicking on `Export` when the image is plotted. This will give you the option of `png` or `pdf` and selecting the directory to which you wish to save it to. It will also give you options to dictate the size and resolution of the output image.
+
+(2) The second option is to use R functions and have the write to file hard-coded in to your script. This would allow you to run the script from start to finish and automate the process (not requiring human point-and-click actions to save).  In R’s terminology, **output is directed to a particular output device and that dictates the output format that will be produced**.  A device must be created or “opened” in order to receive graphical output and, for devices that create a file
 on disk, the device must also be closed in order to complete the output.
 
-Let's print our scatterplot to a pdf file format. First you need to initialize a plot using a function which specifies the graphical format you intend on creating i.e.`pdf()`, `png()`, `tiff()` etc. Within the function you will need to specify a name for your image, and the with and height (optional). This will open up the device that you wish to write to:
+If we wanted to print our scatterplot to a pdf file format, we would need to initialize a plot using a function which specifies the graphical format you intend on creating i.e.`pdf()`, `png()`, `tiff()` etc. Within the function you will need to specify a name for your image, and the with and height (optional). This will open up the device that you wish to write to:
+
 ```r
+## Open device for writing
 pdf("figures/scatterplot.pdf")
 ```
 
 If you wish to modify the size and resolution of the image you will need to add in the appropriate parameters as arguments to the function when you initialize. Then we plot the image to the device, using the ggplot scatterplot that we just created. 
 
 ```r
+## Make a plot which will be written to the open device, in this case the temp file created by pdf()/png()
 ggplot(new_metadata) +
   geom_point(aes(x = age_in_days, y= samplemeans, color = genotype,
   			shape=celltype), size=rel(3.0)) 
@@ -297,14 +322,13 @@ ggplot(new_metadata) +
 Finally, close the "device", or file, using the `dev.off()` function. There are also `bmp`, `tiff`, and `jpeg` functions, though the jpeg function has proven less stable than the others. 
   			
 ```r    
+## Closing the device is essential to save the temporary file created by pdf()/png()
 dev.off()
 ```
 
 ***Note 1:*** *You will not be able to open and look at your file using standard methods (Adobe Acrobat or Preview etc.) until you execute the `dev.off()` function.*
 
-***Note 2:*** *If you had made any additional plots before closing the device, they will all be stored in the same file; each plot usually gets its own page, unless you specify otherwise.*
-
-
+***Note 2:*** *In the case of `pdf()`, if you had made additional plots before closing the device, they will all be stored in the same file with each plot usually getting its own page, unless otherwise specified.*
 
 ---
 *This lesson has been developed by members of the teaching team at the [Harvard Chan Bioinformatics Core (HBC)](http://bioinformatics.sph.harvard.edu/). These are open access materials distributed under the terms of the [Creative Commons Attribution license](https://creativecommons.org/licenses/by/4.0/) (CC BY 4.0), which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.*
