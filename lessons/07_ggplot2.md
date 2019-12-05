@@ -151,8 +151,9 @@ ggplot(new_metadata) +
      geom_point(aes(x = age_in_days, y= samplemeans))
 ```
 
- ![ggscatter1](../img/ggscatter-1.png) 
-
+<p align="center">
+<img src="../img/ggscatter-1.png" width="500">
+</p>
 
 Now that we have the required aesthetics, let's add some extras like color to the plot. We can **`color` the points on the plot based on the genotype column** within `aes()`. You will notice that there are a default set of colors that will be used so we do not have to specify. Note that the legend has been conveniently plotted for us.
 
@@ -161,7 +162,9 @@ ggplot(new_metadata) +
   geom_point(aes(x = age_in_days, y= samplemeans, color = genotype)) 
 ```
 
- ![ggscatter1.1](../img/ggscatter-2.png) 
+<p align="center">
+<img src="../img/ggscatter-2.png" width="500">
+</p>
 
 Let's try to have both **celltype and genotype represented on the plot**. To do this we can assign the `shape` argument in `aes()` the celltype column, so that each celltype is plotted with a different shaped data point. 
 
@@ -171,8 +174,9 @@ ggplot(new_metadata) +
   			shape=celltype)) 
 ```
 
- ![ggscatter3](../img/ggscatter-3.png) 
-
+<p align="center">
+<img src="../img/ggscatter-3.png" width="500">
+</p>
 
 The data points are quite small. We can adjust the **size of the data points** within the `geom_point()` layer, but it should **not be within `aes()`** since we are not mapping it to a column in the input data frame, instead we are just specifying a number. 
 
@@ -182,8 +186,9 @@ ggplot(new_metadata) +
   			shape=celltype), size=2.25) 
 ```
 
- ![ggscatter4](../img/ggscatter-4.png)
-  
+<p align="center">
+<img src="../img/ggscatter-4.png" width="500">
+</p>
 
 The labels on the x- and y-axis are also quite small and hard to read. To change their size, we need to add an additional **theme layer**. The ggplot2 `theme` system handles non-data plot elements such as:
 
@@ -213,8 +218,9 @@ ggplot(new_metadata) +
   theme(axis.title = element_text(size=rel(1.5)))			
 ```
  
- ![ggscatter5](../img/ggscatter-5.png)
- 
+<p align="center">
+<img src="../img/ggscatter-5.png" width="500">
+</p> 
 
 > *NOTE:* You can use the `example("geom_point")` function here to explore a multitude of different aesthetics and layers that can be added to your plot. As you scroll through the different plots, take note of how the code is modified. You can use this with any of the different geometric object layers available in ggplot2 to learn how you can easily modify your plots! 
 
@@ -288,7 +294,9 @@ Outliers are determined using the interquartile range (IQR), which is defined as
 
 **Our final figure should look something like that provided below.**
 
- ![ggbox](../img/ggboxplot_new.png)
+<p align="center">
+<img src="../img/ggboxplot_new.png" width="600">
+</p>
 
 **Code for making the boxplot above can be [found here](boxplot_solution.md)**
 
