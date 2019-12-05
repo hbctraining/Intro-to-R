@@ -59,7 +59,7 @@ samplemeans <- map_dbl(rpkm_ordered, mean)
 > 
 > If you would like to practice with the `map()` family of functions, we have [additional materials](https://hbctraining.github.io/Intro-to-R/lessons/map_purrr.html) available.
 
-### Creating a new metadata with additional information
+### Creating a new metadata object with additional information
 
 Because the input was 12 columns of information the output of `map_dbl()` is a *named* vector of length 12. 
 
