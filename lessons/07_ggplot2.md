@@ -172,7 +172,7 @@ ggplot(new_metadata) +
  ![ggscatter3](../img/ggscatter-3.png) 
 
 
-The  are quite small. We can adjust the **size of the data points** within the `geom_point()` layer, but it should **not be within `aes()`** since we are not mapping it to a column in the input data frame, instead we are just specifying a number. 
+The data points are quite small. We can adjust the **size of the data points** within the `geom_point()` layer, but it should **not be within `aes()`** since we are not mapping it to a column in the input data frame, instead we are just specifying a number. 
 
 ```r
 ggplot(new_metadata) +
