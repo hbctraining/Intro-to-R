@@ -17,7 +17,7 @@ Approximate time: 60 minutes
 In this lesson we want to make plots to evaluate the average expression in each sample and its relationship with the age of the mouse. So, to this end, we will be adding a couple of additional columns of information to the `metadata` data frame that we can utilize for plotting. 
 
 <p align="center">
-<img src="../img/new_metadata.png" width="400">
+<img src="../img/new_metadata.png" width="600">
 </p>
 
 ### Calculating average expression
