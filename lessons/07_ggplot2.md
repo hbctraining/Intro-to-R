@@ -14,7 +14,7 @@ Approximate time: 60 minutes
 
 ## Setting up a data frame for visualization
 
-In this lesson we want to make plots to evaluate the average expression in each sample and its relationsh. So, we will be calculating the average expression in each sample and adding that information to the `metadata` data frame. In addition, we will be creating another . We also want to use the rest of the metadata in the data frame to annotate the plots. We are going to generate a data frame that looks something like the image below, and use it as input to ggplot2.
+In this lesson we want to make plots to evaluate the average expression in each sample and its relationship with the age of the mouse. So, to this end, we will be adding a couple of additional columns of information to the `metadata` data frame that we can utilize for plotting. 
 
  ![ggscatter1.1](../img/new_metadata.png) 
 
@@ -271,7 +271,7 @@ ggplot(new_metadata) +
 
 ## Boxplot
 
-Now that we have all the required information for plotting with ggplot2 let's try plotting a boxplot. A boxplot provides a graphical view of the distribution of data based on a five number summary. The top and bottom of the box represent the (1) first and (2) third quartiles (25th and 75th percentiles, respectively). The line inside the box represents the (3) median (50th percentile). The whiskers extending above and below the box represent the (4) maximum, and (5) minimum of a data set. The whiskers of the plot reach the minimum and maximum values that are not outliers. 
+Now that we have all the required information for plotting with ggplot2, let's try plotting a boxplot. A boxplot provides a graphical view of the distribution of data based on a five number summary. The top and bottom of the box represent the (1) first and (2) third quartiles (25th and 75th percentiles, respectively). The line inside the box represents the (3) median (50th percentile). The whiskers extending above and below the box represent the (4) maximum, and (5) minimum of a data set. The whiskers of the plot reach the minimum and maximum values that are not outliers. 
 
 Outliers are determined using the interquartile range (IQR), which is defined as: Q3 - Q1. Any values that exceeds 1.5 x IQR below Q1 or above Q3 are considered outliers and are represented as points above or below the whiskers. These outliers are useful to identify any unexpected observations.
 
