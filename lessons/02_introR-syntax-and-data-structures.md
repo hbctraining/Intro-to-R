@@ -192,7 +192,7 @@ species
 ***
 **Exercise**
 
-Create a vector of numeric and character values by _combining_ the two vectors that we just created (`glengths` and `species`). Assign this combined vector to a new variable called `combined`. *Hint: you will need to use the combine `c()` function to do this*. 
+Try to create a vector of numeric and character values by _combining_ the two vectors that we just created (`glengths` and `species`). Assign this combined vector to a new variable called `combined`. *Hint: you will need to use the combine `c()` function to do this*. 
 Print the `combined` vector in the console, what looks different compared to the original vectors?
 
 ***
