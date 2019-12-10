@@ -86,7 +86,7 @@ Now, we are ready to combine the `metadata` data frame with the 2 new vectors to
 
 ```r
 # Add the new vector as the last column to the new_metadata dataframe
-new_metadata <- data.frame(new_metadata, samplemeans, age_in_days) 
+new_metadata <- data.frame(metadata, samplemeans, age_in_days) 
 
 # Take a look at the new_metadata object
 View(new_metadata)
