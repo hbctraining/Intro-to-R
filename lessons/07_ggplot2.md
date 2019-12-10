@@ -208,7 +208,7 @@ ggplot(new_metadata) +
   theme_bw() 
 ```
 
-Not in this case. But we can add arguments using `theme()` to change it ourselves. Since we are adding this layer on top (i.e later in sequence), any features we change will override what is set in the `theme_bw()`. Here we'll **increase the size of the axes labels to be 1.5 times the default size.** When modfying the size of text we often use the `rel()` function. In this way the size we specify is relative to the default. We can also provide the number vaue as we did with the data point size, but can be cumbersome if you don't know what the default font size is to begin with. 
+Not in this case. But we can add arguments using `theme()` to change the size of axis labels ourselves. Since we are adding this layer on top (i.e later in sequence), any features we change will override what is set in the `theme_bw()`. Here we'll **increase the size of the axes labels to be 1.5 times the default size.** When modfying the size of text we often use the `rel()` function. In this way the size we specify is relative to the default. We can also provide the number vaue as we did with the data point size, but can be cumbersome if you don't know what the default font size is to begin with. 
 
 ```r
 ggplot(new_metadata) +
@@ -253,7 +253,7 @@ Now, let's suppose we always wanted our theme to include the following:
 ```r
 theme_bw() +
     theme(axis.title=element_text(size=rel(1.5)),
-          plot.title=element_text(hjust=0.5))
+          plot.title=element_text(size=rel(1.5), hjust=0.5))
 ```
 
 If there is nothing that we want to change when we run this, then we do not need to specify any arguments. Creating the function is simple; we can just put the code inside the `{}`:
@@ -262,7 +262,7 @@ If there is nothing that we want to change when we run this, then we do not need
 personal_theme <- function(){
   theme_bw() +
     theme(axis.title=element_text(size=rel(1.5)),
-          plot.title=element_text(hjust=0.5)) 
+          plot.title=element_text(size=rel(1.5), hjust=0.5)) 
 }
 ```
 
@@ -271,10 +271,10 @@ Now to run our personal theme with any plot, we can use this function in place o
 ```r
 ggplot(new_metadata) +
   geom_point(aes(x=age_in_days, y=samplemeans, color=genotype, shape=celltype), size=rel(3.0)) +
-  personal_theme() +
   xlab("Age (days)") +
   ylab("Mean expression") +
-  ggtitle("Expression with Age")
+  ggtitle("Expression with Age") +
+  personal_theme()
 ```
 
 ## Boxplot
@@ -287,9 +287,10 @@ Outliers are determined using the interquartile range (IQR), which is defined as
 2. Add a title to your plot.
 3. Add 'Genotype' as your x-axis label and 'Mean expression' as your y-axis labels.
 4. Theme changes:
+	* Use the `theme_bw()` function to make the background white.
 	* Change the size of your axes labels to 1.5x larger than the default.
 	* Change the size of your plot title to 1.5x larger than default.
-	* Center the plot.
+	* Center the plot title.
 5. Use the `fill` aesthetic to look at differences in sample means between celltypes within each genotype.
 
 **Our final figure should look something like that provided below.**
