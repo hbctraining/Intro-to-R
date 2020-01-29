@@ -20,6 +20,8 @@ Let's read in our expression data (RPKM matrix) that we downloaded previously:
 rpkm_data <- read.csv("data/counts.rpkm.csv")
 ```
 
+>**NOTE:** If the data file name ends with `txt` instead of `csv`, you can read in the data using the code: `rpkm_data <- read.csv("data/counts.rpkm.txt")`. 
+
 Take a look at the first few lines of the data matrix to see what's in there.
 
 ```r
