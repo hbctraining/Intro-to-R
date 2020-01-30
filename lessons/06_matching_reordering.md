@@ -107,7 +107,7 @@ The `all` function is also useful. Given a logical vector, it will tell you whet
 all(A %in% B)
 ```
 ***
-[**Exercise 1**](https://github.com/hbctraining/Intro-to-R/blob/master/results/answer_keys/07_matching_answer_key.md)
+[**Exercise 1**](../results/answer_keys/07_matching_answer_key.md#exercise-1-solution)
 
 1. Using the `A` and `B` vectors created above, evaluate each element in `B` to see if there is a match in `A`
 
@@ -159,7 +159,7 @@ all(rownames(metadata) == colnames(rpkm_data))
 **Looks like all of the samples are there, but will need to be reordered. To reorder our genomic samples, we need to first learn different ways to reorder data. Therefore, we will step away from our genomic data briefly to learn about reordering, then return to it at the end of this lesson.**
 
 ***
-[**Exercise 2**](../answer_keys/07_matching_answer_key.md)
+[**Exercise 2**](../results/answer_keys/07_matching_answer_key.md#exercise-2-solution)
 
 We have a list of 6 marker genes of that we are very interested in. Our goal is to extract count data for these genes, without having to scroll through the data frame of count data, using the `%in%` operator.
 
