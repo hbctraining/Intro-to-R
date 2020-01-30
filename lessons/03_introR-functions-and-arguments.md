@@ -216,13 +216,17 @@ To install from Bioconductor, you will first need to install BiocManager. *This 
 install.packages("BiocManager")
 ```
 
-Then you can use the `install()` function from BiocManager to install a package by providing the name in quotations. We can use the double colon operator `::` to execute a function from a particular package in the following format: `package::function_name()`. Here we show that the same package `ggplot2` is available through Bioconductor:
+Now you can use the `install()` function from the `BiocManager` package to install a package by providing the name in quotations. 
+
+Here we have the code to install `ggplot2`, through Bioconductor:
 
 ```r
 # DO NOT RUN THIS!
 
 BiocManager::install("ggplot2")
 ```
+
+> The code above may not be familiar to you, it is essentially using a new operator, a double colon `::` to execute a function from a particular package. This is the syntax: `package::function_name()`. 
 
 ### Package installation from source
 
