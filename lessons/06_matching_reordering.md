@@ -159,19 +159,21 @@ all(rownames(metadata) == colnames(rpkm_data))
 **Looks like all of the samples are there, but will need to be reordered. To reorder our genomic samples, we need to first learn different ways to reorder data. Therefore, we will step away from our genomic data briefly to learn about reordering, then return to it at the end of this lesson.**
 
 ***
-[**Exercise 2**](https://github.com/hbctraining/Intro-to-R/blob/master/results/answer_keys/07_matching_answer_key.md)
+[**Exercise 2**](../answer_keys/07_matching_answer_key.md)
 
-We have a list of IDs for marker genes of particular interest. We want to extract count information associated with each of these genes, without having to scroll through our matrix of count data. We can do this using the `%in%` operator to extract the information for those genes from `rpkm_data`.
+We have a list of 6 marker genes of that we are very interested in. Our goal is to extract count data for these genes, without having to scroll through the data frame of count data, using the `%in%` operator.
 
-1. Create a vector for your important gene IDs, and use the `%in%`operator to determine whether these genes are contained in the row names of our `rpkm_data` dataset.
+First, lets create a vector called `important_genes` with the Ensembl IDs of the 6 genes we are interested in:
 
-	```r
-	important_genes <- c("ENSMUSG00000083700", "ENSMUSG00000080990", "ENSMUSG00000065619", "ENSMUSG00000047945", "ENSMUSG00000081010", 	"ENSMUSG00000030970")
-	```
+```r
+important_genes <- c("ENSMUSG00000083700", "ENSMUSG00000080990", "ENSMUSG00000065619", "ENSMUSG00000047945", "ENSMUSG00000081010", "ENSMUSG00000030970")
+```
+
+1. Use the `%in%` operator to determine if all of these genes are in the row names of the `rpkm_data` data frame.	
 	
-2. Extract the rows containing the important genes from your `rpkm_data` dataset using the `%in%` operator.
+2. Extract the rows from `rpkm_data` that correspond to these 6 genes using `[]` and the `%in%` operator, again. Double check the row names to ensure that you are extracting the correct rows.
 
-3. **Extra Credit:** Using the `important_genes` vector, extract the rows containing the important genes from your `rpkm_data` dataset without using the `%in%` operator.
+3. **Bonus question:** Extract the rows from `rpkm_data` that correspond to these 6 genes using `[]`, but without using the `%in%` operator.
 
 ***
 
