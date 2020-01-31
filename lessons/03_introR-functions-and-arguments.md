@@ -226,7 +226,7 @@ Here we have the code to install `ggplot2`, through Bioconductor:
 BiocManager::install("ggplot2")
 ```
 
-> The code above may not be familiar to you, it is essentially using a new operator, a double colon `::` to execute a function from a particular package. This is the syntax: `package::function_name()`. 
+> The code above may not be familiar to you - it is essentially using a new operator, a double colon `::` to execute a function from a particular package. This is the syntax: `package::function_name()`. 
 
 ### Package installation from source
 
