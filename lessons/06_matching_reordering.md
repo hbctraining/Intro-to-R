@@ -163,7 +163,7 @@ all(rownames(metadata) == colnames(rpkm_data))
 
 We have a list of 6 marker genes of that we are very interested in. Our goal is to extract count data for these genes, without having to scroll through the data frame of count data, using the `%in%` operator.
 
-First, lets create a vector called `important_genes` with the Ensembl IDs of the 6 genes we are interested in:
+First, let's create a vector called `important_genes` with the Ensembl IDs of the 6 genes we are interested in:
 
 ```r
 important_genes <- c("ENSMUSG00000083700", "ENSMUSG00000080990", "ENSMUSG00000065619", "ENSMUSG00000047945", "ENSMUSG00000081010", "ENSMUSG00000030970")
@@ -171,7 +171,7 @@ important_genes <- c("ENSMUSG00000083700", "ENSMUSG00000080990", "ENSMUSG0000006
 
 1. Use the `%in%` operator to determine if all of these genes are in the row names of the `rpkm_data` data frame.	
 	
-2. Extract the rows from `rpkm_data` that correspond to these 6 genes using `[]` and the `%in%` operator, again. Double check the row names to ensure that you are extracting the correct rows.
+2. Extract the rows from `rpkm_data` that correspond to these 6 genes using `[]` and the `%in%` operator. Double check the row names to ensure that you are extracting the correct rows.
 
 3. **Bonus question:** Extract the rows from `rpkm_data` that correspond to these 6 genes using `[]`, but without using the `%in%` operator.
 
