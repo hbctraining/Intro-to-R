@@ -161,7 +161,7 @@ all(rownames(metadata) == colnames(rpkm_data))
 ***
 [**Exercise 2**](../results/answer_keys/07_matching_answer_key.md#exercise-2-solution)
 
-We have a list of 6 marker genes of that we are very interested in. Our goal is to extract count data for these genes, without having to scroll through the data frame of count data, using the `%in%` operator.
+We have a list of 6 marker genes that we are very interested in. Our goal is to extract count data for these genes using the `%in%` operator from the `rpkm_data` data frame, instead scrolling through `rpkm_data` and finding them.
 
 First, let's create a vector called `important_genes` with the Ensembl IDs of the 6 genes we are interested in:
 
