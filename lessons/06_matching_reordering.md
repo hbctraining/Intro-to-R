@@ -181,33 +181,33 @@ important_genes <- c("ENSMUSG00000083700", "ENSMUSG00000080990", "ENSMUSG0000006
 Indexing `[ ]` can be used to extract values from a dataset as we saw earlier, but we can also use it to rearrange our data values. 
 
 ```r
-teaching_team <- c("Mary", "Meeta", "Radhika")
+teaching_team <- c("Jihe", "Mary", "Meeta", "Radhika")
 ```
-![reordering](../img/teachin-team.png)
+<img src="../img/teaching-team.png" width="350">
 
 Remember that we can return values in a vector by specifying it's position or index:
 
 ```r
-teaching_team[c(2, 3)] # Extracting values from a vector
+teaching_team[c(2, 4)] # Extracting values from a vector
 teaching_team
 ```
 
 We can also extract the values and reorder them:
 
 ```r
-teaching_team[c(3, 2)] # Extracting values and reordering them
+teaching_team[c(4, 2)] # Extracting values and reordering them
 ```
 
 Similarly, we can extract all of the values and reorder them:
 
 ```r
-teaching_team[c(3, 1, 2)]
+teaching_team[c(4, 2, 1, 3)]
 ```
 
 If we want to save our results, we need to assign to a variable:
 
 ```r
-reorder_teach <- teaching_team[c(3, 1, 2)] # Saving the results to a variable
+reorder_teach <- teaching_team[c(4, 2, 1, 3)] # Saving the results to a variable
 ```
 
 ## The `match` function
