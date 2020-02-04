@@ -1,4 +1,6 @@
-```# Refresher Exercise
+### Refresher Answer Key
+
+```r
 # 1. Extract the speed of 40 km/h. (any of the following lines of code will work)
 
 animals$speed[1]
