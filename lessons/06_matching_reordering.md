@@ -183,7 +183,7 @@ Indexing `[ ]` can be used to extract values from a dataset as we saw earlier, b
 ```r
 teaching_team <- c("Jihe", "Mary", "Meeta", "Radhika")
 ```
-<img src="../img/teaching-team.png" width="350">
+<img src="../img/teaching-team.png" width="400">
 
 Remember that we can return values in a vector by specifying it's position or index:
 
