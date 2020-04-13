@@ -5,12 +5,14 @@
 | Time            |  Topic  | Instructor |
 |:------------------------:|:------------------------------------------------:|:--------:|
 |09:00 - 09:30 | [Workshop Introduction](https://hbctraining.github.io/Intro-to-R/lectures/Intro_to_workshop_new.pdf) | Radhika |
-|09:30 - 09:35 | Transition |  |
-|09:35 - 10:15 | [Introduction to R and RStudio](https://hbctraining.github.io/Intro-to-R/lessons/01_introR-R-and-RStudio.html) | Radhika |
-|10:15 - 10:20 | Transition |  |
-|10:20 - 11:35 | [R Syntax and Data Structure](https://hbctraining.github.io/Intro-to-R/lessons/02_introR-syntax-and-data-structures.html) | Mary |
-|11:35 - 11:40 | Transition |  |
-|11:40 - 12:15 | [Functions and Arguments](https://hbctraining.github.io/Intro-to-R/lessons/03_introR-functions-and-arguments.html) | Jihe |
+|09:30 - 10:10 | [Introduction to R and RStudio](https://hbctraining.github.io/Intro-to-R/lessons/01_introR-R-and-RStudio.html) | Radhika |
+|10:10 - 10:15 | Transition |  |
+
+|10:15 - 11:00 | [R Syntax and Data Structure](https://hbctraining.github.io/Intro-to-R/lessons/02_introR-syntax-and-data-structures.html) | Mary |
+|11:00 - 11:15 | Break |  |
+|11:15 - 11:45 | [R Syntax and Data Structure](https://hbctraining.github.io/Intro-to-R/lessons/02_introR-syntax-and-data-structures.html) | Mary |
+|11:45 - 11:50 | Transition |  |
+|11:50 - 12:30 | [Functions and Arguments](https://hbctraining.github.io/Intro-to-R/lessons/03_introR-functions-and-arguments.html) | Jihe |
 
 ## Day 2
 
