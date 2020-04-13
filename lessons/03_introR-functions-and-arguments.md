@@ -257,9 +257,11 @@ other attached packages:
 
 In this case there are several other packages that were also loaded along with `ggplot2`.
 
-We only need to install a package once on our computer. However, to use the package, we need to load the library every time we start a new Rstudio environment. You can think of this as installing a light vs turning on a light: https://twitter.com/visnut/status/1248087845589274624?s=09.
+We only need to install a package once on our computer. However, to use the package, we need to load the library every time we start a new R/RStudio environment. You can think of this as **installing a bulb** versus **turning on the light**. 
 
 <img src="../img/install_vs_library.jpeg" width="600">
+
+*Analogy and image credit to [Dianne Cook](https://twitter.com/visnut/status/1248087845589274624) of [Monash University](https://www.monash.edu/).* 
 
 ### Finding functions specific to a package
 
