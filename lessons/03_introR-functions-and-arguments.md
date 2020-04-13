@@ -257,6 +257,10 @@ other attached packages:
 
 In this case there are several other packages that were also loaded along with `ggplot2`.
 
+We only need to install a package once on our computer. However, to use the package, we need to load the library every time we start a new Rstudio environment. You can think of this as installing a light vs turning on a light: https://twitter.com/visnut/status/1248087845589274624?s=09.
+
+<img src="../img/install_vs_library.jpeg" width="600">
+
 ### Finding functions specific to a package
 
 This is your first time using `ggplot2`, how do you know where to start and what functions are available to you? One way to do this, is by using the `Package` tab in RStudio. If you click on the tab, you will see listed all packages that you have installed. For those *libraries that you have loaded*, you will see a blue checkmark in the box next to it. Scroll down to `ggplot2` in your list:
