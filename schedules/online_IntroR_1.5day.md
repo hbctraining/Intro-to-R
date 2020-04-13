@@ -20,10 +20,10 @@
 |09:00 - 09:35 | [Packages and Libraries](https://hbctraining.github.io/Intro-to-R/lessons/03_introR-functions-and-arguments.html#packages-and-libraries) | Jihe |
 |09:35 - 09:40 | Transition |  |
 |09:40 - 10:40 | [Data Wrangling: Subsetting Vectors and Factors](https://hbctraining.github.io/Intro-to-R/lessons/04_introR-data-wrangling.html) | Radhika |
-|10:40 - 10:45 | Transition |  |
-|10:45 - 12:00 | [Data Wrangling: Subsetting Data Frames, Matrices, and Lists](https://hbctraining.github.io/Intro-to-R/lessons/05_introR-data-wrangling2.html) | Mary |
-|12:00 - 12:05 | Transition |  |
-|12:05 - 12:30 | [Matching and Reordering](https://hbctraining.github.io/Intro-to-R/lessons/06_matching_reordering.html) | Jihe |
+|10:40 - 10:55 | Break |  |
+|10:55 - 11:55 | [Data Wrangling: Subsetting Data Frames, Matrices, and Lists](https://hbctraining.github.io/Intro-to-R/lessons/05_introR-data-wrangling2.html) | Mary |
+|11:55 - 12:00 | Transition |  |
+|12:00 - 12:30 | [Matching and Reordering](https://hbctraining.github.io/Intro-to-R/lessons/06_matching_reordering.html) | Jihe |
 
 ## Day 3
 
