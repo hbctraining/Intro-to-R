@@ -30,10 +30,9 @@
 | Time            |  Topic  | Instructor |
 |:------------------------:|:------------------------------------------------:|:--------:|
 |09:00 - 10:30 | [Matching and Reordering (contd.)](https://hbctraining.github.io/Intro-to-R/lessons/06_matching_reordering.html#reordering-data-using-indices) | Mary |
-|10:30 - 10:35 | Transition | |
-|10:35 - 11:40 | [Data Visualization with R](https://hbctraining.github.io/Intro-to-R/lessons/07_ggplot2.html) | Radhika |
-|11:40 - 11:45 | Transition | |
-|11:45 - 12:20 | [Tidyverse](https://hbctraining.github.io/Training-modules/Tidyverse_ggplot2/lessons/intro_tidyverse.html) | Mary |
-|12:20 - 12:25 | Transition | |
+|10:30 - 10:45 | Transition | |
+|10:45 - 11:50 | [Data Visualization with R](https://hbctraining.github.io/Intro-to-R/lessons/07_ggplot2.html) | Radhika |
+|11:50 - 11:55 | Transition | |
+|11:55 - 12:25 | [Tidyverse](https://hbctraining.github.io/Training-modules/Tidyverse_ggplot2/lessons/intro_tidyverse.html) | Mary |
 |12:25 - 12:30 | [Wrap-up](https://hbctraining.github.io/Intro-to-R/lectures/R_workshop_wrapup.pdf) | Radhika |
 | | [Practice Exercises](https://hbctraining.github.io/Intro-to-R/homework/Intro_to_R_hw.html) & [Answer Key](https://hbctraining.github.io/Intro-to-R/homework/Intro_to_R_key.html) | |
