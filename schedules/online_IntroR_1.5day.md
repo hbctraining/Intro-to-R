@@ -7,7 +7,6 @@
 |09:00 - 09:30 | [Workshop Introduction](https://hbctraining.github.io/Intro-to-R/lectures/Intro_to_workshop_new.pdf) | Radhika |
 |09:30 - 10:10 | [Introduction to R and RStudio](https://hbctraining.github.io/Intro-to-R/lessons/01_introR-R-and-RStudio.html) | Radhika |
 |10:10 - 10:15 | Transition |  |
-
 |10:15 - 11:00 | [R Syntax and Data Structure](https://hbctraining.github.io/Intro-to-R/lessons/02_introR-syntax-and-data-structures.html) | Mary |
 |11:00 - 11:15 | Break |  |
 |11:15 - 11:45 | [R Syntax and Data Structure](https://hbctraining.github.io/Intro-to-R/lessons/02_introR-syntax-and-data-structures.html) | Mary |
