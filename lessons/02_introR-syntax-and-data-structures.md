@@ -105,7 +105,7 @@ Variables can be given almost any name, such as `x`, `current_temperature`, or
 
 - Make your names explicit and not too long.
 - Avoid names starting with a number (`2x` is not valid but `x2` is)
-- Avoid names of fundamental functions in R (e.g., `if`, `else`, `for`, see [here](https://stat.ethz.ch/R-manual/R-devel/library/base/html/Reserved.html) for a complete list). In general, even if it's allowed, it's best to not use other function names (e.g., `c`, `T`, `mean`, `data`) as variable names. When in doubt
+- Avoid names of fundamental functions in R (e.g., `if`, `else`, `for`, see [here](https://statisticsglobe.com/r-functions-list/) for a complete list). In general, even if it's allowed, it's best to not use other function names (e.g., `c`, `T`, `mean`, `data`) as variable names. When in doubt
 check the help to see if the name is already in use. 
 - Avoid dots (`.`) within a variable name as in `my.dataset`. There are many functions
 in R with dots in their names for historical reasons, but because dots have a
