@@ -21,7 +21,7 @@ In this lesson we want to make plots to evaluate the average expression in each 
 </p>
 
 Before we get started, we need to download a new counts data frame and import it into R as a new data frame called `rpkm_ordered`.
-1. Right-click [on this link]() and download the file into the "data" folder within your project.
+1. Right-click [on this link](https://raw.githubusercontent.com/hbctraining/Intro-to-R/master/data/ordered_counts_rpkm.csv) and download the file into the "data" folder within your project.
 1. Using `read.csv` read in the data into R
 
 ```r
