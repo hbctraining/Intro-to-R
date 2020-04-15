@@ -1,5 +1,9 @@
 ### Refresher Answer Key
 
+To work with the `animals.csv` file, you can [right-click here](https://raw.githubusercontent.com/hbctraining/Intro-to-R/master/data/animals.csv) and download it to the `data` folder. 
+
+Next, read it in using the following: `animals <- read.csv("data/animals.csv")`
+
 ```r
 # 1. Extract the speed of 40 km/h. (any of the following lines of code will work)
 
@@ -31,6 +35,5 @@ animals[animals$color == "Grey", 2] <- "Gray"
 animals[animals$color == "Grey", "color"] <- "Gray"
 ```
 
-> If you want to work with the `animals.csv` file, you can [right-click here to](https://raw.githubusercontent.com/hbctraining/Intro-to-R/master/data/animals.csv) and download it to the `data` folder. Next, read it in using the following:
-> `animals <- read.csv("data/animals.csv")`
+
 
