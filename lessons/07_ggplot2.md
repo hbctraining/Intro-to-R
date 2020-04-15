@@ -20,12 +20,22 @@ In this lesson we want to make plots to evaluate the average expression in each 
 <img src="../img/new_metadata.png" width="600">
 </p>
 
+Before we get started, we need to download a new counts data frame and import it into R as a new data frame called `rpkm_ordered`.
+1. Right-click [on this link]() and download the file into the "data" folder within your project.
+1. Using `read.csv` read in the data into R
+
+```r
+rpkm_ordered <- read.csv("data/ordered_counts_rpkm.csv")
+
+View(rpkm_ordered)
+```
+
 ### Calculating average expression
 
 Let's take a closer look at our counts data. Each column represents a sample in our experiment, and each sample has ~38K values corresponding to the expression of different transcripts. We want to compute **the average value of expression** for each sample eventually. Taking this one step at a time, what would we do if we just wanted the average expression for Sample 1 (across all transcripts)? We can use the R base package provided function called 'mean()`:
 
 ```r
-mean(rpkm_ordered[,"sample1"])
+mean(rpkm_ordered$sample1)
 ```
 
 That is great, if we only wanted the average from one of the samples (1 column in a data frame), but we need to get this information from all 12 samples, so all 12 columns. It would be ideal to get a vector of 12 values that we can add to the metadata data frame. What is the best way to do this?
