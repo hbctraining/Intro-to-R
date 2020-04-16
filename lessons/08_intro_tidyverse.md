@@ -47,10 +47,10 @@ An example of using the pipe to run multiple commands:
 sqrt(83)
 
 ## Base R method of running more than one command
-round(sqrt(83), digit = 2)
+round(sqrt(83), digits = 2)
 
 ## Running more than one command with piping
-sqrt(83) %>% round(digit = 2)
+sqrt(83) %>% round(digits = 2)
 ```
 
 The pipe represents a much easier way of writing and deciphering R code, and so we will be taking advantage of it, when possible, as we work through the remaining lesson.
