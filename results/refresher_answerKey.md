@@ -2,7 +2,7 @@
 
 To work with the `animals.csv` file, you can [right-click here](https://raw.githubusercontent.com/hbctraining/Intro-to-R/master/data/animals.csv) and download it to the `data` folder. 
 
-Next, read it in using the following: `animals <- read.csv("data/animals.csv")`
+Next, read it in using the following: `animals <- read.csv("data/animals.csv", row.names = 1)`
 
 ```r
 # 1. Extract the speed of 40 km/h. (any of the following lines of code will work)
