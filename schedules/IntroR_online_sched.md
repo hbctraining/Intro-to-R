@@ -35,5 +35,5 @@
 |09:50 - 10:55 | [Data Visualization with R](https://hbctraining.github.io/Intro-to-R/lessons/07_ggplot2.html) | Radhika |
 |10:55 - 11:10 | Break | |
 |11:10 - 12:25 | [Tidyverse](https://hbctraining.github.io/Training-modules/Tidyverse_ggplot2/lessons/intro_tidyverse.html) | Mary |
-|12:25 - 12:30 | [Wrap-up](https://hbctraining.github.io/Intro-to-R/lectures/R_workshop_wrapup.pdf) | Radhika |
+|12:25 - 12:30 | [Wrap-up](https://hbctraining.github.io/Intro-to-R/lectures/R_workshop_wrapup_online.pdf) | Radhika |
 | | [Practice Exercises](https://hbctraining.github.io/Intro-to-R/homework/Intro_to_R_hw.html) & [Answer Key](https://hbctraining.github.io/Intro-to-R/homework/Intro_to_R_key.html) | |

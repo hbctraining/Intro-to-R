@@ -1,7 +1,7 @@
 ---
-title: "Data subsetting with base R: vectors and factors"
-authors: Meeta Mistry, Mary Piper, Radhika Khetani
+title: 'Data subsetting with base R: vectors and factors'
 date: "Friday, September 8, 2017"
+authors: Meeta Mistry, Mary Piper, Radhika Khetani
 ---
 Approximate time: 60 min
 
