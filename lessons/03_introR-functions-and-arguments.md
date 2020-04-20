@@ -45,6 +45,8 @@ The **defaults** represent standard values that the author of the function speci
 
 We have already used a few examples of basic functions in the previous lessons i.e `getwd()`, `c()`, and  `factor()`. These functions are available as part of R's built in capabilities, and we will explore a few more of these base functions below. 
 
+You can also get functions from external [*packages or libraries*](https://hbctraining.github.io/Intro-to-R/lessons/03_introR-functions-and-arguments.html#packages-and-libraries), or [even write your own](https://hbctraining.github.io/Intro-to-R/lessons/03_introR-functions-and-arguments.html#user-defined-functions). We will take a closer look at both of these soon!
+
 Let's revisit a function that we have used previously to combine data `c()` into vectors. The *arguments* it takes is a collection of numbers, characters or strings (separated by a comma). The `c()` function performs the task of combining the numbers or characters into a single vector. You can also use the function to add elements to an existing vector:
 
 ```r
@@ -114,8 +116,16 @@ round(3.14159, digits=2)
 ***
 **Exercise** 
 
-1. Let's use base R function to calculate **mean** average of the `glengths` vector. You might need to search online to find what function can perform this task. Report your result (note: your current glengths vector should be c(3.0, 4.6, 3000.0, 5000.0, 90.0)).
-2. One commonly used base function is `sort()`. Use this function to sort the `glengths` vector in **descending** order. You might need to use the help manual to identify additional argument for `sort()`.
+1. Another commonly used base function is `mean()`. Use this function to calculate an average for the `glengths` vector.
+2. Use the help manual to identify additional arguments for `mean()`.
+
+***
+
+> **Missing values**
+> 
+> By default, all **R functions operating on vectors that contains missing data will return NA**. It's a way to make sure that users know they have missing data, and make a conscious decision on how to deal with it. When dealing with simple statistics like the mean, the easiest way to ignore `NA` (the missing data) is to use `na.rm=TRUE` (`rm` stands for remove).
+>
+> In some cases, it might be useful to remove the missing data from the vector. For this purpose, R comes with the function `na.omit` to generate a vector that has NA's removed. For some applications, it's useful to keep all observations, for others, it might be best to remove all observations that contain missing data. The function `complete.cases()` returns a logical vector indicating which rows have no missing values. 
 
 ***
 
