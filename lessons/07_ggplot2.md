@@ -20,19 +20,10 @@ In this lesson we want to make plots to evaluate the average expression in each 
 <img src="../img/new_metadata.png" width="600">
 </p>
 
-Before we get started, we need to download a new counts data frame and import it into R as a new data frame called `rpkm_ordered`.
-1. Right-click [on this link](https://raw.githubusercontent.com/hbctraining/Intro-to-R/master/data/ordered_counts_rpkm.csv) and download the file into the "data" folder within your project.
-1. Using `read.csv()` read in the data into R
-
-```r
-rpkm_ordered <- read.csv("data/ordered_counts_rpkm.csv")
-
-View(rpkm_ordered)
-```
 
 ### Calculating average expression
 
-Let's take a closer look at our counts data. Each column represents a sample in our experiment, and each sample has ~38K values corresponding to the expression of different transcripts. We want to compute **the average value of expression** for each sample eventually. Taking this one step at a time, what would we do if we just wanted the average expression for Sample 1 (across all transcripts)? We can use the R base package provided function called 'mean()`:
+Let's take a closer look at our counts data. Each column represents a sample in our experiment, and each sample has ~38K values corresponding to the expression of different transcripts. We want to compute **the average value of expression** for each sample eventually. Taking this one step at a time, what would we do if we just wanted the average expression for Sample 1 (across all transcripts)? We can use the R base package provided function called `mean()`:
 
 ```r
 mean(rpkm_ordered$sample1)
@@ -218,7 +209,7 @@ ggplot(new_metadata) +
   theme_bw() 
 ```
 
-Not in this case. But we can add arguments using `theme()` to change the size of axis labels ourselves. Since we are adding this layer on top (i.e later in sequence), any features we change will override what is set in the `theme_bw()`. Here we'll **increase the size of the axes labels to be 1.5 times the default size.** When modfying the size of text we often use the `rel()` function. In this way the size we specify is relative to the default. We can also provide the number vaue as we did with the data point size, but can be cumbersome if you don't know what the default font size is to begin with. 
+Not in this case. But we can add arguments using `theme()` to change the size of axis labels ourselves. Since we are adding this layer on top (i.e later in sequence), any features we change will override what is set in the `theme_bw()`. Here we'll **increase the size of the axes titles to be 1.5 times the default size.** When modifying the size of text we often use the `rel()` function. In this way the size we specify is relative to the default. We can also provide the number vaue as we did with the data point size, but can be cumbersome if you don't know what the default font size is to begin with. 
 
 ```r
 ggplot(new_metadata) +
@@ -234,7 +225,7 @@ ggplot(new_metadata) +
 
 > *NOTE:* You can use the `example("geom_point")` function here to explore a multitude of different aesthetics and layers that can be added to your plot. As you scroll through the different plots, take note of how the code is modified. You can use this with any of the different geometric object layers available in ggplot2 to learn how you can easily modify your plots! 
 
-> *NOTE:* RStudio provide this very [useful cheatsheet](https://www.rstudio.com/wp-content/uploads/2016/11/ggplot2-cheatsheet-2.1.pdf) for plotting using `ggplot2`. Different example plots are provided and the associated code (i.e which `geom` or `theme` to use in the appropriate situation.) We also encourage you to persuse throug this useful [online reference](https://ggplot2.tidyverse.org/reference/) for working with ggplot2.
+> *NOTE:* RStudio provide this very [useful cheatsheet](https://www.rstudio.com/wp-content/uploads/2016/11/ggplot2-cheatsheet-2.1.pdf) for plotting using `ggplot2`. Different example plots are provided and the associated code (i.e which `geom` or `theme` to use in the appropriate situation.) We also encourage you to persuse through this useful [online reference](https://ggplot2.tidyverse.org/reference/) for working with ggplot2.
 
 
 ***
