@@ -1,6 +1,6 @@
 ---
-title: Plotting and data visualization in R
-author: Mary Piper, Meeta Mistry, Radhika Khetani
+title: "Plotting and data visualization in R"
+author: "Mary Piper, Meeta Mistry, Radhika Khetani"
 date: "Wednesday, December 4, 2019"
 ---
 
