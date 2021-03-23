@@ -1,3 +1,5 @@
+**THIS REPO IS ARCHIVED, PLEASE GO TO [https://hbctraining.github.io/main](https://hbctraining.github.io/main) FOR CURRENT LESSONS.**
+
 ## Introduction to R
 
 | Audience | Computational skills required | Duration |
